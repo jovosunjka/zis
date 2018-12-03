@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="/rs/zis/uputi"
+    xmlns:os="/rs/zis/osobe" targetNamespace="/rs/zis/uputi" elementFormDefault="qualified">
+    <xs:import namespace="/rs/zis/osobe" schemaLocation="osobe.xsd"/>
+    <xs:include
+        schemaLocation="../../../../../../../VEZBE/Vezbe%2003/radjeno_na_vezbama/uput_base_type.xsd"/>
+    <xs:element name="uput_za_specijalisticki_pregled" type="TUput_za_specijalisticki_pregled"/>
+    <xs:complexType name="TUput_za_specijalisticki_pregled">
+        <xs:complexContent>
+            <xs:extension base="TUput">
+                <xs:sequence>
+                    <xs:element name="lekar_specijalista_za" type="xs:string"/>
+                    <xs:element name="podaci_o_pregledu">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="svrha_pregleda" type="xs:string"/>
+                                <xs:element name="obavljen_u_zdravstvenoj_ustanovi" type="xs:string"/>
+                                <xs:element name="datum_i_vreme_prijave" type="TDatum_I_vreme"/>
+                                <xs:element name="datum_i_vreme_zavrsetka" type="TDatum_I_vreme"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="izvestaj">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="osiguranik" type="os:TOsoba"/>
+                                <xs:element name="boluje_od" type="xs:string"/>
+                                <xs:element name="nalaz" type="xs:string"/>
+                                <xs:element name="misljenje" type="xs:string"/>
+                                <xs:element name="datum" type="xs:date"/>
+                                <xs:element name="potpis_lekara" type="xs:string"/>
+                                <xs:element name="pecat" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TDatum_I_vreme">
+        <xs:sequence>
+            <xs:element name="datum" type="xs:date"/>
+            <xs:element name="vreme" type="xs:time"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="/rs/zis/uputi"
+    targetNamespace="/rs/zis/uputi" elementFormDefault="qualified">
+    <xs:include
+        schemaLocation="../../../../../../../VEZBE/Vezbe%2003/radjeno_na_vezbama/uput_base_type.xsd"/>
+    <xs:element name="uput_za_laboratoriju">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="TUput_za_laboratoriju">
+                    <xs:sequence>
+                        <xs:element name="klinicka_dijagnoza" type="xs:string"/>
+                        <xs:element name="kad_je_uzet_materijal" type="xs:string"/>
+                        <xs:element name="ko_salje_materijal" type="xs:string"/>
+                        <xs:element name="ko_salje_na_pregled" type="xs:string"/>
+                        <xs:element name="tip_pregleda" type="xs:string"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TUput_za_laboratoriju"/>
+</xs:schema>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="/rs/zis" targetNamespace="/rs/zis"
+    xmlns:os="/rs/zis/osobe" elementFormDefault="qualified">
+    <xs:import namespace="/rs/zis/osobe" schemaLocation="osobe.xsd"/>
+    <xs:element name="zdravstveni_karton">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="broj_kartona" type="xs:string"/>
+                <xs:element name="broj_zdrastvene_knjizice" type="xs:string"/>
+                <xs:element name="osigurano_lice" type="os:TPacijent"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
