@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.svj.com/zis/dokumenti" xmlns:osobe="http://www.svj.com/zis/osobe"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.svj.com/zis/dokumenti"
+    elementFormDefault="qualified">
+    <xs:import namespace="http://www.svj.com/zis/osobe" schemaLocation="osobe.xsd"/>
+
+    <xs:element name="zdravstveni_karton">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="osobe:pacijentovi_podaci"/>
+                <xs:element name="odabrani_lekar">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:anyURI" use="required"/>
+            <xs:attribute name="broj_kartona" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="broj_zdrastvene_knjizice" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{11}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TPodaci_o_osiguranju">
+        <xs:sequence>
+            <xs:element name="nosilac_osiguranja" type="osobe:TOsoba"/>
+            <xs:element name="osnov_osiguranja" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="uput_za_specijalisticki_pregled">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="zdravstvena_ustanova_koja_salje" type="xs:string"/>
+                <xs:element name="zdravstvena_ustanova_koja_prima" type="xs:string"/>
+                <xs:element name="zdravstveni_karton">
+                    <xs:complexType>
+                        <xs:attribute name="broj_zdravstvenog_kartona" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="lekar">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="datum" type="xs:date"/>
+                <xs:element name="potpis_lekara" type="xs:string"/>
+                <xs:element name="pecat" type="xs:string"/>
+                <xs:element name="podaci_o_osiguranju" type="TPodaci_o_osiguranju"/>
+                <xs:element name="specijalista">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="lekar_specijalista_za" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="podaci_o_pregledu">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="svrha_pregleda" type="xs:string"/>
+                            <xs:element name="obavljen_u_zdravstvenoj_ustanovi" type="xs:string"/>
+                            <xs:element name="datum_i_vreme_prijave" type="xs:dateTime"/>
+                            <xs:element name="datum_i_vreme_zavrsetka" type="xs:dateTime"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="izvestaj">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="osiguranik" type="osobe:TOsoba"/>
+                            <xs:element name="boluje_od" type="xs:string"/>
+                            <xs:element name="nalaz" type="xs:string"/>
+                            <xs:element name="misljenje" type="xs:string"/>
+                            <xs:element name="datum" type="xs:date"/>
+                            <xs:element name="potpis_lekara" type="xs:string"/>
+                            <xs:element name="pecat" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:anyURI" use="required"/>
+            <xs:attribute name="reg_br" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{10}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="uput_za_laboratoriju">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="zdravstvena_ustanova_koja_salje" type="xs:string"/>
+                <xs:element name="zdravstvena_ustanova_koja_prima" type="xs:string"/>
+                <xs:element name="zdravstveni_karton">
+                    <xs:complexType>
+                        <xs:attribute name="broj_zdravstvenog_kartona" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="podaci_o_osiguranju" type="TPodaci_o_osiguranju"/>
+                <xs:element name="klinicka_dijagnoza" type="xs:string"/>
+                <xs:element name="kad_je_uzet_materijal" type="xs:dateTime"/>
+                <xs:element name="ko_salje_materijal" type="osobe:TOsoba"/>
+                <xs:element name="ko_salje_na_pregled" type="osobe:TOsoba"/>
+                <xs:element name="tip_pregleda" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:anyURI" use="required"/>
+            <xs:attribute name="reg_br" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{10}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TPodaci_o_leku">
+        <xs:sequence>
+            <xs:element name="sifra" type="xs:long"/>
+            <xs:element name="datum" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="lekarski_recept">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="osigurano_lice" type="osobe:TOsoba"/>
+                <xs:element name="datum_rodjenja_osiguranog_lica" type="xs:date"/>
+                <xs:element ref="ustanova"/>
+                <xs:element name="zdravstveni_karton">
+                    <xs:complexType>
+                        <xs:attribute name="broj_zdravstvenog_kartona" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="broj_zdrastvene_knjizice" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[0-9]{11}"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="osnov_oslobadjanja_od_participacije" type="xs:string"/>
+                <xs:element ref="podaci_o_lekaru"/>
+                <xs:element name="propisani_lek" type="TPodaci_o_leku"/>
+                <xs:element name="izdati_lek" type="TPodaci_o_leku"/>
+                <xs:element name="dijagnoza" type="xs:string"/>
+                <xs:element name="redni_broj" type="xs:int"/>
+                <xs:element name="kolicina" type="xs:int"/>
+                <xs:element name="potpis_farmaceuta" nillable="true" type="xs:string"/>
+                <xs:element name="lek_primio" type="xs:string"/>
+                <xs:element name="rp" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="podaci_o_lekaru">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="potpis_lekara" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ustanova">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="naziv_zdrastvene_ustanove" type="xs:string"/>
+                <xs:element name="drzava" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pregled">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="lekar">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="datum" type="xs:dateTime"/>
+                <xs:element name="pacijent">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="tip" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="opsta_praksa"/>
+                        <xs:enumeration value="specijalista"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="id" type="xs:anyURI" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

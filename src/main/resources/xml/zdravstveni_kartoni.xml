@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zdravstveni_kartoni xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti"
+    xmlns:osobe="http://www.svj.com/zis/osobe">
+    <dokumenti:zdravstveni_karton id="zk_id1" broj_kartona="zk123" broj_zdrastvene_knjizice="12345678901">
+        <osobe:pacijentovi_podaci id="id2" jmbg="4561237897418" lbo="96385274145">
+            <osobe:ime>Zika</osobe:ime>
+            <osobe:prezime>Zikic</osobe:prezime>
+            <osobe:ime_jednog_roditelja>Marko</osobe:ime_jednog_roditelja>
+            <osobe:datum_rodjenja>1987-08-27</osobe:datum_rodjenja>
+            <osobe:adresa>
+                <osobe:ulica>Bulevar cara Lazara</osobe:ulica>
+                <osobe:broj>108</osobe:broj>
+                <osobe:mesto>Novi Sad</osobe:mesto>
+                <osobe:opstina>Novi Sad</osobe:opstina>
+            </osobe:adresa>
+        </osobe:pacijentovi_podaci>
+        <dokumenti:odabrani_lekar id="id1"/>
+    </dokumenti:zdravstveni_karton>
+</zdravstveni_kartoni>

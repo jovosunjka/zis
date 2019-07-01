@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lekarski_recepti xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti"
+    xmlns:osobe="http://www.svj.com/zis/osobe">
+    <dokumenti:lekarski_recept>
+        <dokumenti:osigurano_lice id="id2">
+            <osobe:ime xmlns="http://www.svj.com/zis/osobe">Zika</osobe:ime>
+            <osobe:prezime xmlns="http://www.svj.com/zis/osobe">Zikic</osobe:prezime>
+        </dokumenti:osigurano_lice>
+        <dokumenti:datum_rodjenja_osiguranog_lica>1956-12-21</dokumenti:datum_rodjenja_osiguranog_lica>
+        <dokumenti:ustanova>
+            <dokumenti:naziv_zdrastvene_ustanove>Ambulanta na Klisi</dokumenti:naziv_zdrastvene_ustanove>
+            <dokumenti:drzava>Republika Srbija</dokumenti:drzava>
+        </dokumenti:ustanova>
+        <dokumenti:zdravstveni_karton broj_zdravstvenog_kartona="zk123" broj_zdrastvene_knjizice="12345678901"/>
+        <dokumenti:osnov_oslobadjanja_od_participacije>penzioner</dokumenti:osnov_oslobadjanja_od_participacije>
+        <dokumenti:podaci_o_lekaru id="id1">
+            <dokumenti:potpis_lekara>ovo je lekarov potpis</dokumenti:potpis_lekara>
+        </dokumenti:podaci_o_lekaru>
+        <dokumenti:propisani_lek>
+            <dokumenti:sifra>12345</dokumenti:sifra>
+            <dokumenti:datum>2019-06-29</dokumenti:datum>
+        </dokumenti:propisani_lek>
+        <dokumenti:izdati_lek>
+            <dokumenti:sifra>54321</dokumenti:sifra>
+            <dokumenti:datum>2019-06-30</dokumenti:datum>
+        </dokumenti:izdati_lek>
+        <dokumenti:dijagnoza>Visok krvni pritisak</dokumenti:dijagnoza>
+        <dokumenti:redni_broj>12</dokumenti:redni_broj>
+        <dokumenti:kolicina>3</dokumenti:kolicina>
+        <dokumenti:potpis_farmaceuta>ovo je farmaceutov potpis</dokumenti:potpis_farmaceuta>
+        <dokumenti:lek_primio>Zika</dokumenti:lek_primio>
+        <dokumenti:rp/>
+    </dokumenti:lekarski_recept>
+</lekarski_recepti>

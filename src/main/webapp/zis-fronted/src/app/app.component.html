@@ -1,0 +1,9 @@
+<div class="container">
+  <a *ngIf="isLoggedIn()" href="#" [routerLink]="['/login']" class="btn btn-danger" (click)="logout()">Logout</a>
+  <br/>
+  <br/>
+  <router-outlet>
+    <!-- Here, pages (components) will be replaced based on the current route -->
+  </router-outlet>
+
+</div>

@@ -1,83 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="/rs/zis/osobe"
-    targetNamespace="/rs/zis/osobe" elementFormDefault="qualified">
-    <xs:complexType abstract="true" name="TOsoba">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.svj.com/zis/osobe"
+    targetNamespace="http://www.svj.com/zis/osobe" elementFormDefault="qualified">
+    <xs:complexType name="TOsoba">
         <xs:sequence>
             <xs:element name="ime" type="xs:string"/>
             <xs:element name="prezime" type="xs:string"/>
         </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
-    <xs:complexType name="TPacijent">
-        <xs:complexContent>
-            <xs:extension base="TOsoba">
-                <xs:sequence>
-                    <xs:element name="ime_jednog_roditelja" type="xs:string"/>
-                    <xs:element minOccurs="0" name="lbo">
+    <xs:element name="pacijentovi_podaci">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="TOsoba">
+                    <xs:sequence>
+                        <xs:element name="ime_jednog_roditelja" type="xs:string"/>
+                        <xs:element name="datum_rodjenja" type="xs:date"/>
+                        <xs:element ref="adresa"/>
+                        <xs:element name="telefon" minOccurs="0">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="\d+"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="our" type="xs:string" minOccurs="0"/>
+                        <xs:element name="pol" minOccurs="0">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="musko"/>
+                                    <xs:enumeration value="zensko"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="bracno_stanje" minOccurs="0">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="neozenjen"/>
+                                    <xs:enumeration value="neudata"/>
+                                    <xs:enumeration value="ozenjen"/>
+                                    <xs:enumeration value="udata"/>
+                                    <xs:enumeration value="udovac"/>
+                                    <xs:enumeration value="udovica"/>
+                                    <xs:enumeration value="razveden"/>
+                                    <xs:enumeration value="razvedena"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="osnov_oslobadjanja_od_participacije" nillable="true"
+                            type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                    <xs:attribute name="lbo" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:string">
                                 <xs:pattern value="\d{11,11}"/>
                             </xs:restriction>
                         </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="jmbg">
+                    </xs:attribute>
+                    <xs:attribute name="jmbg" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:string">
                                 <xs:pattern value="\d{13,13}"/>
                             </xs:restriction>
                         </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="datum_rodjenja" type="xs:date"/>
-                    <xs:element ref="adresa"/>
-                    <xs:element name="telefon" minOccurs="0">
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                                <xs:pattern value="\d+"/>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="our" type="xs:string" minOccurs="0"/>
-                    <xs:element name="pol" minOccurs="0">
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                                <xs:enumeration value="musko"/>
-                                <xs:enumeration value="zensko"/>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="bracno_stanje" minOccurs="0">
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                                <xs:enumeration value="neozenjen"/>
-                                <xs:enumeration value="neudata"/>
-                                <xs:enumeration value="ozenjen"/>
-                                <xs:enumeration value="udata"/>
-                                <xs:enumeration value="udovac"/>
-                                <xs:enumeration value="udovica"/>
-                                <xs:enumeration value="razveden"/>
-                                <xs:enumeration value="razvedena"/>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="osnov_oslobadjanja_od_participacije" nillable="true"
-                        type="xs:string" minOccurs="0"/>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="TMedicinski_tehnicar">
+                    </xs:attribute>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="pacijent">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="zdravstveni_karton">
+                    <xs:complexType>
+                        <xs:attribute name="broj_zdravstvenog_kartona" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="obavestenja">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="obavestenje">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="datum" type="xs:dateTime" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:anyURI" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="medicinskia_sestra">
+    <xs:complexType>
         <xs:complexContent>
             <xs:extension base="TOsoba"/>
         </xs:complexContent>
     </xs:complexType>
-    <xs:complexType name="TLekar">
-        <xs:complexContent>
-            <xs:extension base="TOsoba">
-                <xs:sequence>
-                    <xs:element name="id" type="xs:long"/>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
+    </xs:element>
+    <xs:element name="lekar">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="TOsoba">
+                    <xs:sequence>
+                        <xs:element default="opsta_praksa" name="tip">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="tip">
+                                        <xs:anyAttribute processContents="lax"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="oblast_zastite" default="odrasli">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="oblast_zastite">
+                                        <xs:anyAttribute processContents="lax"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="adresa">
         <xs:complexType>
             <xs:sequence>
@@ -94,4 +152,57 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="user">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="username">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="3"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="password">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="4"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="roles">
+                    <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                            <xs:element name="role">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="DOCTOR"/>
+                                        <xs:enumeration value="NURSE"/>
+                                        <xs:enumeration value="PATIENT"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:anyURI" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="tip">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="opsta_praksa"/>
+            <xs:enumeration value="ginekolog"/>
+            <xs:enumeration value="pedijatar"/>
+            <xs:enumeration value="dermatolog"/>
+            <xs:enumeration value="stomatolog"/>
+            <xs:enumeration value="drugo"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="oblast_zastite">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="deca"/>
+            <xs:enumeration value="odrasli"/>
+            <xs:enumeration value="zene"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

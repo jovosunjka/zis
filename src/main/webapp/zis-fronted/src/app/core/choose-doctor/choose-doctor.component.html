@@ -1,0 +1,11 @@
+
+<div [innerHTML]="xHtmlContetnt | safeHtml"></div>
+
+<br/>
+<br/>
+
+<div>
+  <label for="enter_doctor">Enter the id of the doctor:</label>
+  <input type="text" id="enter_doctor" [(ngModel)]="idOfNewDoctor" name="idOfNewDoctor"/>
+  <button class="btn btn-success" (click)="selectDoctor()">Confirm</button>
+</div>

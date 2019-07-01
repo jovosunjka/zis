@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uputi_za_laboratoriju xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti"
+    xmlns:osobe="http://www.svj.com/zis/osobe">
+    <dokumenti:uput_za_laboratoriju id="ul_id1" reg_br="1594782368">
+        <dokumenti:zdravstvena_ustanova_koja_salje>Ambulanta na Klisi</dokumenti:zdravstvena_ustanova_koja_salje>
+        <dokumenti:zdravstvena_ustanova_koja_prima>Klinicki centar Vojvodine</dokumenti:zdravstvena_ustanova_koja_prima>
+        <dokumenti:zdravstveni_karton broj_zdravstvenog_kartona="zk123"/>
+        <dokumenti:podaci_o_osiguranju>
+            <dokumenti:nosilac_osiguranja id="id2">
+                <osobe:ime>Zika</osobe:ime>
+                <osobe:prezime>Zikic</osobe:prezime>
+            </dokumenti:nosilac_osiguranja>
+            <dokumenti:osnov_osiguranja>zaposlen</dokumenti:osnov_osiguranja>
+        </dokumenti:podaci_o_osiguranju>
+        <dokumenti:klinicka_dijagnoza>neka klinicka dijagnoza</dokumenti:klinicka_dijagnoza>
+        <dokumenti:kad_je_uzet_materijal>2019-06-23T10:15:00</dokumenti:kad_je_uzet_materijal>
+        <dokumenti:ko_salje_materijal id="id2">
+            <osobe:ime>Zika</osobe:ime>
+            <osobe:prezime>Zikic</osobe:prezime>
+        </dokumenti:ko_salje_materijal>
+        <dokumenti:ko_salje_na_pregled id="id1">
+            <osobe:ime>Pera</osobe:ime>
+            <osobe:prezime>Peric</osobe:prezime>
+        </dokumenti:ko_salje_na_pregled>
+        <dokumenti:tip_pregleda>neki tip pregleda</dokumenti:tip_pregleda>
+    </dokumenti:uput_za_laboratoriju>
+</uputi_za_laboratoriju>

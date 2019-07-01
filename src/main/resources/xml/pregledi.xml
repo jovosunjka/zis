@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pregledi xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti">
+    <dokumenti:pregled id="p_id1" tip="opsta_praksa">
+        <dokumenti:lekar id="id5"/>
+        <dokumenti:datum>2019-06-27T16:00:00</dokumenti:datum>
+        <dokumenti:pacijent id="id2"/>
+    </dokumenti:pregled>
+</pregledi>

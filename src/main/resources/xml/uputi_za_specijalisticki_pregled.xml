@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uputi_za_specijalisticki_pregled xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti" 
+    xmlns:osobe="http://www.svj.com/zis/osobe">
+    <dokumenti:uput_za_specijalisticki_pregled id="usp_id1" reg_br="7534128965">
+        <dokumenti:zdravstvena_ustanova_koja_salje>Ambulanta na Klisi</dokumenti:zdravstvena_ustanova_koja_salje>
+        <dokumenti:zdravstvena_ustanova_koja_prima>Klinicki centar Vojvodine</dokumenti:zdravstvena_ustanova_koja_prima>
+        <dokumenti:zdravstveni_karton broj_zdravstvenog_kartona="zk123"/>
+        <dokumenti:lekar id="id1"/>
+        <dokumenti:datum>2019-05-20</dokumenti:datum>
+        <dokumenti:potpis_lekara>ovo je lekarov potpis</dokumenti:potpis_lekara>
+        <dokumenti:pecat>ovo je lekarov pecat</dokumenti:pecat>
+        <dokumenti:podaci_o_osiguranju>
+            <dokumenti:nosilac_osiguranja id="id2">
+                <osobe:ime>Zika</osobe:ime>
+                <osobe:prezime xmlns="http://www.svj.com/zis/osobe">Zikic</osobe:prezime>
+            </dokumenti:nosilac_osiguranja>
+            <dokumenti:osnov_osiguranja>zaposlen</dokumenti:osnov_osiguranja>
+        </dokumenti:podaci_o_osiguranju>
+        <dokumenti:specijalista id="id5">
+            <dokumenti:lekar_specijalista_za>Uho,grlo i nos</dokumenti:lekar_specijalista_za>
+        </dokumenti:specijalista>
+        <dokumenti:podaci_o_pregledu>
+            <dokumenti:svrha_pregleda>Preventiva</dokumenti:svrha_pregleda>
+            <dokumenti:obavljen_u_zdravstvenoj_ustanovi>Klinicki centar Vojvodine</dokumenti:obavljen_u_zdravstvenoj_ustanovi>
+            <dokumenti:datum_i_vreme_prijave>2019-05-20T14:45:00</dokumenti:datum_i_vreme_prijave>
+            <dokumenti:datum_i_vreme_zavrsetka>2019-06-27T16:00:00</dokumenti:datum_i_vreme_zavrsetka>
+        </dokumenti:podaci_o_pregledu>
+        <dokumenti:izvestaj>
+            <dokumenti:osiguranik id="id2">
+                <osobe:ime>Zika</osobe:ime>
+                <osobe:prezime>Zikic</osobe:prezime>
+            </dokumenti:osiguranik>
+            <dokumenti:boluje_od>Boli ga uho</dokumenti:boluje_od>
+            <dokumenti:nalaz>Ovo je nalaz</dokumenti:nalaz>
+            <dokumenti:misljenje>Mislim da se folira</dokumenti:misljenje>
+            <dokumenti:datum>2019-06-28</dokumenti:datum>
+            <dokumenti:potpis_lekara>Ovo je lekarov potpis</dokumenti:potpis_lekara>
+            <dokumenti:pecat>Ovo je lekarov pecat</dokumenti:pecat>
+        </dokumenti:izvestaj>
+    </dokumenti:uput_za_specijalisticki_pregled>
+</uputi_za_specijalisticki_pregled>

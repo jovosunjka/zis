@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users xmlns="http://www.svj.com/zis/kolekcije" xmlns:osobe="http://www.svj.com/zis/osobe">
+    <osobe:user id="id1">
+        <osobe:username>pera</osobe:username>
+        <osobe:password>$2a$10$Gb8L48XmlXj/2HD.85JzyOXhQkv9FLT9CalS0sQzL8MNdNuAhKHEi</osobe:password>
+        <osobe:roles>
+            <osobe:role>DOCTOR</osobe:role>
+        </osobe:roles>
+    </osobe:user>
+    <osobe:user id="id2">
+        <osobe:username>zika</osobe:username>
+        <osobe:password>$2a$10$uvNWBJvusQOyRQFFHBuI8uCc8/aU66.7Y3Fiu.Ca9.RbvcTrN7KWC</osobe:password>
+        <osobe:roles>
+            <osobe:role>PATIENT</osobe:role>
+        </osobe:roles>
+    </osobe:user>
+    <osobe:user id="id3">
+        <osobe:username>mika</osobe:username>
+        <osobe:password>$2a$10$nxzFEhTfbhotl/KKdKwOHuU6SqQhHLK7KoXjTDIXTq1RpxJQ0zqwW</osobe:password>
+        <osobe:roles>
+            <osobe:role>DOCTOR</osobe:role>
+        </osobe:roles>
+    </osobe:user>
+    <osobe:user id="id4">
+        <osobe:username>sima</osobe:username>
+        <osobe:password>$2a$10$33pWeECAV/emnEafD7dhueBhnSY0GXUxIpf74EKu9uqntVLPzNF4m</osobe:password>
+        <osobe:roles>
+            <osobe:role>NURSE</osobe:role>
+        </osobe:roles>
+    </osobe:user>
+    <osobe:user id="id5">
+        <osobe:username>djura</osobe:username>
+        <osobe:password>$2a$10$jzwQt9Igw6kF6ynbn8QzQOvi7TpnxURq9PDjrjVadeViQfWpzK9gG</osobe:password>
+        <osobe:roles>
+            <osobe:role>DOCTOR</osobe:role>
+        </osobe:roles>
+    </osobe:user>
+</users>
