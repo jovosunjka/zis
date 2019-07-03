@@ -36,6 +36,15 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
+ *         &lt;element name="type">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *               &lt;enumeration value="DOCTOR"/>
+ *               &lt;enumeration value="NURSE"/>
+ *               &lt;enumeration value="PATIENT"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
  *         &lt;element name="roles">
  *           &lt;complexType>
  *             &lt;complexContent>
@@ -68,6 +77,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "username",
     "password",
+    "type",
     "roles"
 })
 @XmlRootElement(name = "user", namespace = "http://www.svj.com/zis/osobe")
@@ -77,6 +87,8 @@ public class User {
     protected String username;
     @XmlElement(namespace = "http://www.svj.com/zis/osobe", required = true)
     protected String password;
+    @XmlElement(namespace = "http://www.svj.com/zis/osobe", required = true)
+    protected String type;
     @XmlElement(namespace = "http://www.svj.com/zis/osobe", required = true)
     protected User.Roles roles;
     @XmlAttribute(name = "id", required = true)
@@ -129,6 +141,30 @@ public class User {
      */
     public void setPassword(String value) {
         this.password = value;
+    }
+
+    /**
+     * Gets the value of the type property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * Sets the value of the type property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setType(String value) {
+        this.type = value;
     }
 
     /**

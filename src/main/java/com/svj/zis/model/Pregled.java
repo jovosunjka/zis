@@ -30,7 +30,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
- *         &lt;element name="datum" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
+ *         &lt;element name="datum_i_vreme" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
  *         &lt;element name="pacijent">
  *           &lt;complexType>
  *             &lt;complexContent>
@@ -60,7 +60,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "lekar",
-    "datum",
+    "datumIVreme",
     "pacijent"
 })
 @XmlRootElement(name = "pregled")
@@ -68,9 +68,9 @@ public class Pregled {
 
     @XmlElement(required = true)
     protected Pregled.Lekar lekar;
-    @XmlElement(required = true)
+    @XmlElement(name = "datum_i_vreme", required = true)
     @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar datum;
+    protected XMLGregorianCalendar datumIVreme;
     @XmlElement(required = true)
     protected Pregled.Pacijent pacijent;
     @XmlAttribute(name = "tip", required = true)
@@ -104,27 +104,27 @@ public class Pregled {
     }
 
     /**
-     * Gets the value of the datum property.
+     * Gets the value of the datumIVreme property.
      * 
      * @return
      *     possible object is
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getDatum() {
-        return datum;
+    public XMLGregorianCalendar getDatumIVreme() {
+        return datumIVreme;
     }
 
     /**
-     * Sets the value of the datum property.
+     * Sets the value of the datumIVreme property.
      * 
      * @param value
      *     allowed object is
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setDatum(XMLGregorianCalendar value) {
-        this.datum = value;
+    public void setDatumIVreme(XMLGregorianCalendar value) {
+        this.datumIVreme = value;
     }
 
     /**

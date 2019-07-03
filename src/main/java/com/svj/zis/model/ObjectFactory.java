@@ -24,6 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _IzvestajTerapijaLink_QNAME = new QName("http://www.svj.com/zis/dokumenti", "link");
     private final static QName _PacijentoviPodaciOsnovOslobadjanjaOdParticipacije_QNAME = new QName("http://www.svj.com/zis/osobe", "osnov_oslobadjanja_od_participacije");
 
     /**
@@ -66,11 +67,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link com.svj.zis.model.Izvestaj }
+     * 
+     */
+    public com.svj.zis.model.Izvestaj createIzvestaj() {
+        return new com.svj.zis.model.Izvestaj();
+    }
+
+    /**
      * Create an instance of {@link com.svj.zis.model.Pacijent }
      * 
      */
     public com.svj.zis.model.Pacijent createPacijent() {
         return new com.svj.zis.model.Pacijent();
+    }
+
+    /**
+     * Create an instance of {@link Lek }
+     * 
+     */
+    public Lek createLek() {
+        return new Lek();
     }
 
     /**
@@ -103,6 +120,22 @@ public class ObjectFactory {
      */
     public com.svj.zis.model.Pacijent.Obavestenja createPacijentObavestenja() {
         return new com.svj.zis.model.Pacijent.Obavestenja();
+    }
+
+    /**
+     * Create an instance of {@link com.svj.zis.model.Izvestaj.Terapija }
+     * 
+     */
+    public com.svj.zis.model.Izvestaj.Terapija createIzvestajTerapija() {
+        return new com.svj.zis.model.Izvestaj.Terapija();
+    }
+
+    /**
+     * Create an instance of {@link com.svj.zis.model.Izvestaj.Anamneza }
+     * 
+     */
+    public com.svj.zis.model.Izvestaj.Anamneza createIzvestajAnamneza() {
+        return new com.svj.zis.model.Izvestaj.Anamneza();
     }
 
     /**
@@ -250,6 +283,38 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Izvestaji }
+     * 
+     */
+    public Izvestaji createIzvestaji() {
+        return new Izvestaji();
+    }
+
+    /**
+     * Create an instance of {@link com.svj.zis.model.Izvestaj.Datum }
+     * 
+     */
+    public com.svj.zis.model.Izvestaj.Datum createIzvestajDatum() {
+        return new com.svj.zis.model.Izvestaj.Datum();
+    }
+
+    /**
+     * Create an instance of {@link com.svj.zis.model.Izvestaj.OsiguranoLice }
+     * 
+     */
+    public com.svj.zis.model.Izvestaj.OsiguranoLice createIzvestajOsiguranoLice() {
+        return new com.svj.zis.model.Izvestaj.OsiguranoLice();
+    }
+
+    /**
+     * Create an instance of {@link com.svj.zis.model.Izvestaj.Lekar }
+     * 
+     */
+    public com.svj.zis.model.Izvestaj.Lekar createIzvestajLekar() {
+        return new com.svj.zis.model.Izvestaj.Lekar();
+    }
+
+    /**
      * Create an instance of {@link Pacijenti }
      * 
      */
@@ -263,6 +328,22 @@ public class ObjectFactory {
      */
     public com.svj.zis.model.Pacijent.ZdravstveniKarton createPacijentZdravstveniKarton() {
         return new com.svj.zis.model.Pacijent.ZdravstveniKarton();
+    }
+
+    /**
+     * Create an instance of {@link Lekovi }
+     * 
+     */
+    public Lekovi createLekovi() {
+        return new Lekovi();
+    }
+
+    /**
+     * Create an instance of {@link Lek.Naziv }
+     * 
+     */
+    public Lek.Naziv createLekNaziv() {
+        return new Lek.Naziv();
     }
 
     /**
@@ -362,12 +443,46 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link com.svj.zis.model.Izvestaj.Terapija.Link }
+     * 
+     */
+    public com.svj.zis.model.Izvestaj.Terapija.Link createIzvestajTerapijaLink() {
+        return new com.svj.zis.model.Izvestaj.Terapija.Link();
+    }
+
+    /**
+     * Create an instance of {@link com.svj.zis.model.Izvestaj.Anamneza.Link }
+     * 
+     */
+    public com.svj.zis.model.Izvestaj.Anamneza.Link createIzvestajAnamnezaLink() {
+        return new com.svj.zis.model.Izvestaj.Anamneza.Link();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link com.svj.zis.model.Izvestaj.Terapija.Link }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.svj.com/zis/dokumenti", name = "link", scope = com.svj.zis.model.Izvestaj.Terapija.class)
+    public JAXBElement<com.svj.zis.model.Izvestaj.Terapija.Link> createIzvestajTerapijaLink(com.svj.zis.model.Izvestaj.Terapija.Link value) {
+        return new JAXBElement<com.svj.zis.model.Izvestaj.Terapija.Link>(_IzvestajTerapijaLink_QNAME, com.svj.zis.model.Izvestaj.Terapija.Link.class, com.svj.zis.model.Izvestaj.Terapija.class, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://www.svj.com/zis/osobe", name = "osnov_oslobadjanja_od_participacije", scope = PacijentoviPodaci.class)
     public JAXBElement<String> createPacijentoviPodaciOsnovOslobadjanjaOdParticipacije(String value) {
         return new JAXBElement<String>(_PacijentoviPodaciOsnovOslobadjanjaOdParticipacije_QNAME, String.class, PacijentoviPodaci.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link com.svj.zis.model.Izvestaj.Anamneza.Link }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.svj.com/zis/dokumenti", name = "link", scope = com.svj.zis.model.Izvestaj.Anamneza.class)
+    public JAXBElement<com.svj.zis.model.Izvestaj.Anamneza.Link> createIzvestajAnamnezaLink(com.svj.zis.model.Izvestaj.Anamneza.Link value) {
+        return new JAXBElement<com.svj.zis.model.Izvestaj.Anamneza.Link>(_IzvestajTerapijaLink_QNAME, com.svj.zis.model.Izvestaj.Anamneza.Link.class, com.svj.zis.model.Izvestaj.Anamneza.class, value);
     }
 
 }

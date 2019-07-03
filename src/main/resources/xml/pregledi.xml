@@ -2,7 +2,27 @@
 <pregledi xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti">
     <dokumenti:pregled id="p_id1" tip="opsta_praksa">
         <dokumenti:lekar id="id5"/>
-        <dokumenti:datum>2019-06-27T16:00:00</dokumenti:datum>
+        <dokumenti:datum_i_vreme>2019-06-27T16:00:00</dokumenti:datum_i_vreme>
         <dokumenti:pacijent id="id2"/>
+    </dokumenti:pregled>
+    <dokumenti:pregled id="p_id2" tip="specijalista">
+        <dokumenti:lekar id="id3"/>
+        <dokumenti:datum_i_vreme>2019-06-28T15:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:pacijent id=""/>
+    </dokumenti:pregled>
+    <dokumenti:pregled id="p_id3" tip="opsta_praksa">
+        <dokumenti:lekar id="id1"/>
+        <dokumenti:datum_i_vreme>2019-06-29T14:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:pacijent id=""/>
+    </dokumenti:pregled>
+    <dokumenti:pregled id="p_id4" tip="specijalista">
+        <dokumenti:lekar id="id5"/>
+        <dokumenti:datum_i_vreme>2019-06-30T13:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:pacijent id=""/>
+    </dokumenti:pregled>
+    <dokumenti:pregled id="p_id5" tip="opsta_praksa">
+        <dokumenti:lekar id="id3"/>
+        <dokumenti:datum_i_vreme>2019-07-01T12:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:pacijent id=""/>
     </dokumenti:pregled>
 </pregledi>

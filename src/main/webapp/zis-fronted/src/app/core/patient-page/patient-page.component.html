@@ -4,16 +4,21 @@
           <nav>
               <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                   <a class="nav-item nav-link active" id="nav-choose-doctor-tab" data-toggle="tab" href="#nav-choose-doctor" role="tab" aria-controls="nav-choose-doctor" aria-selected="true">CHOOSE DOCTOR</a>
-                  <a class="nav-item nav-link" id="nav-register-tab" data-toggle="tab" href="#nav-register" role="tab" aria-controls="nav-register" aria-selected="false">REGISTER</a>
+                  <a class="nav-item nav-link" id="nav-order-review-tab" data-toggle="tab" href="#nav-order-review" role="tab" aria-controls="nav-order-review" aria-selected="false">ORDER REVIEW</a>
+                  <a class="nav-item nav-link" id="nav-health-card-tab" data-toggle="tab" href="#nav-health-card" role="tab" aria-controls="nav-health-card" aria-selected="false">HEALTH CARD</a>
               </div>
           </nav>
           <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
               <div class="tab-pane fade show active" id="nav-choose-doctor" role="tabpanel" aria-labelledby="nav-choose-doctor-tab">
-                  <app-choose-doctor></app-choose-doctor>
+                  <app-choose-doctor [xHtmlContetntForSelectedDoctor]="xHtmlContetntForSelectedDoctor"
+                  (selectedDoctorEvent)="getDoctor()"></app-choose-doctor>
               </div>
-              <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
-                  Drugi tab
+              <div class="tab-pane fade" id="nav-order-review" role="tabpanel" aria-labelledby="nav-order-review-tab">
+                  <app-order-review></app-order-review>
               </div>
+              <div class="tab-pane fade" id="nav-health-card" role="tabpanel" aria-labelledby="nav-health-card-tab">
+                <app-health-card [xHtmlContetntForSelectedDoctor]="xHtmlContetntForSelectedDoctor"></app-health-card>
+            </div>
           </div>
       
       </div>

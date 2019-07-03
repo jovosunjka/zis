@@ -178,6 +178,7 @@
                 <xs:element name="lek_primio" type="xs:string"/>
                 <xs:element name="rp" nillable="true" type="xs:string"/>
             </xs:sequence>
+            <xs:attribute name="id" type="xs:anyURI" use="required"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="podaci_o_lekaru">
@@ -204,7 +205,7 @@
                         <xs:attribute name="id" type="xs:anyURI" use="required"/>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="datum" type="xs:dateTime"/>
+                <xs:element name="datum_i_vreme" type="xs:dateTime"/>
                 <xs:element name="pacijent">
                     <xs:complexType>
                         <xs:attribute name="id" type="xs:anyURI" use="required"/>
@@ -220,6 +221,79 @@
                 </xs:simpleType>
             </xs:attribute>
             <xs:attribute name="id" type="xs:anyURI" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="izvestaj">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dijagnoza" type="xs:string"/>
+                <xs:element name="anamneza">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="link">
+                                <xs:complexType>
+                                    <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                                    <xs:anyAttribute processContents="lax"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="terapija">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="link">
+                                <xs:complexType>
+                                    <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                                    <xs:anyAttribute processContents="lax"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="datum">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:date">
+                                <xs:anyAttribute processContents="lax"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="osigurano_lice">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="lekar">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="oznaka" type="xs:string" use="required"/>
+            <xs:attribute name="id" type="xs:anyURI" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="lek">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="naziv">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:anyAttribute processContents="lax"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="sifra" type="xs:string"/>
+                <xs:element name="dijagnoza" type="xs:string"/>
+                <xs:element name="namena" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:anyURI" use="required"/>
+            <xs:attribute name="aktivan" type="xs:boolean" use="required"/>
+            <xs:anyAttribute processContents="lax"/>
         </xs:complexType>
     </xs:element>
 </xs:schema>

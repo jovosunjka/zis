@@ -75,7 +75,7 @@ public class ResourceRepository {
                 collectionId.endsWith("zdravstveni_kartoni") || collectionId.endsWith("medicinske_sestre") ||
                 collectionId.endsWith("pacijenti") || collectionId.endsWith("uputi_za_laboratoriju") ||
                 collectionId.endsWith("uputi_za_specijalisticki_pregled") || collectionId.endsWith("pregledi") ||
-                collectionId.endsWith("users")) {
+                collectionId.endsWith("users") || collectionId.endsWith("izvestaji") || collectionId.endsWith("lekovi")) {
                 marshaller.setProperty("com.sun.xml.bind.namespacePrefixMapper", new KolekcijeOsobeDokumentiNamespaceMapper());
             }
             else {
@@ -135,7 +135,7 @@ public class ResourceRepository {
         try {
             // get the collection
             System.out.println("[INFO] Retrieving the collection: " + collectionId);
-            col = DatabaseManager.getCollection(conn.uri + collectionId);
+            col = DatabaseManager.getCollection(conn.uri + collectionId, conn.user, conn.password);
             col.setProperty(OutputKeys.INDENT, "yes");
 
             System.out.println("[INFO] Retrieving the document: " + documentId);
@@ -187,8 +187,8 @@ public class ResourceRepository {
         try {
             // get the collection
             System.out.println("[INFO] Retrieving the collection: " + collectionId);
-            col = DatabaseManager.getCollection(conn.uri + collectionId);
-
+            col = DatabaseManager.getCollection(conn.uri + collectionId, conn.user, conn.password);
+            col.setProperty("indent", "yes");
             return col;
         } finally {
             if(col != null) {

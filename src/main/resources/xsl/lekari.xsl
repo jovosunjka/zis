@@ -7,7 +7,7 @@
     version="2.0">
     
     <xsl:template match="/">
-        <table border="1">
+        <table border="2">
             <tr> <th><b>Id</b></th> <th><b>First Name</b></th> <th><b>Last Name</b></th> </tr>
             <xsl:for-each select="kolekcije:lekari/osobe:lekar">
                 <tr> 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lekarski_recepti xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti"
     xmlns:osobe="http://www.svj.com/zis/osobe">
-    <dokumenti:lekarski_recept>
+    <dokumenti:lekarski_recept id="lr_id1">
         <dokumenti:osigurano_lice id="id2">
             <osobe:ime xmlns="http://www.svj.com/zis/osobe">Zika</osobe:ime>
             <osobe:prezime xmlns="http://www.svj.com/zis/osobe">Zikic</osobe:prezime>

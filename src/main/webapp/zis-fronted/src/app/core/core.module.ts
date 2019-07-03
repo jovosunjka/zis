@@ -14,9 +14,31 @@ import { AuthModule } from '../auth/auth.module';
 import { ChooseDoctorComponent } from './choose-doctor/choose-doctor.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OrderReviewComponent } from './order-review/order-review.component';
+import { HealthCardComponent } from './health-card/health-card.component';
+import { BasicInformationsComponent } from './basic-informations/basic-informations.component';
+import { ReportsComponent } from './reports/reports.component';
+import { ReferralsComponent } from './referrals/referrals.component';
+import { ReferralsForSpecExaminationComponent } from './referrals-for-spec-examination/referrals-for-spec-examination.component';
+import { ReferralsForLabComponent } from './referrals-for-lab/referrals-for-lab.component';
+import { DoctorRecipesComponent } from './doctor-recipes/doctor-recipes.component';
 
 @NgModule({
-  declarations: [PatientPageComponent, HomePageComponent, NursePageComponent, DoctorPageComponent, ChooseDoctorComponent],
+  declarations: [
+    PatientPageComponent,
+    HomePageComponent,
+    NursePageComponent,
+    DoctorPageComponent,
+    ChooseDoctorComponent,
+    OrderReviewComponent,
+    HealthCardComponent,
+    BasicInformationsComponent,
+    ReportsComponent,
+    ReferralsComponent,
+    ReferralsForSpecExaminationComponent,
+    ReferralsForLabComponent,
+    DoctorRecipesComponent
+  ],
   imports: [
     CommonModule,
     ToastrModule.forRoot({preventDuplicates: true}), // ToastrModule added,

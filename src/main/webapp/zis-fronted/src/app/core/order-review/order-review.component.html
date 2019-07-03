@@ -1,0 +1,18 @@
+
+<b>Ordered Reviews</b>
+<div [innerHTML]="xHtmlContetntForOrderedReviews | safeHtml"></div>
+
+<br/>
+<br/>
+
+<b>Free Reviews</b>
+<div [innerHTML]="xHtmlContetntForFreeReviews | safeHtml"></div>
+
+<br/>
+<br/>
+
+<div>
+  <label for="enter_review">Enter the id of the review:</label>
+  <input type="text" id="enter_review" [(ngModel)]="idOfReview" name="idOfReview"/>
+  <button class="btn btn-success" (click)="orderReview()">Confirm</button>
+</div>

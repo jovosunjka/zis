@@ -169,6 +169,15 @@
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
+                <xs:element name="type">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="DOCTOR"/>
+                            <xs:enumeration value="NURSE"/>
+                            <xs:enumeration value="PATIENT"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
                 <xs:element name="roles">
                     <xs:complexType>
                         <xs:sequence maxOccurs="unbounded" minOccurs="0">

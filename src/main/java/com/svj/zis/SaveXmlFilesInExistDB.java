@@ -36,10 +36,17 @@ public class SaveXmlFilesInExistDB {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ReportRepository reportRepository;
+
+    @Autowired
+    private MedicamentRepository medicamentRepository;
+
+
     /**
      * Prilikom pokretanja aplikacije, bice upisani svi entiteti iz fajlova koji se nalaze u /resources/xml folderu
      * */
-    //@EventListener(ApplicationReadyEvent.class)
+    @EventListener(ApplicationReadyEvent.class)
     private void saveXmlFiles() {
         try {
             doctorReceiptRepository.saveAll();
@@ -51,6 +58,8 @@ public class SaveXmlFilesInExistDB {
             referralForSpecialistExaminationRepository.saveAll();
             reviewRepository.saveAll();
             userRepository.saveAll();
+            reportRepository.saveAll();
+            medicamentRepository.saveAll();
         } catch (Exception e) {
             e.printStackTrace();
         }

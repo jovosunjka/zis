@@ -74,5 +74,21 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    
+    <xs:element name="izvestaji">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="dokumenti:izvestaj" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="lekovi">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="dokumenti:lek" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
 </xs:schema>

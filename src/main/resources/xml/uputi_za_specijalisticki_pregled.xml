@@ -12,7 +12,7 @@
         <dokumenti:podaci_o_osiguranju>
             <dokumenti:nosilac_osiguranja id="id2">
                 <osobe:ime>Zika</osobe:ime>
-                <osobe:prezime xmlns="http://www.svj.com/zis/osobe">Zikic</osobe:prezime>
+                <osobe:prezime>Zikic</osobe:prezime>
             </dokumenti:nosilac_osiguranja>
             <dokumenti:osnov_osiguranja>zaposlen</dokumenti:osnov_osiguranja>
         </dokumenti:podaci_o_osiguranju>

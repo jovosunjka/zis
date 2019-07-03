@@ -52,7 +52,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         super.configure(httpSecurity);
 
 		httpSecurity
-            .cors()
+            .cors() // enable CORS at Spring Security level (https://spring.io/blog/2015/06/08/cors-support-in-spring-framework)
+					// Ovde moramo ukljuciti CORS da bismo u Controller-ima mogli koristiti @CrossOrigin anotacije
+					// i tako resili probleme sa CORS-om
             .and()
 			.csrf().disable()
 			.sessionManagement()

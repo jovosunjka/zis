@@ -11,6 +11,11 @@ public class DoctorServiceImpl implements DoctorService {
     private DoctorRepository doctorRepository;
 
     @Override
+    public String getDoctor(String id) throws Exception {
+        return doctorRepository.findById(id);
+    }
+
+    @Override
     public String getAllDoctors() {
         return doctorRepository.getAllDoctors();
     }

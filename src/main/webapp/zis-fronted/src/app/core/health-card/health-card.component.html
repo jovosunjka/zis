@@ -1,0 +1,29 @@
+<section id="tabs">
+  <div class="row">
+      <div class="col-xl-12 ">
+          <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active" id="nav-basic-informations-tab" data-toggle="tab" href="#nav-basic-informations" role="tab" aria-controls="nav-basic-informations" aria-selected="true">BASIC INFORMATIONS</a>
+                  <a class="nav-item nav-link" id="nav-reports-tab" data-toggle="tab" href="#nav-reports" role="tab" aria-controls="nav-reports" aria-selected="false">REPORTS</a>
+                  <a class="nav-item nav-link" id="nav-referrals-tab" data-toggle="tab" href="#nav-referrals" role="tab" aria-controls="nav-referrals" aria-selected="false">REFERRALS</a>
+                  <a class="nav-item nav-link" id="nav-recipes-tab" data-toggle="tab" href="#nav-recipes" role="tab" aria-controls="nav-recipes" aria-selected="false">RECIPES</a>
+              </div>
+          </nav>
+          <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-basic-informations" role="tabpanel" aria-labelledby="nav-basic-informations-tab">
+                  <app-basic-informations [xHtmlContetntForSelectedDoctor]="xHtmlContetntForSelectedDoctor"></app-basic-informations>
+              </div>
+              <div class="tab-pane fade" id="nav-reports" role="tabpanel" aria-labelledby="nav-reports-tab">
+                  <app-reports></app-reports>
+              </div>
+              <div class="tab-pane fade" id="nav-referrals" role="tabpanel" aria-labelledby="nav-referrals-tab">
+                <app-referrals></app-referrals>
+              </div>
+              <div class="tab-pane fade" id="nav-recipes" role="tabpanel" aria-labelledby="nav-recipes-tab">
+                <app-doctor-recipes></app-doctor-recipes>
+              </div>
+          </div>
+      
+      </div>
+  </div>
+</section>
