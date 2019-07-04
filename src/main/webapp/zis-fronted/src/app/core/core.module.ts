@@ -22,6 +22,8 @@ import { ReferralsComponent } from './referrals/referrals.component';
 import { ReferralsForSpecExaminationComponent } from './referrals-for-spec-examination/referrals-for-spec-examination.component';
 import { ReferralsForLabComponent } from './referrals-for-lab/referrals-for-lab.component';
 import { DoctorRecipesComponent } from './doctor-recipes/doctor-recipes.component';
+import { PatientsComponent } from './patients/patients.component';
+import { EditHealthCardComponent } from './edit-health-card/edit-health-card.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { DoctorRecipesComponent } from './doctor-recipes/doctor-recipes.componen
     ReferralsComponent,
     ReferralsForSpecExaminationComponent,
     ReferralsForLabComponent,
-    DoctorRecipesComponent
+    DoctorRecipesComponent,
+    PatientsComponent,
+    EditHealthCardComponent
   ],
   imports: [
     CommonModule,

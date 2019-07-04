@@ -25,7 +25,7 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _IzvestajTerapijaLink_QNAME = new QName("http://www.svj.com/zis/dokumenti", "link");
-    private final static QName _PacijentoviPodaciOsnovOslobadjanjaOdParticipacije_QNAME = new QName("http://www.svj.com/zis/osobe", "osnov_oslobadjanja_od_participacije");
+    private final static QName _PacijentoviPodaciOsnovOslobadjanjaOdParticipacije_QNAME = new QName("http://www.svj.com/zis/dokumenti", "osnov_oslobadjanja_od_participacije");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.svj.zis.model
@@ -40,6 +40,14 @@ public class ObjectFactory {
      */
     public Pregled createPregled() {
         return new Pregled();
+    }
+
+    /**
+     * Create an instance of {@link MedicinskiaSestra }
+     * 
+     */
+    public MedicinskiaSestra createMedicinskiaSestra() {
+        return new MedicinskiaSestra();
     }
 
     /**
@@ -83,11 +91,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Lek }
+     * Create an instance of {@link com.svj.zis.model.Lek }
      * 
      */
-    public Lek createLek() {
-        return new Lek();
+    public com.svj.zis.model.Lek createLek() {
+        return new com.svj.zis.model.Lek();
+    }
+
+    /**
+     * Create an instance of {@link PacijentoviPodaci }
+     * 
+     */
+    public PacijentoviPodaci createPacijentoviPodaci() {
+        return new PacijentoviPodaci();
     }
 
     /**
@@ -99,11 +115,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link User }
+     * Create an instance of {@link com.svj.zis.model.User }
      * 
      */
-    public User createUser() {
-        return new User();
+    public com.svj.zis.model.User createUser() {
+        return new com.svj.zis.model.User();
     }
 
     /**
@@ -112,6 +128,30 @@ public class ObjectFactory {
      */
     public LekarskiRecept createLekarskiRecept() {
         return new LekarskiRecept();
+    }
+
+    /**
+     * Create an instance of {@link PodaciOLekaru }
+     * 
+     */
+    public PodaciOLekaru createPodaciOLekaru() {
+        return new PodaciOLekaru();
+    }
+
+    /**
+     * Create an instance of {@link TPodaciOLeku }
+     * 
+     */
+    public TPodaciOLeku createTPodaciOLeku() {
+        return new TPodaciOLeku();
+    }
+
+    /**
+     * Create an instance of {@link LekarskiRecept.OsiguranoLice }
+     * 
+     */
+    public LekarskiRecept.OsiguranoLice createLekarskiReceptOsiguranoLice() {
+        return new LekarskiRecept.OsiguranoLice();
     }
 
     /**
@@ -136,6 +176,62 @@ public class ObjectFactory {
      */
     public com.svj.zis.model.Izvestaj.Anamneza createIzvestajAnamneza() {
         return new com.svj.zis.model.Izvestaj.Anamneza();
+    }
+
+    /**
+     * Create an instance of {@link UputZaLaboratoriju.KoSaljeNaPregled }
+     * 
+     */
+    public UputZaLaboratoriju.KoSaljeNaPregled createUputZaLaboratorijuKoSaljeNaPregled() {
+        return new UputZaLaboratoriju.KoSaljeNaPregled();
+    }
+
+    /**
+     * Create an instance of {@link UputZaLaboratoriju.KoSaljeMaterijal }
+     * 
+     */
+    public UputZaLaboratoriju.KoSaljeMaterijal createUputZaLaboratorijuKoSaljeMaterijal() {
+        return new UputZaLaboratoriju.KoSaljeMaterijal();
+    }
+
+    /**
+     * Create an instance of {@link UputZaSpecijalistickiPregled.Izvestaj }
+     * 
+     */
+    public UputZaSpecijalistickiPregled.Izvestaj createUputZaSpecijalistickiPregledIzvestaj() {
+        return new UputZaSpecijalistickiPregled.Izvestaj();
+    }
+
+    /**
+     * Create an instance of {@link UputZaSpecijalistickiPregled.Izvestaj.Osiguranik }
+     * 
+     */
+    public UputZaSpecijalistickiPregled.Izvestaj.Osiguranik createUputZaSpecijalistickiPregledIzvestajOsiguranik() {
+        return new UputZaSpecijalistickiPregled.Izvestaj.Osiguranik();
+    }
+
+    /**
+     * Create an instance of {@link UputZaSpecijalistickiPregled.Specijalista }
+     * 
+     */
+    public UputZaSpecijalistickiPregled.Specijalista createUputZaSpecijalistickiPregledSpecijalista() {
+        return new UputZaSpecijalistickiPregled.Specijalista();
+    }
+
+    /**
+     * Create an instance of {@link TPodaciOOsiguranju }
+     * 
+     */
+    public TPodaciOOsiguranju createTPodaciOOsiguranju() {
+        return new TPodaciOOsiguranju();
+    }
+
+    /**
+     * Create an instance of {@link TPodaciOOsiguranju.NosilacOsiguranja }
+     * 
+     */
+    public TPodaciOOsiguranju.NosilacOsiguranja createTPodaciOOsiguranjuNosilacOsiguranja() {
+        return new TPodaciOOsiguranju.NosilacOsiguranja();
     }
 
     /**
@@ -171,19 +267,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link MedicinskiaSestra }
-     * 
-     */
-    public MedicinskiaSestra createMedicinskiaSestra() {
-        return new MedicinskiaSestra();
-    }
-
-    /**
      * Create an instance of {@link TOsoba }
      * 
      */
     public TOsoba createTOsoba() {
         return new TOsoba();
+    }
+
+    /**
+     * Create an instance of {@link MedicinskiaSestra.User }
+     * 
+     */
+    public MedicinskiaSestra.User createMedicinskiaSestraUser() {
+        return new MedicinskiaSestra.User();
     }
 
     /**
@@ -211,35 +307,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TPodaciOOsiguranju }
-     * 
-     */
-    public TPodaciOOsiguranju createTPodaciOOsiguranju() {
-        return new TPodaciOOsiguranju();
-    }
-
-    /**
-     * Create an instance of {@link UputZaSpecijalistickiPregled.Specijalista }
-     * 
-     */
-    public UputZaSpecijalistickiPregled.Specijalista createUputZaSpecijalistickiPregledSpecijalista() {
-        return new UputZaSpecijalistickiPregled.Specijalista();
-    }
-
-    /**
      * Create an instance of {@link UputZaSpecijalistickiPregled.PodaciOPregledu }
      * 
      */
     public UputZaSpecijalistickiPregled.PodaciOPregledu createUputZaSpecijalistickiPregledPodaciOPregledu() {
         return new UputZaSpecijalistickiPregled.PodaciOPregledu();
-    }
-
-    /**
-     * Create an instance of {@link UputZaSpecijalistickiPregled.Izvestaj }
-     * 
-     */
-    public UputZaSpecijalistickiPregled.Izvestaj createUputZaSpecijalistickiPregledIzvestaj() {
-        return new UputZaSpecijalistickiPregled.Izvestaj();
     }
 
     /**
@@ -264,6 +336,14 @@ public class ObjectFactory {
      */
     public Lekari createLekari() {
         return new Lekari();
+    }
+
+    /**
+     * Create an instance of {@link com.svj.zis.model.Lekar.User }
+     * 
+     */
+    public com.svj.zis.model.Lekar.User createLekarUser() {
+        return new com.svj.zis.model.Lekar.User();
     }
 
     /**
@@ -323,6 +403,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link com.svj.zis.model.Pacijent.User }
+     * 
+     */
+    public com.svj.zis.model.Pacijent.User createPacijentUser() {
+        return new com.svj.zis.model.Pacijent.User();
+    }
+
+    /**
      * Create an instance of {@link com.svj.zis.model.Pacijent.ZdravstveniKarton }
      * 
      */
@@ -339,11 +427,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Lek.Naziv }
+     * Create an instance of {@link com.svj.zis.model.Lek.Naziv }
      * 
      */
-    public Lek.Naziv createLekNaziv() {
-        return new Lek.Naziv();
+    public com.svj.zis.model.Lek.Naziv createLekNaziv() {
+        return new com.svj.zis.model.Lek.Naziv();
     }
 
     /**
@@ -355,11 +443,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PacijentoviPodaci }
+     * Create an instance of {@link PacijentoviPodaci.Pacijent }
      * 
      */
-    public PacijentoviPodaci createPacijentoviPodaci() {
-        return new PacijentoviPodaci();
+    public PacijentoviPodaci.Pacijent createPacijentoviPodaciPacijent() {
+        return new PacijentoviPodaci.Pacijent();
     }
 
     /**
@@ -387,11 +475,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link User.Roles }
+     * Create an instance of {@link com.svj.zis.model.User.Roles }
      * 
      */
-    public User.Roles createUserRoles() {
-        return new User.Roles();
+    public com.svj.zis.model.User.Roles createUserRoles() {
+        return new com.svj.zis.model.User.Roles();
     }
 
     /**
@@ -419,19 +507,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PodaciOLekaru }
+     * Create an instance of {@link PodaciOLekaru.Lekar }
      * 
      */
-    public PodaciOLekaru createPodaciOLekaru() {
-        return new PodaciOLekaru();
+    public PodaciOLekaru.Lekar createPodaciOLekaruLekar() {
+        return new PodaciOLekaru.Lekar();
     }
 
     /**
-     * Create an instance of {@link TPodaciOLeku }
+     * Create an instance of {@link TPodaciOLeku.Lek }
      * 
      */
-    public TPodaciOLeku createTPodaciOLeku() {
-        return new TPodaciOLeku();
+    public TPodaciOLeku.Lek createTPodaciOLekuLek() {
+        return new TPodaciOLeku.Lek();
+    }
+
+    /**
+     * Create an instance of {@link LekarskiRecept.OsiguranoLice.Pacijent }
+     * 
+     */
+    public LekarskiRecept.OsiguranoLice.Pacijent createLekarskiReceptOsiguranoLicePacijent() {
+        return new LekarskiRecept.OsiguranoLice.Pacijent();
     }
 
     /**
@@ -459,6 +555,46 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UputZaLaboratoriju.KoSaljeNaPregled.Lekar }
+     * 
+     */
+    public UputZaLaboratoriju.KoSaljeNaPregled.Lekar createUputZaLaboratorijuKoSaljeNaPregledLekar() {
+        return new UputZaLaboratoriju.KoSaljeNaPregled.Lekar();
+    }
+
+    /**
+     * Create an instance of {@link UputZaLaboratoriju.KoSaljeMaterijal.Pacijent }
+     * 
+     */
+    public UputZaLaboratoriju.KoSaljeMaterijal.Pacijent createUputZaLaboratorijuKoSaljeMaterijalPacijent() {
+        return new UputZaLaboratoriju.KoSaljeMaterijal.Pacijent();
+    }
+
+    /**
+     * Create an instance of {@link UputZaSpecijalistickiPregled.Izvestaj.Osiguranik.Pacijent }
+     * 
+     */
+    public UputZaSpecijalistickiPregled.Izvestaj.Osiguranik.Pacijent createUputZaSpecijalistickiPregledIzvestajOsiguranikPacijent() {
+        return new UputZaSpecijalistickiPregled.Izvestaj.Osiguranik.Pacijent();
+    }
+
+    /**
+     * Create an instance of {@link UputZaSpecijalistickiPregled.Specijalista.Lekar }
+     * 
+     */
+    public UputZaSpecijalistickiPregled.Specijalista.Lekar createUputZaSpecijalistickiPregledSpecijalistaLekar() {
+        return new UputZaSpecijalistickiPregled.Specijalista.Lekar();
+    }
+
+    /**
+     * Create an instance of {@link TPodaciOOsiguranju.NosilacOsiguranja.Pacijent }
+     * 
+     */
+    public TPodaciOOsiguranju.NosilacOsiguranja.Pacijent createTPodaciOOsiguranjuNosilacOsiguranjaPacijent() {
+        return new TPodaciOOsiguranju.NosilacOsiguranja.Pacijent();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link com.svj.zis.model.Izvestaj.Terapija.Link }{@code >}}
      * 
      */
@@ -468,21 +604,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.svj.com/zis/osobe", name = "osnov_oslobadjanja_od_participacije", scope = PacijentoviPodaci.class)
-    public JAXBElement<String> createPacijentoviPodaciOsnovOslobadjanjaOdParticipacije(String value) {
-        return new JAXBElement<String>(_PacijentoviPodaciOsnovOslobadjanjaOdParticipacije_QNAME, String.class, PacijentoviPodaci.class, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link com.svj.zis.model.Izvestaj.Anamneza.Link }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://www.svj.com/zis/dokumenti", name = "link", scope = com.svj.zis.model.Izvestaj.Anamneza.class)
     public JAXBElement<com.svj.zis.model.Izvestaj.Anamneza.Link> createIzvestajAnamnezaLink(com.svj.zis.model.Izvestaj.Anamneza.Link value) {
         return new JAXBElement<com.svj.zis.model.Izvestaj.Anamneza.Link>(_IzvestajTerapijaLink_QNAME, com.svj.zis.model.Izvestaj.Anamneza.Link.class, com.svj.zis.model.Izvestaj.Anamneza.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.svj.com/zis/dokumenti", name = "osnov_oslobadjanja_od_participacije", scope = PacijentoviPodaci.class)
+    public JAXBElement<String> createPacijentoviPodaciOsnovOslobadjanjaOdParticipacije(String value) {
+        return new JAXBElement<String>(_PacijentoviPodaciOsnovOslobadjanjaOdParticipacije_QNAME, String.class, PacijentoviPodaci.class, value);
     }
 
 }

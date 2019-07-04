@@ -21,11 +21,22 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
- *     &lt;extension base="{http://www.svj.com/zis/osobe}TOsoba">
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="pacijent">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="ime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="prezime" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="ime_jednog_roditelja" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="datum_rodjenja" type="{http://www.w3.org/2001/XMLSchema}date"/>
- *         &lt;element ref="{http://www.svj.com/zis/osobe}adresa"/>
+ *         &lt;element ref="{http://www.svj.com/zis/dokumenti}adresa"/>
  *         &lt;element name="telefon" minOccurs="0">
  *           &lt;simpleType>
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -72,7 +83,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>
- *     &lt;/extension>
+ *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -81,6 +92,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+    "pacijent",
+    "ime",
+    "prezime",
     "imeJednogRoditelja",
     "datumRodjenja",
     "adresa",
@@ -90,32 +104,105 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "bracnoStanje",
     "osnovOslobadjanjaOdParticipacije"
 })
-@XmlRootElement(name = "pacijentovi_podaci", namespace = "http://www.svj.com/zis/osobe")
-public class PacijentoviPodaci
-    extends TOsoba
-{
+@XmlRootElement(name = "pacijentovi_podaci")
+public class PacijentoviPodaci {
 
-    @XmlElement(name = "ime_jednog_roditelja", namespace = "http://www.svj.com/zis/osobe", required = true)
+    @XmlElement(required = true)
+    protected PacijentoviPodaci.Pacijent pacijent;
+    @XmlElement(required = true)
+    protected String ime;
+    @XmlElement(required = true)
+    protected String prezime;
+    @XmlElement(name = "ime_jednog_roditelja", required = true)
     protected String imeJednogRoditelja;
-    @XmlElement(name = "datum_rodjenja", namespace = "http://www.svj.com/zis/osobe", required = true)
+    @XmlElement(name = "datum_rodjenja", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datumRodjenja;
-    @XmlElement(namespace = "http://www.svj.com/zis/osobe", required = true)
+    @XmlElement(required = true)
     protected Adresa adresa;
-    @XmlElement(namespace = "http://www.svj.com/zis/osobe")
     protected String telefon;
-    @XmlElement(namespace = "http://www.svj.com/zis/osobe")
     protected String our;
-    @XmlElement(namespace = "http://www.svj.com/zis/osobe")
     protected String pol;
-    @XmlElement(name = "bracno_stanje", namespace = "http://www.svj.com/zis/osobe")
+    @XmlElement(name = "bracno_stanje")
     protected String bracnoStanje;
-    @XmlElementRef(name = "osnov_oslobadjanja_od_participacije", namespace = "http://www.svj.com/zis/osobe", type = JAXBElement.class, required = false)
+    @XmlElementRef(name = "osnov_oslobadjanja_od_participacije", namespace = "http://www.svj.com/zis/dokumenti", type = JAXBElement.class, required = false)
     protected JAXBElement<String> osnovOslobadjanjaOdParticipacije;
     @XmlAttribute(name = "lbo", required = true)
     protected String lbo;
     @XmlAttribute(name = "jmbg", required = true)
     protected String jmbg;
+
+    /**
+     * Gets the value of the pacijent property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link PacijentoviPodaci.Pacijent }
+     *     
+     */
+    public PacijentoviPodaci.Pacijent getPacijent() {
+        return pacijent;
+    }
+
+    /**
+     * Sets the value of the pacijent property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link PacijentoviPodaci.Pacijent }
+     *     
+     */
+    public void setPacijent(PacijentoviPodaci.Pacijent value) {
+        this.pacijent = value;
+    }
+
+    /**
+     * Gets the value of the ime property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getIme() {
+        return ime;
+    }
+
+    /**
+     * Sets the value of the ime property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setIme(String value) {
+        this.ime = value;
+    }
+
+    /**
+     * Gets the value of the prezime property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPrezime() {
+        return prezime;
+    }
+
+    /**
+     * Sets the value of the prezime property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPrezime(String value) {
+        this.prezime = value;
+    }
 
     /**
      * Gets the value of the imeJednogRoditelja property.
@@ -355,6 +442,58 @@ public class PacijentoviPodaci
      */
     public void setJmbg(String value) {
         this.jmbg = value;
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "")
+    public static class Pacijent {
+
+        @XmlAttribute(name = "id", required = true)
+        @XmlSchemaType(name = "anyURI")
+        protected String id;
+
+        /**
+         * Gets the value of the id property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getId() {
+            return id;
+        }
+
+        /**
+         * Sets the value of the id property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setId(String value) {
+            this.id = value;
+        }
+
     }
 
 }

@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://www.svj.com/zis/osobe}pacijentovi_podaci"/>
+ *         &lt;element ref="{http://www.svj.com/zis/dokumenti}pacijentovi_podaci"/>
  *         &lt;element name="odabrani_lekar">
  *           &lt;complexType>
  *             &lt;complexContent>
@@ -61,7 +61,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "zdravstveni_karton")
 public class ZdravstveniKarton {
 
-    @XmlElement(name = "pacijentovi_podaci", namespace = "http://www.svj.com/zis/osobe", required = true)
+    @XmlElement(name = "pacijentovi_podaci", required = true)
     protected PacijentoviPodaci pacijentoviPodaci;
     @XmlElement(name = "odabrani_lekar", required = true)
     protected ZdravstveniKarton.OdabraniLekar odabraniLekar;

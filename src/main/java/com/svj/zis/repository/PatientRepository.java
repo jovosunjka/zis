@@ -9,6 +9,9 @@ import org.xmldb.api.base.*;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XQueryService;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+
 
 @Repository
 public class PatientRepository extends ResourceRepository {
@@ -16,7 +19,8 @@ public class PatientRepository extends ResourceRepository {
     private String collectionId = "/db/zis/pacijenti";
     private String documentId = "pacijenti.xml";
     private ClassPathResource pacijentiXml = new ClassPathResource("xml/" + documentId);
-    private ClassPathResource findPatientByIdXQuery = new ClassPathResource("xqueries/find_patient_by_id.xqy");
+    private ClassPathResource findPatientByUserIdXQuery = new ClassPathResource("xqueries/find_patient_by_user_id.xqy");
+    private ClassPathResource findPatientByPatientIdXQuery = new ClassPathResource("xqueries/find_patient_by_patient_id.xqy");
 
     public String getAllPatients() {
         try {
@@ -38,16 +42,18 @@ public class PatientRepository extends ResourceRepository {
     }
 
     public void saveAll() throws Exception {
-        Pacijenti pacijenti = (Pacijenti) super.unmarshaller.unmarshal(pacijentiXml.getFile());
+        JAXBContext context = JAXBContext.newInstance("com.svj.zis.model");
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        //Pacijenti pacijenti = (Pacijenti) super.unmarshaller.unmarshal(pacijentiXml.getFile());
+        Pacijenti pacijenti = (Pacijenti) unmarshaller.unmarshal(pacijentiXml.getFile());
         super.saveAll(collectionId, documentId, pacijenti);
     }
 
-    public Pacijent findById(String id) throws Exception {
+    private Pacijent findBySomeId(String path, String id) throws Exception {
         Collection collection = getCollection(collectionId);
         XQueryService xQueryService = (XQueryService) collection.getService("XQueryService", "1.0");
         xQueryService.setProperty("indent", "yes");
 
-        String path = findPatientByIdXQuery.getFile().getPath();
         String contentStr = loadFileContent(path);
         String sadrzajUpita = String.format(contentStr, id);
         CompiledExpression compiledExpression = xQueryService.compile(sadrzajUpita);
@@ -62,7 +68,10 @@ public class PatientRepository extends ResourceRepository {
                 XMLResource xmlResource = (XMLResource) resource;
                 System.out.println("[INFO] Binding XML resouce to an JAXB instance: ");
 
-                Pacijent pacijent = (Pacijent) super.unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+                JAXBContext context = JAXBContext.newInstance("com.svj.zis.model");
+                Unmarshaller unmarshaller = context.createUnmarshaller();
+                //Pacijent pacijent = (Pacijent) super.unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+                Pacijent pacijent = (Pacijent) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
                 return pacijent;
             } finally {
 
@@ -76,5 +85,13 @@ public class PatientRepository extends ResourceRepository {
         }
 
         return null;
+    }
+
+    public Pacijent findByUserId(String idOfUser) throws Exception {
+       return findBySomeId(findPatientByUserIdXQuery.getFile().getPath(), idOfUser);
+    }
+
+    public Pacijent findByPatientId(String idOfPatient) throws Exception {
+        return findBySomeId(findPatientByPatientIdXQuery.getFile().getPath(), idOfPatient);
     }
 }

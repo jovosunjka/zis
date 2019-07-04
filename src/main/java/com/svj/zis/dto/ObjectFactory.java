@@ -38,6 +38,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link BasicInfoDto }
+     * 
+     */
+    public BasicInfoDto createBasicInfoDto() {
+        return new BasicInfoDto();
+    }
+
+    /**
      * Create an instance of {@link Userdto }
      * 
      */

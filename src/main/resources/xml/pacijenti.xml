@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pacijenti xmlns="http://www.svj.com/zis/kolekcije" xmlns:osobe="http://www.svj.com/zis/osobe">
-    <osobe:pacijent id="id2">
+    <osobe:pacijent id="http://www.svj.com/zis/osobe/pacijent/1">
+        <osobe:user id="http://www.svj.com/zis/osobe/user/2"/>
         <osobe:zdravstveni_karton broj_zdravstvenog_kartona="zk123"/>
         <osobe:obavestenja></osobe:obavestenja>
     </osobe:pacijent>

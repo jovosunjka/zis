@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <izvestaji xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti">
-    <dokumenti:izvestaj oznaka="iz_oznaka_123" id="iz_id1">
+    <dokumenti:izvestaj oznaka="iz_oznaka_123" id="http://www.svj.com/zis/dokumenti/izvestaj/1">
         <dokumenti:dijagnoza>M051</dokumenti:dijagnoza>
         <dokumenti:anamneza>
             Na osnovu izvestaja
             <dokumenti:link href="http://www.zis.rs/izvestaji/id88" id="http://www.zis.rs/izvestaji/id88"/> i recepta
-            <dokumenti:link href="http://www.zis.rs/recepti/id87" id="http://www.zis.rs/recepti/id87"/> ustanovili smo da se bolest prosirila na sve organe.
+            <dokumenti:link href="http://www.svj.com/zis/dokumenti/lekarski_recept/1" id="http://www.svj.com/zis/dokumenti/lekarski_recept/1"/> ustanovili smo da se bolest prosirila na sve organe.
         </dokumenti:anamneza>
         <dokumenti:terapija>
             Na osnovu izvestaja
             <dokumenti:link href="http://www.zis.rs/izvestaji/id88" id="http://www.zis.rs/izvestaji/id88"/> i recepta
-            <dokumenti:link href="http://www.zis.rs/recepti/id87" id="http://www.zis.rs/recepti/id87"/> ustanovili smo da je potrebno otici kod lekara specijaliste.
+            <dokumenti:link href="http://www.svj.com/zis/dokumenti/lekarski_recept/2" id="http://www.svj.com/zis/dokumenti/lekarski_recept/2"/> ustanovili smo da je potrebno otici kod lekara specijaliste.
         </dokumenti:terapija>
         <dokumenti:datum>2019-06-27</dokumenti:datum>
-        <dokumenti:osigurano_lice id="id2"/>
-        <dokumenti:lekar id="id1"/>
+        <dokumenti:osigurano_lice id="http://www.svj.com/zis/osobe/pacijent/1">
+            <dokumenti:ime></dokumenti:ime>
+            <dokumenti:prezime></dokumenti:prezime>
+        </dokumenti:osigurano_lice>
+        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1">
+            <dokumenti:ime>Pera</dokumenti:ime>
+            <dokumenti:prezime>Peric</dokumenti:prezime>
+        </dokumenti:lekar>
     </dokumenti:izvestaj>
 </izvestaji>

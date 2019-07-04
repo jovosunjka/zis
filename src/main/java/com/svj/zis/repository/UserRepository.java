@@ -10,6 +10,9 @@ import org.xmldb.api.modules.XMLResource;
 
 import org.xmldb.api.modules.XQueryService;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+
 
 @Repository
 public class UserRepository extends ResourceRepository {
@@ -75,7 +78,10 @@ public class UserRepository extends ResourceRepository {
                 XMLResource xmlResource = (XMLResource) resource;
                 System.out.println("[INFO] Binding XML resouce to an JAXB instance: ");
 
-                User user = (User) super.unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+                JAXBContext context = JAXBContext.newInstance("com.svj.zis.model");
+                Unmarshaller unmarshaller = context.createUnmarshaller();
+                //User user = (User) super.unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+                User user = (User) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
                 return user;
             } finally {
 
@@ -92,7 +98,10 @@ public class UserRepository extends ResourceRepository {
     }
 
     public void saveAll() throws Exception {
-        Users users = (Users) super.unmarshaller.unmarshal(usersXml.getFile());
+        JAXBContext context = JAXBContext.newInstance("com.svj.zis.model");
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        //Users users = (Users) super.unmarshaller.unmarshal(usersXml.getFile());
+        Users users = (Users) unmarshaller.unmarshal(usersXml.getFile());
         super.saveAll(collectionId, documentId, users);
     }
 }

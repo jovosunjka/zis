@@ -1,14 +1,19 @@
 package com.svj.zis.service;
 
+import com.svj.zis.model.Lekar;
 import com.svj.zis.model.Pacijent;
+import com.svj.zis.model.User;
 import com.svj.zis.model.ZdravstveniKarton;
 import com.svj.zis.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
+import java.util.Optional;
 
 @Service
 public class PatientServiceImpl implements PatientService {
@@ -40,15 +45,20 @@ public class PatientServiceImpl implements PatientService {
     @Autowired
     private DoctorReceiptService doctorReceiptService;
 
+    @Autowired
+    private UserService userService;
 
-    private ClassPathResource lekariXsl = new ClassPathResource("xsl/lekari.xsl");
-    private ClassPathResource lekarXsl = new ClassPathResource("xsl/lekar.xsl");
-    private ClassPathResource preglediXsl = new ClassPathResource("xsl/pregledi.xsl");
-    private ClassPathResource zdravstveniKartonXsl = new ClassPathResource("xsl/zdravstveni_karton.xsl");
-    private ClassPathResource izvestajiXsl = new ClassPathResource("xsl/izvestaji.xsl");
-    private ClassPathResource uputiZaSpecijalistickiPregledXsl = new ClassPathResource("xsl/uputi_za_specijalisticki_pregled.xsl");
-    private ClassPathResource uputiZaLaboratorijuXsl = new ClassPathResource("xsl/uputi_za_laboratoriju.xsl");
-    private ClassPathResource lekarskiReceptiXsl = new ClassPathResource("xsl/lekarski_recepti.xsl");
+    private String firstPartOfPatientId = "http://www.svj.com/zis/osobe/pacijent/";
+
+
+    private ClassPathResource lekariXsl = new ClassPathResource("xsl/xsl_for_patient_page/lekari.xsl");
+    private ClassPathResource lekarXsl = new ClassPathResource("xsl/xsl_for_patient_page/lekar.xsl");
+    private ClassPathResource preglediXsl = new ClassPathResource("xsl/xsl_for_patient_page/pregledi.xsl");
+    private ClassPathResource zdravstveniKartonXsl = new ClassPathResource("xsl/xsl_for_patient_page/zdravstveni_karton.xsl");
+    private ClassPathResource izvestajiXsl = new ClassPathResource("xsl/xsl_for_patient_page/izvestaji.xsl");
+    private ClassPathResource uputiZaSpecijalistickiPregledXsl = new ClassPathResource("xsl/xsl_for_patient_page/uputi_za_specijalisticki_pregled.xsl");
+    private ClassPathResource uputiZaLaboratorijuXsl = new ClassPathResource("xsl/xsl_for_patient_page/uputi_za_laboratoriju.xsl");
+    private ClassPathResource lekarskiReceptiXsl = new ClassPathResource("xsl/xsl_for_patient_page/lekarski_recepti.xsl");
 
 
     @Override
@@ -70,8 +80,8 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public String getDoctor(String idOfPatient) throws Exception {
-        Pacijent pacijent = patientRepository.findById(idOfPatient);
+    public String getDoctor(String idOfUser) throws Exception {
+        Pacijent pacijent = patientRepository.findByUserId(idOfUser);
         ZdravstveniKarton zdravstveniKarton = healthCardService.getHealthCard(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
         String doctorXml = doctorService.getDoctor(zdravstveniKarton.getOdabraniLekar().getId());
 
@@ -89,14 +99,14 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public void selectDoctor(String idOfPatient, String idOfDoctor) throws Exception {
-        Pacijent pacijent = patientRepository.findById(idOfPatient);
+    public void selectDoctor(String idOfUser, String idOfDoctor) throws Exception {
+        Pacijent pacijent = patientRepository.findByUserId(idOfUser);
         healthCardService.updateChosenDoctor(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona(), idOfDoctor);
     }
 
     @Override
-    public String getFreeReviews(String idOfPatient) throws Exception {
-        Pacijent pacijent = patientRepository.findById(idOfPatient);
+    public String getFreeReviews(String idOfUser) throws Exception {
+        Pacijent pacijent = patientRepository.findByUserId(idOfUser);
         ZdravstveniKarton zdravstveniKarton = healthCardService.getHealthCard(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
         String preglediXml = reviewService.getFreeReviews(zdravstveniKarton.getOdabraniLekar().getId());
 
@@ -114,8 +124,9 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public String getOrderedReviews(String idOfPatient) throws Exception {
-        String preglediXml = reviewService.getOrderedReviews(idOfPatient);
+    public String getOrderedReviews(String idOfUser) throws Exception {
+        Pacijent pacijent = patientRepository.findByUserId(idOfUser);
+        String preglediXml = reviewService.getOrderedReviews(pacijent.getId());
 
         String xHTML = null;
         try {
@@ -131,14 +142,40 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public void orederReview(String idOfPatient, String idOfReview) throws Exception {
-        reviewService.updateReview(idOfPatient, idOfReview);
+    public void orderReview(String idOfUser, String idOfReview) throws Exception {
+        Pacijent pacijent = patientRepository.findByUserId(idOfUser);
+        ZdravstveniKarton zdravstveniKarton = healthCardService.getHealthCard(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
+        reviewService.updateReview(idOfReview, pacijent.getId(), zdravstveniKarton.getPacijentoviPodaci().getIme(),
+                zdravstveniKarton.getPacijentoviPodaci().getPrezime());
     }
 
     @Override
-    public String getHealthCard(String idOfPatient) throws Exception {
-        Pacijent pacijent = patientRepository.findById(idOfPatient);
-        String zdravstveniKartonXml = healthCardService.getHealthCardXml(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
+    public Pacijent getPatientByUserId(String idOfUser) throws Exception {
+        return patientRepository.findByUserId(idOfUser);
+    }
+
+    @Override
+    public Pacijent getPatient(String idOfPatientNum) throws Exception {
+        Pacijent pacijent =  null;
+        if(idOfPatientNum == null) {
+                User loggedUser = userService.getLoggedUser();
+                pacijent = getPatientByUserId(loggedUser.getId());
+        }
+        else {
+            String idOfPatient = firstPartOfPatientId + idOfPatientNum;
+            pacijent = getPatientById(idOfPatient);
+        }
+
+        return pacijent;
+    }
+
+    private Pacijent getPatientById(String idOfPatient) throws Exception {
+        return patientRepository.findByPatientId(idOfPatient);
+    }
+
+    @Override
+    public String getHealthCard(String healthCardNumber) throws Exception {
+        String zdravstveniKartonXml = healthCardService.getHealthCardXml(healthCardNumber);
 
         String xHTML = null;
         try {
@@ -171,9 +208,8 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public String getReferralsForSpecialistExamination(String idOfPatient) throws Exception {
-        Pacijent pacijent = patientRepository.findById(idOfPatient);
-        String uputiZaSpecijalistickiPregledXml = referralForSpecialistExaminationService.getReferralsForSpecialistExamination(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
+    public String getReferralsForSpecialistExamination(String healthCardNumber) throws Exception {
+        String uputiZaSpecijalistickiPregledXml = referralForSpecialistExaminationService.getReferralsForSpecialistExamination(healthCardNumber);
 
         String xHTML = null;
         try {
@@ -189,9 +225,8 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public String getReferralsForLab(String idOfPatient) throws Exception {
-        Pacijent pacijent = patientRepository.findById(idOfPatient);
-        String uputiZaLaboratorijuXml = referralForLabService.getReferralsForLab(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
+    public String getReferralsForLab(String healthCardNumber) throws Exception {
+        String uputiZaLaboratorijuXml = referralForLabService.getReferralsForLab(healthCardNumber);
 
         String xHTML = null;
         try {
@@ -207,9 +242,8 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public String getDoctorRecipes(String idOfPatient) throws Exception {
-        Pacijent pacijent = patientRepository.findById(idOfPatient);
-        String lekarskiReceptiXml = doctorReceiptService.getDoctorRecipes(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
+    public String getDoctorRecipes(String healthCardNumber) throws Exception {
+        String lekarskiReceptiXml = doctorReceiptService.getDoctorRecipes(healthCardNumber);
 
         String xHTML = null;
         try {

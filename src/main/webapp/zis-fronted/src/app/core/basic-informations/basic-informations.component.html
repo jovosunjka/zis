@@ -4,4 +4,4 @@
 <br/>
 <br/>
 
-<div [innerHTML]="xHtmlContetntForSelectedDoctor | safeHtml"></div>
+<div *ngIf="isAllowedDisplaySelectedDoctor()" [innerHTML]="xHtmlContetntForSelectedDoctor | safeHtml"></div>

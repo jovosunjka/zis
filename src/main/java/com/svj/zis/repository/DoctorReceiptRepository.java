@@ -8,6 +8,9 @@ import org.xmldb.api.base.*;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XQueryService;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+
 
 @Repository
 public class DoctorReceiptRepository extends ResourceRepository {
@@ -37,7 +40,10 @@ public class DoctorReceiptRepository extends ResourceRepository {
     }
 
     public void saveAll() throws Exception {
-        LekarskiRecepti lekarskiRecepti = (LekarskiRecepti) super.unmarshaller.unmarshal(lekarskiReceptiXml.getFile());
+        JAXBContext context = JAXBContext.newInstance("com.svj.zis.model");
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        //LekarskiRecepti lekarskiRecepti = (LekarskiRecepti) super.unmarshaller.unmarshal(lekarskiReceptiXml.getFile());
+        LekarskiRecepti lekarskiRecepti = (LekarskiRecepti) unmarshaller.unmarshal(lekarskiReceptiXml.getFile());
         super.saveAll(collectionId, documentId, lekarskiRecepti);
     }
 

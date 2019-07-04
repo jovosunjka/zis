@@ -82,7 +82,14 @@ export class GenericService {
     return this.http.delete(this.baseUrl + relativeUrl + `/${id}` + '/delete');
   }
 
-
+  replaceAllBackSlash(targetStr: string) {
+    let index = targetStr.indexOf('\\');
+    while (index >= 0) {
+      targetStr = targetStr.replace('\\', '');
+      index = targetStr.indexOf('\\');
+    }
+    return targetStr;
+  }
 
 
 }

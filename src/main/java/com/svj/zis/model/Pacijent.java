@@ -24,6 +24,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="user">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
  *         &lt;element name="zdravstveni_karton">
  *           &lt;complexType>
  *             &lt;complexContent>
@@ -69,12 +78,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+    "user",
     "zdravstveniKarton",
     "obavestenja"
 })
 @XmlRootElement(name = "pacijent", namespace = "http://www.svj.com/zis/osobe")
 public class Pacijent {
 
+    @XmlElement(namespace = "http://www.svj.com/zis/osobe", required = true)
+    protected Pacijent.User user;
     @XmlElement(name = "zdravstveni_karton", namespace = "http://www.svj.com/zis/osobe", required = true)
     protected Pacijent.ZdravstveniKarton zdravstveniKarton;
     @XmlElement(namespace = "http://www.svj.com/zis/osobe", required = true)
@@ -82,6 +94,30 @@ public class Pacijent {
     @XmlAttribute(name = "id", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String id;
+
+    /**
+     * Gets the value of the user property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Pacijent.User }
+     *     
+     */
+    public Pacijent.User getUser() {
+        return user;
+    }
+
+    /**
+     * Sets the value of the user property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Pacijent.User }
+     *     
+     */
+    public void setUser(Pacijent.User value) {
+        this.user = value;
+    }
 
     /**
      * Gets the value of the zdravstveniKarton property.
@@ -299,6 +335,58 @@ public class Pacijent {
                 this.datum = value;
             }
 
+        }
+
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "")
+    public static class User {
+
+        @XmlAttribute(name = "id", required = true)
+        @XmlSchemaType(name = "anyURI")
+        protected String id;
+
+        /**
+         * Gets the value of the id property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getId() {
+            return id;
+        }
+
+        /**
+         * Sets the value of the id property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setId(String value) {
+            this.id = value;
         }
 
     }

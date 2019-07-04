@@ -28,4 +28,69 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="basic_info_dto">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="jmbg">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="\d{13,13}"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="lbo">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="\d{11,11}"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="ime" type="xs:string"/>
+                <xs:element name="prezime" type="xs:string"/>
+                <xs:element name="ime_jednog_roditelja" type="xs:string"/>
+                <xs:element name="datum_rodjenja" type="xs:date"/>
+                <xs:element name="ulica" type="xs:string"/>
+                <xs:element name="broj">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                            <xs:minInclusive value="1"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="mesto" type="xs:string"/>
+                <xs:element name="opstina" type="xs:string"/>
+                <xs:element name="telefon" minOccurs="0">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="\d+"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="our" type="xs:string" minOccurs="0"/>
+                <xs:element name="pol" minOccurs="0">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="musko"/>
+                            <xs:enumeration value="zensko"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="bracno_stanje" minOccurs="0">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="neozenjen"/>
+                            <xs:enumeration value="neudata"/>
+                            <xs:enumeration value="ozenjen"/>
+                            <xs:enumeration value="udata"/>
+                            <xs:enumeration value="udovac"/>
+                            <xs:enumeration value="udovica"/>
+                            <xs:enumeration value="razveden"/>
+                            <xs:enumeration value="razvedena"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="osnov_oslobadjanja_od_participacije" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

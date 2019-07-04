@@ -32,7 +32,10 @@ export class OrderReviewComponent implements OnInit {
     this.reviewService.get<string>(this.relativeUrlOrderedReviews).subscribe(
       (receivedXml: string) => {
           if (receivedXml) {
-              this.xHtmlContetntForOrderedReviews = receivedXml.replace(/"/g, ''); // izbacujemo navodnike
+              // this.xHtmlContetntForPatients = receivedXml.replace(/"/g, ''); // izbacujemo navodnike
+              this.xHtmlContetntForOrderedReviews = this.reviewService.replaceAllBackSlash(receivedXml.substring(1,
+                receivedXml.length - 1));
+              // izbacujemo navodnike sa pocetka i kraja, i back-slash-ove
               this.toastr.success('Ordered reviews are successfully loaded!');
           }
           else {
@@ -51,7 +54,10 @@ export class OrderReviewComponent implements OnInit {
     this.reviewService.get<string>(this.relativeUrlFreeReviews).subscribe(
       (receivedXml: string) => {
           if (receivedXml) {
-              this.xHtmlContetntForFreeReviews = receivedXml.replace(/"/g, ''); // izbacujemo navodnike
+               // this.xHtmlContetntForPatients = receivedXml.replace(/"/g, ''); // izbacujemo navodnike
+               this.xHtmlContetntForFreeReviews = this.reviewService.replaceAllBackSlash(receivedXml.substring(1,
+                receivedXml.length - 1));
+              // izbacujemo navodnike sa pocetka i kraja, i back-slash-ove
               this.toastr.success('Free reviews are successfully loaded!');
           }
           else {

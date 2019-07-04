@@ -10,6 +10,9 @@ import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XQueryService;
 import org.xmldb.api.modules.XUpdateQueryService;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+
 
 @Repository
 public class ReviewRepository extends ResourceRepository {
@@ -19,6 +22,7 @@ public class ReviewRepository extends ResourceRepository {
     private ClassPathResource preglediXml = new ClassPathResource("xml/" + documentId);
     private ClassPathResource findFreeReviewsByDoctorIdXQuery = new ClassPathResource("xqueries/find_free_reviews_by_doctor_id.xqy");
     private ClassPathResource findOrderedReviewsByPatientIdXQuery = new ClassPathResource("xqueries/find_ordered_reviews_by_patient_id.xqy");
+    private ClassPathResource findOrderedReviewsByDoctorIdXQuery = new ClassPathResource("xqueries/find_ordered_reviews_by_doctor_id.xqy");
 
 
     public String getAllReviews() {
@@ -41,12 +45,19 @@ public class ReviewRepository extends ResourceRepository {
     }
 
     public void saveAll() throws Exception {
-        Pregledi pregledi = (Pregledi) super.unmarshaller.unmarshal(preglediXml.getFile());
+        JAXBContext context = JAXBContext.newInstance("com.svj.zis.model");
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        //Pregledi pregledi = (Pregledi) super.unmarshaller.unmarshal(preglediXml.getFile());
+        Pregledi pregledi = (Pregledi) unmarshaller.unmarshal(preglediXml.getFile());
         super.saveAll(collectionId, documentId, pregledi);
     }
 
     public String findFreeReviewsByDoctorId(String doctorId) throws Exception {
         return findReviews(findFreeReviewsByDoctorIdXQuery.getFile().getPath(), doctorId);
+    }
+
+    public String findOrderedReviewsByDoctorId(String doctorId) throws Exception {
+        return findReviews(findOrderedReviewsByDoctorIdXQuery.getFile().getPath(), doctorId);
     }
 
     public String findOrederedReviewsByPatientId(String patientId) throws Exception {
@@ -86,7 +97,7 @@ public class ReviewRepository extends ResourceRepository {
 
 
 
-    public void updateReview(String idOfPatient, String idOfReview) throws Exception {
+    public void updateReview(String idOfReview, String idOfPatient, String firstNamePatient, String lastNamePatient) throws Exception {
         Collection collection = getCollection(collectionId);
 
         // get an instance of xupdate query service
@@ -94,17 +105,34 @@ public class ReviewRepository extends ResourceRepository {
         XUpdateQueryService xupdateService = (XUpdateQueryService) collection.getService("XUpdateQueryService", "1.0");
         xupdateService.setProperty("indent", "yes");
 
-        String contextXPath = String.format("/pregledi/dokumenti:pregled[@id = '%s']" +
-                "/dokumenti:pacijent/@id", idOfReview);
+        // update patient's content
+        String contextXPathElement = String.format("/pregledi/dokumenti:pregled[@id = '%s']" +
+                "/dokumenti:pacijent", idOfReview);
 
         // compile and execute xupdate expressions
-        System.out.println("[INFO] Updating " + contextXPath + " node.");
+        System.out.println("[INFO] Updating " + contextXPathElement + " node.");
         String targetNamespace = "http://www.svj.com/zis/kolekcije";
+        String xmlFragment = "<dokumenti:ime>"+ firstNamePatient +"</dokumenti:ime>" +
+                                "<dokumenti:prezime>"+ lastNamePatient +"</dokumenti:prezime>";
         String xUpdateExpression = String.format(XUpdateTemplate.UPDATE, targetNamespace,
-                "xmlns:dokumenti=\"http://www.svj.com/zis/dokumenti\"", contextXPath, idOfPatient);
+                "xmlns:dokumenti=\"http://www.svj.com/zis/dokumenti\"", contextXPathElement, xmlFragment);
         System.out.println("*** xUpdateExpression:");
         System.out.println(xUpdateExpression);
         long mods = xupdateService.updateResource(documentId, xUpdateExpression);
+        System.out.println("[INFO] " + mods + " modifications processed.");
+
+
+        // update patient's id attribute
+        String contextXPathAttribute = String.format("/pregledi/dokumenti:pregled[@id = '%s']" +
+                "/dokumenti:pacijent/@id", idOfReview);
+
+        // compile and execute xupdate expressions
+        System.out.println("[INFO] Updating " + contextXPathAttribute + " node.");
+        xUpdateExpression = String.format(XUpdateTemplate.UPDATE, targetNamespace,
+                "xmlns:dokumenti=\"http://www.svj.com/zis/dokumenti\"", contextXPathAttribute, idOfPatient);
+        System.out.println("*** xUpdateExpression:");
+        System.out.println(xUpdateExpression);
+        mods = xupdateService.updateResource(documentId, xUpdateExpression);
         System.out.println("[INFO] " + mods + " modifications processed.");
     }
 }

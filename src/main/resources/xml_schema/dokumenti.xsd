@@ -1,13 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://www.svj.com/zis/dokumenti" xmlns:osobe="http://www.svj.com/zis/osobe"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.svj.com/zis/dokumenti"
+<xs:schema xmlns="http://www.svj.com/zis/dokumenti" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.svj.com/zis/dokumenti"
     elementFormDefault="qualified">
-    <xs:import namespace="http://www.svj.com/zis/osobe" schemaLocation="osobe.xsd"/>
+
+    <xs:element name="adresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ulica" type="xs:string"/>
+                <xs:element name="broj">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                            <xs:minInclusive value="1"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="mesto" type="xs:string"/>
+                <xs:element name="opstina" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="pacijentovi_podaci">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pacijent">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ime" type="xs:string"/>
+                <xs:element name="prezime" type="xs:string"/>
+                <xs:element name="ime_jednog_roditelja" type="xs:string"/>
+                <xs:element name="datum_rodjenja" type="xs:date"/>
+                <xs:element ref="adresa"/>
+                <xs:element name="telefon" minOccurs="0">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="\d+"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="our" type="xs:string" minOccurs="0"/>
+                <xs:element name="pol" minOccurs="0">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="musko"/>
+                            <xs:enumeration value="zensko"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="bracno_stanje" minOccurs="0">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="neozenjen"/>
+                            <xs:enumeration value="neudata"/>
+                            <xs:enumeration value="ozenjen"/>
+                            <xs:enumeration value="udata"/>
+                            <xs:enumeration value="udovac"/>
+                            <xs:enumeration value="udovica"/>
+                            <xs:enumeration value="razveden"/>
+                            <xs:enumeration value="razvedena"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="osnov_oslobadjanja_od_participacije" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="lbo" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d{11,11}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="jmbg" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d{13,13}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
 
     <xs:element name="zdravstveni_karton">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="osobe:pacijentovi_podaci"/>
+                <xs:element ref="pacijentovi_podaci"/>
                 <xs:element name="odabrani_lekar">
                     <xs:complexType>
                         <xs:attribute name="id" type="xs:anyURI" use="required"/>
@@ -33,7 +110,19 @@
     </xs:element>
     <xs:complexType name="TPodaci_o_osiguranju">
         <xs:sequence>
-            <xs:element name="nosilac_osiguranja" type="osobe:TOsoba"/>
+            <xs:element name="nosilac_osiguranja">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ime" type="xs:string"/>
+                        <xs:element name="prezime" type="xs:string"/>
+                        <xs:element name="pacijent">
+                            <xs:complexType>
+                                <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="osnov_osiguranja" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
@@ -55,19 +144,29 @@
                 </xs:element>
                 <xs:element name="lekar">
                     <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ime" type="xs:string"/>
+                            <xs:element name="prezime" type="xs:string"/>
+                            <xs:element name="potpis_lekara" type="xs:string"/>
+                        </xs:sequence>
                         <xs:attribute name="id" type="xs:anyURI" use="required"/>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="datum" type="xs:date"/>
-                <xs:element name="potpis_lekara" type="xs:string"/>
                 <xs:element name="pecat" type="xs:string"/>
+                <xs:element name="datum" type="xs:date"/>
                 <xs:element name="podaci_o_osiguranju" type="TPodaci_o_osiguranju"/>
                 <xs:element name="specijalista">
                     <xs:complexType>
                         <xs:sequence>
+                            <xs:element name="ime" type="xs:string"/>
+                            <xs:element name="prezime" type="xs:string"/>
+                            <xs:element name="lekar">
+                                <xs:complexType>
+                                    <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
                             <xs:element name="lekar_specijalista_za" type="xs:string"/>
                         </xs:sequence>
-                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="podaci_o_pregledu">
@@ -83,7 +182,19 @@
                 <xs:element name="izvestaj">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="osiguranik" type="osobe:TOsoba"/>
+                            <xs:element name="osiguranik">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ime" type="xs:string"/>
+                                        <xs:element name="prezime" type="xs:string"/>
+                                        <xs:element name="pacijent">
+                                            <xs:complexType>
+                                                <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
                             <xs:element name="boluje_od" type="xs:string"/>
                             <xs:element name="nalaz" type="xs:string"/>
                             <xs:element name="misljenje" type="xs:string"/>
@@ -123,9 +234,36 @@
                 <xs:element name="podaci_o_osiguranju" type="TPodaci_o_osiguranju"/>
                 <xs:element name="klinicka_dijagnoza" type="xs:string"/>
                 <xs:element name="kad_je_uzet_materijal" type="xs:dateTime"/>
-                <xs:element name="ko_salje_materijal" type="osobe:TOsoba"/>
-                <xs:element name="ko_salje_na_pregled" type="osobe:TOsoba"/>
+                <xs:element name="ko_salje_materijal">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ime" type="xs:string"/>
+                            <xs:element name="prezime" type="xs:string"/>
+                            <xs:element name="pacijent">
+                                <xs:complexType>
+                                    <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ko_salje_na_pregled">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ime" type="xs:string"/>
+                            <xs:element name="prezime" type="xs:string"/>
+                            <xs:element name="potpis_lekara" type="xs:string"/>
+                            <xs:element name="lekar">
+                                <xs:complexType>
+                                    <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
                 <xs:element name="tip_pregleda" type="xs:string"/>
+                <xs:element name="pecat" type="xs:string"/>
+                <xs:element name="datum" type="xs:date"/>
             </xs:sequence>
             <xs:attribute name="id" type="xs:anyURI" use="required"/>
             <xs:attribute name="reg_br" use="required">
@@ -139,15 +277,33 @@
     </xs:element>
     <xs:complexType name="TPodaci_o_leku">
         <xs:sequence>
+            <xs:element name="naziv" type="xs:string"/>
             <xs:element name="sifra" type="xs:long"/>
             <xs:element name="datum" type="xs:date"/>
+            <xs:element name="lek">
+                <xs:complexType>
+                    <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                </xs:complexType>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="lekarski_recept">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="osigurano_lice" type="osobe:TOsoba"/>
-                <xs:element name="datum_rodjenja_osiguranog_lica" type="xs:date"/>
+                <xs:element name="osigurano_lice">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ime" type="xs:string"/>
+                            <xs:element name="prezime" type="xs:string"/>
+                            <xs:element name="datum_rodjenja" type="xs:date"/>
+                            <xs:element name="pacijent">
+                                <xs:complexType>
+                                    <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
                 <xs:element ref="ustanova"/>
                 <xs:element name="zdravstveni_karton">
                     <xs:complexType>
@@ -184,9 +340,15 @@
     <xs:element name="podaci_o_lekaru">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="ime" type="xs:string"/>
+                <xs:element name="prezime" type="xs:string"/>
                 <xs:element name="potpis_lekara" type="xs:string"/>
+                <xs:element name="lekar">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
-            <xs:attribute name="id" type="xs:string" use="required"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="ustanova">
@@ -202,12 +364,20 @@
             <xs:sequence>
                 <xs:element name="lekar">
                     <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ime" type="xs:string"/>
+                            <xs:element name="prezime" type="xs:string"/>
+                        </xs:sequence>
                         <xs:attribute name="id" type="xs:anyURI" use="required"/>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="datum_i_vreme" type="xs:dateTime"/>
                 <xs:element name="pacijent">
                     <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ime" type="xs:string"/>
+                            <xs:element name="prezime" type="xs:string"/>
+                        </xs:sequence>
                         <xs:attribute name="id" type="xs:anyURI" use="required"/>
                     </xs:complexType>
                 </xs:element>
@@ -262,11 +432,19 @@
                 </xs:element>
                 <xs:element name="osigurano_lice">
                     <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ime" type="xs:string"/>
+                            <xs:element name="prezime" type="xs:string"/>
+                        </xs:sequence>
                         <xs:attribute name="id" type="xs:anyURI" use="required"/>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="lekar">
                     <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ime" type="xs:string"/>
+                            <xs:element name="prezime" type="xs:string"/>
+                        </xs:sequence>
                         <xs:attribute name="id" type="xs:anyURI" use="required"/>
                     </xs:complexType>
                 </xs:element>

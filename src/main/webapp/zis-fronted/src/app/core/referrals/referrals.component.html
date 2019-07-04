@@ -11,10 +11,10 @@
           </nav>
           <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
               <div class="tab-pane fade show active" id="nav-referral-for-spec-examination" role="tabpanel" aria-labelledby="nav-referral-for-spec-examination-tab">
-                  <app-referrals-for-spec-examination></app-referrals-for-spec-examination>
+                  <app-referrals-for-spec-examination [idOfPatientNum]="idOfPatientNum"></app-referrals-for-spec-examination>
               </div>
               <div class="tab-pane fade" id="nav-referral-for-lab" role="tabpanel" aria-labelledby="nav-referral-for-lab-tab">
-                  <app-referrals-for-lab></app-referrals-for-lab>
+                  <app-referrals-for-lab [idOfPatientNum]="idOfPatientNum"></app-referrals-for-lab>
               </div>
           </div>
       

@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uputi_za_specijalisticki_pregled xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti" 
-    xmlns:osobe="http://www.svj.com/zis/osobe">
-    <dokumenti:uput_za_specijalisticki_pregled id="usp_id1" reg_br="7534128965">
+<uputi_za_specijalisticki_pregled xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti">
+    <dokumenti:uput_za_specijalisticki_pregled id="http://www.svj.com/zis/dokumenti/uput_za_specijalisticki_pregled/1" reg_br="7534128965">
         <dokumenti:zdravstvena_ustanova_koja_salje>Ambulanta na Klisi</dokumenti:zdravstvena_ustanova_koja_salje>
         <dokumenti:zdravstvena_ustanova_koja_prima>Klinicki centar Vojvodine</dokumenti:zdravstvena_ustanova_koja_prima>
         <dokumenti:zdravstveni_karton broj_zdravstvenog_kartona="zk123"/>
-        <dokumenti:lekar id="id1"/>
-        <dokumenti:datum>2019-05-20</dokumenti:datum>
-        <dokumenti:potpis_lekara>ovo je lekarov potpis</dokumenti:potpis_lekara>
+        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1">
+            <dokumenti:ime>Pera</dokumenti:ime>
+            <dokumenti:prezime>Peric</dokumenti:prezime>
+            <dokumenti:potpis_lekara>ovo je lekarov potpis</dokumenti:potpis_lekara>
+        </dokumenti:lekar>
         <dokumenti:pecat>ovo je lekarov pecat</dokumenti:pecat>
+        <dokumenti:datum>2019-05-20</dokumenti:datum>
         <dokumenti:podaci_o_osiguranju>
-            <dokumenti:nosilac_osiguranja id="id2">
-                <osobe:ime>Zika</osobe:ime>
-                <osobe:prezime>Zikic</osobe:prezime>
+            <dokumenti:nosilac_osiguranja>
+                <dokumenti:ime>Zika</dokumenti:ime>
+                <dokumenti:prezime>Zikic</dokumenti:prezime>
+                <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1"/>
             </dokumenti:nosilac_osiguranja>
             <dokumenti:osnov_osiguranja>zaposlen</dokumenti:osnov_osiguranja>
         </dokumenti:podaci_o_osiguranju>
-        <dokumenti:specijalista id="id5">
+        <dokumenti:specijalista>
+            <dokumenti:ime>Djura</dokumenti:ime>
+            <dokumenti:prezime>Djuric</dokumenti:prezime>
+            <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/3"/>
             <dokumenti:lekar_specijalista_za>Uho,grlo i nos</dokumenti:lekar_specijalista_za>
         </dokumenti:specijalista>
         <dokumenti:podaci_o_pregledu>
@@ -26,9 +32,10 @@
             <dokumenti:datum_i_vreme_zavrsetka>2019-06-27T16:00:00</dokumenti:datum_i_vreme_zavrsetka>
         </dokumenti:podaci_o_pregledu>
         <dokumenti:izvestaj>
-            <dokumenti:osiguranik id="id2">
-                <osobe:ime>Zika</osobe:ime>
-                <osobe:prezime>Zikic</osobe:prezime>
+            <dokumenti:osiguranik>
+                <dokumenti:ime>Zika</dokumenti:ime>
+                <dokumenti:prezime>Zikic</dokumenti:prezime>
+                <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1"/>
             </dokumenti:osiguranik>
             <dokumenti:boluje_od>Boli ga uho</dokumenti:boluje_od>
             <dokumenti:nalaz>Ovo je nalaz</dokumenti:nalaz>

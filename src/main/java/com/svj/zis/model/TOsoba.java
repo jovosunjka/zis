@@ -36,7 +36,6 @@ import javax.xml.bind.annotation.XmlType;
     "prezime"
 })
 @XmlSeeAlso({
-    PacijentoviPodaci.class,
     Lekar.class,
     MedicinskiaSestra.class
 })

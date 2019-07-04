@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GenericService } from '../services/generic/generic.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -11,6 +11,10 @@ export class DoctorRecipesComponent implements OnInit {
   xHtmlContetntForDoctorRecipes: string; // dobijen koriscenjem xsl transformacije
   relativeUrlAllDoctorRecipes: string;
 
+  @Input()
+  idOfPatientNum: string;
+
+
   constructor(private doctorRecipesService: GenericService, private toastr: ToastrService) {
     this.relativeUrlAllDoctorRecipes = '/patient/all-recipes';
     this.xHtmlContetntForDoctorRecipes = 'Loading recipes...';
@@ -21,11 +25,17 @@ export class DoctorRecipesComponent implements OnInit {
   }
 
   getAllRecipes () {
+    if (this.idOfPatientNum) {
+      this.relativeUrlAllDoctorRecipes += '/' + this.idOfPatientNum;
+    }
     this.doctorRecipesService.get<string>(this.relativeUrlAllDoctorRecipes).subscribe(
       (receivedXml: string) => {
           if (receivedXml) {
-              this.xHtmlContetntForDoctorRecipes = receivedXml.replace(/"/g, ''); // izbacujemo navodnike
-              this.toastr.success('Recipes for lab are successfully loaded!');
+              // this.xHtmlContetntForPatients = receivedXml.replace(/"/g, ''); // izbacujemo navodnike
+              this.xHtmlContetntForDoctorRecipes = this.doctorRecipesService.replaceAllBackSlash(receivedXml.substring(1,
+                receivedXml.length - 1));
+              // izbacujemo navodnike sa pocetka i kraja, i back-slash-ove
+              this.toastr.success('Recipes are successfully loaded!');
           }
           else {
             this.xHtmlContetntForDoctorRecipes = 'Problem with loading of recipes!';

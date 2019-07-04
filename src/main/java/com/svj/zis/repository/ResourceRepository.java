@@ -26,8 +26,6 @@ import java.nio.file.Paths;
 @Repository
 public class ResourceRepository {
 
-    @Autowired
-    protected Unmarshaller unmarshaller;
 
     public void saveAll(String collectionId, String documentId, Object object) throws Exception {
         AuthenticationUtilities.ConnectionProperties conn = AuthenticationUtilities.loadProperties();

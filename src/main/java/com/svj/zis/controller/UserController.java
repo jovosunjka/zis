@@ -40,7 +40,7 @@ public class UserController {
 
 
     @RequestMapping(value="/login", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<Tokendto> login(@Valid @RequestBody Userdto userDTO) {
+    public ResponseEntity<Tokendto> login(@RequestBody Userdto userDTO) {
         /*String pera = passwordEncoder.encode("pera");
         String zika = passwordEncoder.encode("zika");
         String mika = passwordEncoder.encode("mika");

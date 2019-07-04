@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GenericService } from '../services/generic/generic.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -11,12 +11,18 @@ export class ReportsComponent implements OnInit {
   xHtmlContetntForReports: string; // dobijen koriscenjem xsl transformacije
   relativeUrlAllReports: string;
 
+  @Input()
+  idOfPatientNum: string;
+
   constructor(private reportService: GenericService, private toastr: ToastrService) {
     this.relativeUrlAllReports = '/patient/all-reports';
     this.xHtmlContetntForReports = 'Loading reports...';
    }
 
   ngOnInit() {
+    if (this.idOfPatientNum) {
+      this.relativeUrlAllReports += '/' + this.idOfPatientNum;
+    }
     this.getAllReports();
   }
 
@@ -24,7 +30,10 @@ export class ReportsComponent implements OnInit {
     this.reportService.get<string>(this.relativeUrlAllReports).subscribe(
       (receivedXml: string) => {
           if (receivedXml) {
-              this.xHtmlContetntForReports = receivedXml.replace(/"/g, ''); // izbacujemo navodnike
+              // this.xHtmlContetntForPatients = receivedXml.replace(/"/g, ''); // izbacujemo navodnike
+              this.xHtmlContetntForReports = this.reportService.replaceAllBackSlash(receivedXml.substring(1,
+                receivedXml.length - 1));
+              // izbacujemo navodnike sa pocetka i kraja, i back-slash-ove
               this.toastr.success('Reports are successfully loaded!');
           }
           else {

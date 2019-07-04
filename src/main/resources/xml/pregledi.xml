@@ -1,28 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pregledi xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti">
-    <dokumenti:pregled id="p_id1" tip="opsta_praksa">
-        <dokumenti:lekar id="id5"/>
-        <dokumenti:datum_i_vreme>2019-06-27T16:00:00</dokumenti:datum_i_vreme>
-        <dokumenti:pacijent id="id2"/>
+    <dokumenti:pregled id="http://www.svj.com/zis/dokumenti/pregled/1" tip="opsta_praksa">
+        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/3">
+            <dokumenti:ime>Djura</dokumenti:ime>
+            <dokumenti:prezime>Djuric</dokumenti:prezime>
+        </dokumenti:lekar>
+        <dokumenti:datum_i_vreme>2019-07-27T16:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1">
+            <dokumenti:ime>Zika</dokumenti:ime>
+            <dokumenti:prezime>Zikic</dokumenti:prezime>
+        </dokumenti:pacijent>
     </dokumenti:pregled>
-    <dokumenti:pregled id="p_id2" tip="specijalista">
-        <dokumenti:lekar id="id3"/>
-        <dokumenti:datum_i_vreme>2019-06-28T15:00:00</dokumenti:datum_i_vreme>
-        <dokumenti:pacijent id=""/>
+    <dokumenti:pregled id="http://www.svj.com/zis/dokumenti/pregled/2" tip="specijalista">
+        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/2">
+            <dokumenti:ime>Mika</dokumenti:ime>
+            <dokumenti:prezime>Mikic</dokumenti:prezime>
+        </dokumenti:lekar>
+        <dokumenti:datum_i_vreme>2019-07-28T15:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:pacijent id="">
+            <dokumenti:ime></dokumenti:ime>
+            <dokumenti:prezime></dokumenti:prezime>
+        </dokumenti:pacijent>
     </dokumenti:pregled>
-    <dokumenti:pregled id="p_id3" tip="opsta_praksa">
-        <dokumenti:lekar id="id1"/>
-        <dokumenti:datum_i_vreme>2019-06-29T14:00:00</dokumenti:datum_i_vreme>
-        <dokumenti:pacijent id=""/>
+    <dokumenti:pregled id="http://www.svj.com/zis/dokumenti/pregled/3" tip="opsta_praksa">
+        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1">
+            <dokumenti:ime>Pera</dokumenti:ime>
+            <dokumenti:prezime>Peric</dokumenti:prezime>
+        </dokumenti:lekar>
+        <dokumenti:datum_i_vreme>2019-07-29T14:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:pacijent id="">
+            <dokumenti:ime></dokumenti:ime>
+            <dokumenti:prezime></dokumenti:prezime>
+        </dokumenti:pacijent>
     </dokumenti:pregled>
-    <dokumenti:pregled id="p_id4" tip="specijalista">
-        <dokumenti:lekar id="id5"/>
-        <dokumenti:datum_i_vreme>2019-06-30T13:00:00</dokumenti:datum_i_vreme>
-        <dokumenti:pacijent id=""/>
+    <dokumenti:pregled id="http://www.svj.com/zis/dokumenti/pregled/4" tip="specijalista">
+        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/3">
+            <dokumenti:ime>Djura</dokumenti:ime>
+            <dokumenti:prezime>Djuric</dokumenti:prezime>
+        </dokumenti:lekar>
+        <dokumenti:datum_i_vreme>2019-07-30T13:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:pacijent id="">
+            <dokumenti:ime></dokumenti:ime>
+            <dokumenti:prezime></dokumenti:prezime>
+        </dokumenti:pacijent>
     </dokumenti:pregled>
-    <dokumenti:pregled id="p_id5" tip="opsta_praksa">
-        <dokumenti:lekar id="id3"/>
-        <dokumenti:datum_i_vreme>2019-07-01T12:00:00</dokumenti:datum_i_vreme>
-        <dokumenti:pacijent id=""/>
+    <dokumenti:pregled id="http://www.svj.com/zis/dokumenti/pregled/5" tip="opsta_praksa">
+        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/2">
+            <dokumenti:ime>Mika</dokumenti:ime>
+            <dokumenti:prezime>Mikic</dokumenti:prezime>
+        </dokumenti:lekar>
+        <dokumenti:datum_i_vreme>2019-07-015T12:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:pacijent id="">
+            <dokumenti:ime></dokumenti:ime>
+            <dokumenti:prezime></dokumenti:prezime>
+        </dokumenti:pacijent>
     </dokumenti:pregled>
 </pregledi>

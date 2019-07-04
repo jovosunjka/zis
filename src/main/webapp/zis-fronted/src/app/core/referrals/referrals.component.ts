@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-referrals',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./referrals.component.css']
 })
 export class ReferralsComponent implements OnInit {
+
+  @Input()
+  idOfPatientNum: string;
 
   constructor() { }
 

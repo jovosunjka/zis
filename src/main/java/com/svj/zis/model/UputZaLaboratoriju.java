@@ -41,9 +41,52 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="podaci_o_osiguranju" type="{http://www.svj.com/zis/dokumenti}TPodaci_o_osiguranju"/>
  *         &lt;element name="klinicka_dijagnoza" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="kad_je_uzet_materijal" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
- *         &lt;element name="ko_salje_materijal" type="{http://www.svj.com/zis/osobe}TOsoba"/>
- *         &lt;element name="ko_salje_na_pregled" type="{http://www.svj.com/zis/osobe}TOsoba"/>
+ *         &lt;element name="ko_salje_materijal">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="ime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *                   &lt;element name="prezime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *                   &lt;element name="pacijent">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="ko_salje_na_pregled">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="ime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *                   &lt;element name="prezime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *                   &lt;element name="potpis_lekara" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *                   &lt;element name="lekar">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
  *         &lt;element name="tip_pregleda" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="pecat" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="datum" type="{http://www.w3.org/2001/XMLSchema}date"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
  *       &lt;attribute name="reg_br" use="required">
@@ -70,7 +113,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "kadJeUzetMaterijal",
     "koSaljeMaterijal",
     "koSaljeNaPregled",
-    "tipPregleda"
+    "tipPregleda",
+    "pecat",
+    "datum"
 })
 @XmlRootElement(name = "uput_za_laboratoriju")
 public class UputZaLaboratoriju {
@@ -89,11 +134,16 @@ public class UputZaLaboratoriju {
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar kadJeUzetMaterijal;
     @XmlElement(name = "ko_salje_materijal", required = true)
-    protected TOsoba koSaljeMaterijal;
+    protected UputZaLaboratoriju.KoSaljeMaterijal koSaljeMaterijal;
     @XmlElement(name = "ko_salje_na_pregled", required = true)
-    protected TOsoba koSaljeNaPregled;
+    protected UputZaLaboratoriju.KoSaljeNaPregled koSaljeNaPregled;
     @XmlElement(name = "tip_pregleda", required = true)
     protected String tipPregleda;
+    @XmlElement(required = true)
+    protected String pecat;
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "date")
+    protected XMLGregorianCalendar datum;
     @XmlAttribute(name = "id", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String id;
@@ -249,10 +299,10 @@ public class UputZaLaboratoriju {
      * 
      * @return
      *     possible object is
-     *     {@link TOsoba }
+     *     {@link UputZaLaboratoriju.KoSaljeMaterijal }
      *     
      */
-    public TOsoba getKoSaljeMaterijal() {
+    public UputZaLaboratoriju.KoSaljeMaterijal getKoSaljeMaterijal() {
         return koSaljeMaterijal;
     }
 
@@ -261,10 +311,10 @@ public class UputZaLaboratoriju {
      * 
      * @param value
      *     allowed object is
-     *     {@link TOsoba }
+     *     {@link UputZaLaboratoriju.KoSaljeMaterijal }
      *     
      */
-    public void setKoSaljeMaterijal(TOsoba value) {
+    public void setKoSaljeMaterijal(UputZaLaboratoriju.KoSaljeMaterijal value) {
         this.koSaljeMaterijal = value;
     }
 
@@ -273,10 +323,10 @@ public class UputZaLaboratoriju {
      * 
      * @return
      *     possible object is
-     *     {@link TOsoba }
+     *     {@link UputZaLaboratoriju.KoSaljeNaPregled }
      *     
      */
-    public TOsoba getKoSaljeNaPregled() {
+    public UputZaLaboratoriju.KoSaljeNaPregled getKoSaljeNaPregled() {
         return koSaljeNaPregled;
     }
 
@@ -285,10 +335,10 @@ public class UputZaLaboratoriju {
      * 
      * @param value
      *     allowed object is
-     *     {@link TOsoba }
+     *     {@link UputZaLaboratoriju.KoSaljeNaPregled }
      *     
      */
-    public void setKoSaljeNaPregled(TOsoba value) {
+    public void setKoSaljeNaPregled(UputZaLaboratoriju.KoSaljeNaPregled value) {
         this.koSaljeNaPregled = value;
     }
 
@@ -314,6 +364,54 @@ public class UputZaLaboratoriju {
      */
     public void setTipPregleda(String value) {
         this.tipPregleda = value;
+    }
+
+    /**
+     * Gets the value of the pecat property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPecat() {
+        return pecat;
+    }
+
+    /**
+     * Sets the value of the pecat property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPecat(String value) {
+        this.pecat = value;
+    }
+
+    /**
+     * Gets the value of the datum property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getDatum() {
+        return datum;
+    }
+
+    /**
+     * Sets the value of the datum property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setDatum(XMLGregorianCalendar value) {
+        this.datum = value;
     }
 
     /**
@@ -362,6 +460,376 @@ public class UputZaLaboratoriju {
      */
     public void setRegBr(String value) {
         this.regBr = value;
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="ime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+     *         &lt;element name="prezime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+     *         &lt;element name="pacijent">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "ime",
+        "prezime",
+        "pacijent"
+    })
+    public static class KoSaljeMaterijal {
+
+        @XmlElement(required = true)
+        protected String ime;
+        @XmlElement(required = true)
+        protected String prezime;
+        @XmlElement(required = true)
+        protected UputZaLaboratoriju.KoSaljeMaterijal.Pacijent pacijent;
+
+        /**
+         * Gets the value of the ime property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getIme() {
+            return ime;
+        }
+
+        /**
+         * Sets the value of the ime property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setIme(String value) {
+            this.ime = value;
+        }
+
+        /**
+         * Gets the value of the prezime property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getPrezime() {
+            return prezime;
+        }
+
+        /**
+         * Sets the value of the prezime property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setPrezime(String value) {
+            this.prezime = value;
+        }
+
+        /**
+         * Gets the value of the pacijent property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link UputZaLaboratoriju.KoSaljeMaterijal.Pacijent }
+         *     
+         */
+        public UputZaLaboratoriju.KoSaljeMaterijal.Pacijent getPacijent() {
+            return pacijent;
+        }
+
+        /**
+         * Sets the value of the pacijent property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link UputZaLaboratoriju.KoSaljeMaterijal.Pacijent }
+         *     
+         */
+        public void setPacijent(UputZaLaboratoriju.KoSaljeMaterijal.Pacijent value) {
+            this.pacijent = value;
+        }
+
+
+        /**
+         * <p>Java class for anonymous complex type.
+         * 
+         * <p>The following schema fragment specifies the expected content contained within this class.
+         * 
+         * <pre>
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
+         * </pre>
+         * 
+         * 
+         */
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "")
+        public static class Pacijent {
+
+            @XmlAttribute(name = "id", required = true)
+            @XmlSchemaType(name = "anyURI")
+            protected String id;
+
+            /**
+             * Gets the value of the id property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getId() {
+                return id;
+            }
+
+            /**
+             * Sets the value of the id property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setId(String value) {
+                this.id = value;
+            }
+
+        }
+
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="ime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+     *         &lt;element name="prezime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+     *         &lt;element name="potpis_lekara" type="{http://www.w3.org/2001/XMLSchema}string"/>
+     *         &lt;element name="lekar">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "ime",
+        "prezime",
+        "potpisLekara",
+        "lekar"
+    })
+    public static class KoSaljeNaPregled {
+
+        @XmlElement(required = true)
+        protected String ime;
+        @XmlElement(required = true)
+        protected String prezime;
+        @XmlElement(name = "potpis_lekara", required = true)
+        protected String potpisLekara;
+        @XmlElement(required = true)
+        protected UputZaLaboratoriju.KoSaljeNaPregled.Lekar lekar;
+
+        /**
+         * Gets the value of the ime property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getIme() {
+            return ime;
+        }
+
+        /**
+         * Sets the value of the ime property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setIme(String value) {
+            this.ime = value;
+        }
+
+        /**
+         * Gets the value of the prezime property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getPrezime() {
+            return prezime;
+        }
+
+        /**
+         * Sets the value of the prezime property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setPrezime(String value) {
+            this.prezime = value;
+        }
+
+        /**
+         * Gets the value of the potpisLekara property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getPotpisLekara() {
+            return potpisLekara;
+        }
+
+        /**
+         * Sets the value of the potpisLekara property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setPotpisLekara(String value) {
+            this.potpisLekara = value;
+        }
+
+        /**
+         * Gets the value of the lekar property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link UputZaLaboratoriju.KoSaljeNaPregled.Lekar }
+         *     
+         */
+        public UputZaLaboratoriju.KoSaljeNaPregled.Lekar getLekar() {
+            return lekar;
+        }
+
+        /**
+         * Sets the value of the lekar property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link UputZaLaboratoriju.KoSaljeNaPregled.Lekar }
+         *     
+         */
+        public void setLekar(UputZaLaboratoriju.KoSaljeNaPregled.Lekar value) {
+            this.lekar = value;
+        }
+
+
+        /**
+         * <p>Java class for anonymous complex type.
+         * 
+         * <p>The following schema fragment specifies the expected content contained within this class.
+         * 
+         * <pre>
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
+         * </pre>
+         * 
+         * 
+         */
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "")
+        public static class Lekar {
+
+            @XmlAttribute(name = "id", required = true)
+            @XmlSchemaType(name = "anyURI")
+            protected String id;
+
+            /**
+             * Gets the value of the id property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getId() {
+                return id;
+            }
+
+            /**
+             * Sets the value of the id property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setId(String value) {
+                this.id = value;
+            }
+
+        }
+
     }
 
 

@@ -8,6 +8,9 @@ import org.xmldb.api.base.*;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XQueryService;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+
 
 @Repository
 public class ReferralForSpecialistExaminationRepository extends ResourceRepository {
@@ -38,7 +41,10 @@ public class ReferralForSpecialistExaminationRepository extends ResourceReposito
     }
 
     public void saveAll() throws Exception {
-        UputiZaSpecijalistickiPregled uputiZaSpecijalistickiPregled = (UputiZaSpecijalistickiPregled) super.unmarshaller.unmarshal(uputiZaSpecijalistickiPregledXml.getFile());
+        JAXBContext context = JAXBContext.newInstance("com.svj.zis.model");
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        //UputiZaSpecijalistickiPregled uputiZaSpecijalistickiPregled = (UputiZaSpecijalistickiPregled) super.unmarshaller.unmarshal(uputiZaSpecijalistickiPregledXml.getFile());
+        UputiZaSpecijalistickiPregled uputiZaSpecijalistickiPregled = (UputiZaSpecijalistickiPregled) unmarshaller.unmarshal(uputiZaSpecijalistickiPregledXml.getFile());
         super.saveAll(collectionId, documentId, uputiZaSpecijalistickiPregled);
     }
 

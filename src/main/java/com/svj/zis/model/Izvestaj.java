@@ -86,6 +86,10 @@ import javax.xml.namespace.QName;
  *           &lt;complexType>
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="ime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *                   &lt;element name="prezime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *                 &lt;/sequence>
  *                 &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
  *               &lt;/restriction>
  *             &lt;/complexContent>
@@ -95,6 +99,10 @@ import javax.xml.namespace.QName;
  *           &lt;complexType>
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="ime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *                   &lt;element name="prezime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *                 &lt;/sequence>
  *                 &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
  *               &lt;/restriction>
  *             &lt;/complexContent>
@@ -389,8 +397,8 @@ public class Izvestaj {
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link String }
          * {@link JAXBElement }{@code <}{@link Izvestaj.Anamneza.Link }{@code >}
+         * {@link String }
          * 
          * 
          */
@@ -560,6 +568,10 @@ public class Izvestaj {
      * &lt;complexType>
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="ime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+     *         &lt;element name="prezime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+     *       &lt;/sequence>
      *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
      *     &lt;/restriction>
      *   &lt;/complexContent>
@@ -569,12 +581,67 @@ public class Izvestaj {
      * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "")
+    @XmlType(name = "", propOrder = {
+        "ime",
+        "prezime"
+    })
     public static class Lekar {
 
+        @XmlElement(required = true)
+        protected String ime;
+        @XmlElement(required = true)
+        protected String prezime;
         @XmlAttribute(name = "id", required = true)
         @XmlSchemaType(name = "anyURI")
         protected String id;
+
+        /**
+         * Gets the value of the ime property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getIme() {
+            return ime;
+        }
+
+        /**
+         * Sets the value of the ime property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setIme(String value) {
+            this.ime = value;
+        }
+
+        /**
+         * Gets the value of the prezime property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getPrezime() {
+            return prezime;
+        }
+
+        /**
+         * Sets the value of the prezime property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setPrezime(String value) {
+            this.prezime = value;
+        }
 
         /**
          * Gets the value of the id property.
@@ -612,6 +679,10 @@ public class Izvestaj {
      * &lt;complexType>
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="ime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+     *         &lt;element name="prezime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+     *       &lt;/sequence>
      *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
      *     &lt;/restriction>
      *   &lt;/complexContent>
@@ -621,12 +692,67 @@ public class Izvestaj {
      * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "")
+    @XmlType(name = "", propOrder = {
+        "ime",
+        "prezime"
+    })
     public static class OsiguranoLice {
 
+        @XmlElement(required = true)
+        protected String ime;
+        @XmlElement(required = true)
+        protected String prezime;
         @XmlAttribute(name = "id", required = true)
         @XmlSchemaType(name = "anyURI")
         protected String id;
+
+        /**
+         * Gets the value of the ime property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getIme() {
+            return ime;
+        }
+
+        /**
+         * Sets the value of the ime property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setIme(String value) {
+            this.ime = value;
+        }
+
+        /**
+         * Gets the value of the prezime property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getPrezime() {
+            return prezime;
+        }
+
+        /**
+         * Sets the value of the prezime property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setPrezime(String value) {
+            this.prezime = value;
+        }
 
         /**
          * Gets the value of the id property.

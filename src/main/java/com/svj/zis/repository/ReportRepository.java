@@ -9,6 +9,9 @@ import org.xmldb.api.base.*;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XQueryService;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+
 @Repository
 public class ReportRepository extends ResourceRepository {
 
@@ -38,7 +41,10 @@ public class ReportRepository extends ResourceRepository {
     }
 
     public void saveAll() throws Exception {
-        Izvestaji izvestaji = (Izvestaji) super.unmarshaller.unmarshal(izvestajiXml.getFile());
+        JAXBContext context = JAXBContext.newInstance("com.svj.zis.model");
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        //Izvestaji izvestaji = (Izvestaji) super.unmarshaller.unmarshal(izvestajiXml.getFile());
+        Izvestaji izvestaji = (Izvestaji) unmarshaller.unmarshal(izvestajiXml.getFile());
         super.saveAll(collectionId, documentId, izvestaji);
     }
 

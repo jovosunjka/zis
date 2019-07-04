@@ -3,7 +3,6 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:kolekcije="http://www.svj.com/zis/kolekcije"
     xmlns:dokumenti="http://www.svj.com/zis/dokumenti"
-    xmlns:osobe="http://www.svj.com/zis/osobe"
     exclude-result-prefixes="xs"
     version="2.0">
     
@@ -11,7 +10,7 @@
             <xsl:for-each select="kolekcije:lekarski_recepti/dokumenti:lekarski_recept">
                 <br/>
                 <br/>
-                <table>
+                <table border-collapse="collapse" border="1px solid red">
                     <tr>
                         <td><b>- Id:</b></td> <td><xsl:value-of select="@id"/></td>
                     </tr>
@@ -33,19 +32,19 @@
                         <td>
                             <table>
                                 <tr>
-                                    <td><b>- Id:</b></td> <td><xsl:value-of select="dokumenti:osigurano_lice/@id"/></td>
+                                    <td><b>- Id:</b></td> <td><xsl:value-of select="dokumenti:osigurano_lice/dokumenti:pacijent/@id"/></td>
                                 </tr>
                                 <tr>
-                                    <td><b>- First Name:</b></td> <td><xsl:value-of select="dokumenti:osigurano_lice/osobe:ime"/></td>
+                                    <td><b>- First Name:</b></td> <td><xsl:value-of select="dokumenti:osigurano_lice/dokumenti:ime"/></td>
                                 </tr>
                                 <tr>
-                                    <td><b>- Last Name:</b></td> <td><xsl:value-of select="dokumenti:osigurano_lice/osobe:prezime"/></td>
+                                    <td><b>- Last Name:</b></td> <td><xsl:value-of select="dokumenti:osigurano_lice/dokumenti:prezime"/></td>
+                                </tr>
+                                <tr>
+                                    <td><b>- Date Of Birth:</b></td> <td><xsl:value-of select="dokumenti:osigurano_lice/dokumenti:datum_rodjenja"/></td>
                                 </tr>
                             </table>
                         </td>
-                    </tr>
-                    <tr>
-                        <td><b>- Date Of Birth:</b></td> <td><xsl:value-of select="dokumenti:datum_rodjenja_osiguranog_lica"/></td>
                     </tr>
                     <tr>
                         <td><b>- Institution:</b></td>
@@ -70,10 +69,16 @@
                         <td>
                             <table>
                                 <tr>
-                                    <td><b>- Id:</b></td> <td><xsl:value-of select="dokumenti:podaci_o_lekaru/@id"/></td>
+                                    <td><b>- Id:</b></td> <td><xsl:value-of select="dokumenti:podaci_o_lekaru/dokumenti:lekar/@id"/></td>
                                 </tr>
                                 <tr>
-                                    <td><b>- Doctor's Signature:</b></td> <td><xsl:value-of select="dokumenti:potpis_lekara"/></td>
+                                    <td><b>- First Name:</b></td> <td><xsl:value-of select="dokumenti:podaci_o_lekaru/dokumenti:ime"/></td>
+                                </tr>
+                                <tr>
+                                    <td><b>- Last name:</b></td> <td><xsl:value-of select="dokumenti:podaci_o_lekaru/dokumenti:prezime"/></td>
+                                </tr>
+                                <tr>
+                                    <td><b>- Doctor's Signature:</b></td> <td><xsl:value-of select="dokumenti:podaci_o_lekaru/dokumenti:potpis_lekara"/></td>
                                 </tr>
                             </table>
                         </td>
@@ -84,7 +89,13 @@
                         <td>
                             <table>
                                 <tr>
-                                    <td><b>- Code:</b></td> <td><xsl:value-of select="dokumenti:propisani_lek/@sifra"/></td>
+                                    <td><b>- Id:</b></td> <td><xsl:value-of select="dokumenti:propisani_lek/dokumenti:lek/@id"/></td>
+                                </tr>
+                                <tr>
+                                    <td><b>- Name:</b></td> <td><xsl:value-of select="dokumenti:propisani_lek/dokumenti:naziv"/></td>
+                                </tr>
+                                <tr>
+                                    <td><b>- Code:</b></td> <td><xsl:value-of select="dokumenti:propisani_lek/dokumenti:sifra"/></td>
                                 </tr>
                                 <tr>
                                     <td><b>- Date:</b></td> <td><xsl:value-of select="dokumenti:propisani_lek/dokumenti:datum"/></td>
@@ -98,7 +109,13 @@
                         <td>
                             <table>
                                 <tr>
-                                    <td><b>- Code:</b></td> <td><xsl:value-of select="dokumenti:izdati_lek/@sifra"/></td>
+                                    <td><b>- Id:</b></td> <td><xsl:value-of select="dokumenti:izdati_lek/dokumenti:lek/@id"/></td>
+                                </tr>
+                                <tr>
+                                    <td><b>- Name:</b></td> <td><xsl:value-of select="dokumenti:izdati_lek/dokumenti:naziv"/></td>
+                                </tr>
+                                <tr>
+                                    <td><b>- Code:</b></td> <td><xsl:value-of select="dokumenti:izdati_lek/dokumenti:sifra"/></td>
                                 </tr>
                                 <tr>
                                     <td><b>- Date:</b></td> <td><xsl:value-of select="dokumenti:izdati_lek/dokumenti:datum"/></td>
@@ -129,39 +146,6 @@
                 </table>
             </xsl:for-each>
 
-    </xsl:template>
-
-    <xsl:template match="dokumenti:anamneza">
-        <p>
-            <xsl:apply-templates />
-        </p>
-    </xsl:template>
-
-    <xsl:template match="dokumenti:terapija">
-        <p>
-            <xsl:apply-templates />
-        </p>
-    </xsl:template>
-
-    <xsl:template match="dokumenti:anamneza//text()">
-        <xsl:copy-of select="." />
-    </xsl:template>
-    <xsl:template match="dokumenti:terapija//text()">
-        <xsl:copy-of select="." />
-    </xsl:template>
-
-    <xsl:template match="dokumenti:anamneza//dokumenti:link">
-        <a href="{@href}">
-            <xsl:value-of select="@href"/>
-            <!--<xsl:apply-templates />-->
-        </a>
-    </xsl:template>
-
-    <xsl:template match="dokumenti:terapija//dokumenti:link">
-        <a href="{@href}">
-            <xsl:value-of select="@href"/>
-            <!--<xsl:apply-templates />-->
-        </a>
     </xsl:template>
     
 </xsl:stylesheet>

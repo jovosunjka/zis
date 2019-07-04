@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <medicinske_sestre xmlns="http://www.svj.com/zis/kolekcije" xmlns:osobe="http://www.svj.com/zis/osobe">
-    <osobe:medicinskia_sestra id="id4">
+    <osobe:medicinskia_sestra id="http://www.svj.com/zis/osobe/medicinskia_sestra/1">
         <osobe:ime>Sima</osobe:ime>
         <osobe:prezime>Simic</osobe:prezime>
+        <osobe:user id="http://www.svj.com/zis/osobe/user/4"/>
     </osobe:medicinskia_sestra>
 </medicinske_sestre>

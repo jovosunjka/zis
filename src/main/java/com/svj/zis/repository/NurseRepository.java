@@ -5,6 +5,9 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.modules.XMLResource;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+
 
 @Repository
 public class NurseRepository extends ResourceRepository {
@@ -33,7 +36,10 @@ public class NurseRepository extends ResourceRepository {
     }
 
     public void saveAll() throws Exception {
-        MedicinskeSestre medicinskeSestre = (MedicinskeSestre) super.unmarshaller.unmarshal(medicinskeSestrXml.getFile());
+        JAXBContext context = JAXBContext.newInstance("com.svj.zis.model");
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        //MedicinskeSestre medicinskeSestre = (MedicinskeSestre) super.unmarshaller.unmarshal(medicinskeSestrXml.getFile());
+        MedicinskeSestre medicinskeSestre = (MedicinskeSestre) unmarshaller.unmarshal(medicinskeSestrXml.getFile());
         super.saveAll(collectionId, documentId, medicinskeSestre);
     }
 }

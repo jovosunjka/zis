@@ -9,6 +9,9 @@ export class HealthCardComponent implements OnInit {
   @Input()
   xHtmlContetntForSelectedDoctor: string; // dobijen koriscenjem xsl transformacije
 
+  @Input()
+  idOfPatientNum: string;
+
   constructor() { }
 
   ngOnInit() {

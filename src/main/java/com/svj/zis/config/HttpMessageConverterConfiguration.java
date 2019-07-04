@@ -1,5 +1,6 @@
 package com.svj.zis.config;
 
+import com.svj.zis.dto.BasicInfoDto;
 import com.svj.zis.dto.Tokendto;
 import com.svj.zis.dto.Userdto;
 import com.svj.zis.model.Lekari;
@@ -53,7 +54,7 @@ public class HttpMessageConverterConfiguration {
         Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
         // https://www.baeldung.com/spring-classpath-file-access
         jaxb2Marshaller.setSchemas(new ClassPathResource("xml_schema/dto.xsd"), new ClassPathResource("xml_schema/kolekcije.xsd"));
-        jaxb2Marshaller.setClassesToBeBound(Userdto.class, Tokendto.class/*, Lekari.class*/);
+        jaxb2Marshaller.setClassesToBeBound(Userdto.class, Tokendto.class, BasicInfoDto.class/*, Lekari.class*/);
         return jaxb2Marshaller;
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns="http://www.svj.com/zis/kolekcije" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:osobe="http://www.svj.com/zis/osobe"
-           xmlns:dokumenti="http://www.svj.com/zis/dokumenti" elementFormDefault="qualified" targetNamespace="http://www.svj.com/zis/kolekcije">
+    xmlns:dokumenti="http://www.svj.com/zis/dokumenti" elementFormDefault="qualified" targetNamespace="http://www.svj.com/zis/kolekcije">
     <xs:import namespace="http://www.svj.com/zis/osobe" schemaLocation="osobe.xsd"/>
     <xs:import namespace="http://www.svj.com/zis/dokumenti" schemaLocation="dokumenti.xsd"/>
     <xs:element name="users">
@@ -10,7 +10,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
+    
     <xs:element name="lekari">
         <xs:complexType>
             <xs:sequence>
@@ -18,7 +18,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
+    
     <xs:element name="pacijenti">
         <xs:complexType>
             <xs:sequence>
@@ -26,7 +26,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
+    
     <xs:element name="medicinske_sestre">
         <xs:complexType>
             <xs:sequence>
@@ -34,7 +34,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
+    
     <xs:element name="zdravstveni_kartoni">
         <xs:complexType>
             <xs:sequence>
@@ -42,7 +42,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
+    
     <xs:element name="uputi_za_specijalisticki_pregled">
         <xs:complexType>
             <xs:sequence>
@@ -50,7 +50,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
+    
     <xs:element name="uputi_za_laboratoriju">
         <xs:complexType>
             <xs:sequence>
@@ -58,7 +58,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
+    
     <xs:element name="pregledi">
         <xs:complexType>
             <xs:sequence>
@@ -66,7 +66,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
+    
     <xs:element name="lekarski_recepti">
         <xs:complexType>
             <xs:sequence>
@@ -74,7 +74,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
+    
     <xs:element name="izvestaji">
         <xs:complexType>
             <xs:sequence>

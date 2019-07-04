@@ -8,6 +8,9 @@ import org.xmldb.api.base.*;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XQueryService;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+
 
 @Repository
 public class ReferralForLabRepository extends ResourceRepository {
@@ -38,7 +41,10 @@ public class ReferralForLabRepository extends ResourceRepository {
     }
 
     public void saveAll() throws Exception {
-        UputiZaLaboratoriju uputiZaLaboratoriju = (UputiZaLaboratoriju) super.unmarshaller.unmarshal(uputiZaLaboratorijuXml.getFile());
+        JAXBContext context = JAXBContext.newInstance("com.svj.zis.model");
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        //UputiZaLaboratoriju uputiZaLaboratoriju = (UputiZaLaboratoriju) super.unmarshaller.unmarshal(uputiZaLaboratorijuXml.getFile());
+        UputiZaLaboratoriju uputiZaLaboratoriju = (UputiZaLaboratoriju) unmarshaller.unmarshal(uputiZaLaboratorijuXml.getFile());
         super.saveAll(collectionId, documentId, uputiZaLaboratoriju);
     }
 

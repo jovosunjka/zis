@@ -34,8 +34,10 @@ export class ChooseDoctorComponent implements OnInit {
     this.doctorService.get<string>(this.relativeUrlAllDoctors).subscribe(
       (receivedXml: string) => {
           if (receivedXml) {
-              this.xHtmlContetntForDoctors = receivedXml.replace(/"/g, ''); // izbacujemo navodnike
-              this.toastr.success('Doctors are successfully loaded!');
+               // this.xHtmlContetntForPatients = receivedXml.replace(/"/g, ''); // izbacujemo navodnike
+               this.xHtmlContetntForDoctors = this.doctorService.replaceAllBackSlash(receivedXml.substring(1,
+                receivedXml.length - 1));
+              // izbacujemo navodnike sa pocetka i kraja, i back-slash-ove
           }
           else {
             this.xHtmlContetntForDoctors = 'Problem with loading of doctors!';

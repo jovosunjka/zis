@@ -1,5 +1,6 @@
 package com.svj.zis.controller;
 
+import com.svj.zis.model.Pacijent;
 import com.svj.zis.model.User;
 import com.svj.zis.service.PatientService;
 import com.svj.zis.service.UserService;
@@ -8,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @CrossOrigin // enable CORS at Spring Security level (https://spring.io/blog/2015/06/08/cors-support-in-spring-framework)
 // U /com/svj/zis/security/SecurityConfigura.java moramo ukljuciti CORS da bismo u Controller-ima mogli koristiti @CrossOrigin anotacije
@@ -21,6 +24,8 @@ public class PatientController {
 
     @Autowired
     private UserService userService;
+
+    private String firstPartOfPatientId = "http://www.svj.com/zis/osobe/pacijent/";
 
 
     @RequestMapping(value = "/all-doctors", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
@@ -114,7 +119,7 @@ public class PatientController {
         }
 
         try {
-            patientService.orederReview(loggedUser.getId(), idOfReview);
+            patientService.orderReview(loggedUser.getId(), idOfReview);
         } catch (Exception e) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
@@ -122,92 +127,90 @@ public class PatientController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/health-card-basic-informations", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
-    public ResponseEntity<String> getHealthCardBasicInformations() {
-        User loggedUser = null;
-
+    @RequestMapping(value = {"/health-card-basic-informations", "/health-card-basic-informations/{idOfPatientNum}"}, method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> getHealthCardBasicInformations(@PathVariable(name = "idOfPatientNum", required = false) String idOfPatientNum) {
+        Pacijent pacijent = null;
         try {
-            loggedUser = userService.getLoggedUser();
+            pacijent = patientService.getPatient(idOfPatientNum);
         } catch (Exception e) {
             return new ResponseEntity(HttpStatus.UNAUTHORIZED);
         }
 
         try {
-            String zdravstveniKartonXml = patientService.getHealthCard(loggedUser.getId());
+            String zdravstveniKartonXml = patientService.getHealthCard(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
             return new ResponseEntity<String>(zdravstveniKartonXml, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @RequestMapping(value = "/all-reports", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
-    public ResponseEntity<String> getAllReports() {
-        User loggedUser = null;
-
+    @RequestMapping(value = {"/all-reports", "/all-reports/{idOfPatientNum}"}, method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> getAllReports(@PathVariable(name = "idOfPatientNum", required = false) String idOfPatientNum) {
+        Pacijent pacijent = null;
         try {
-            loggedUser = userService.getLoggedUser();
+            pacijent = patientService.getPatient(idOfPatientNum);
         } catch (Exception e) {
             return new ResponseEntity(HttpStatus.UNAUTHORIZED);
         }
 
         try {
-            String izvestajiXml = patientService.getAllReports(loggedUser.getId());
+            String izvestajiXml = patientService.getAllReports(pacijent.getId());
             return new ResponseEntity<String>(izvestajiXml, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @RequestMapping(value = "/ref-spec-examination", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
-    public ResponseEntity<String> getAllReferralsForSpecialistExamination() {
-        User loggedUser = null;
-
+    @RequestMapping(value = {"/ref-spec-examination", "/ref-spec-examination/{idOfPatientNum}"}, method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> getAllReferralsForSpecialistExamination(@PathVariable(name = "idOfPatientNum", required = false) String idOfPatientNum) {
+        Pacijent pacijent = null;
         try {
-            loggedUser = userService.getLoggedUser();
+            pacijent = patientService.getPatient(idOfPatientNum);
         } catch (Exception e) {
             return new ResponseEntity(HttpStatus.UNAUTHORIZED);
         }
 
+
         try {
-            String uputiZaSpecijalistickiPregledXml = patientService.getReferralsForSpecialistExamination(loggedUser.getId());
+            String uputiZaSpecijalistickiPregledXml = patientService.getReferralsForSpecialistExamination(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
             return new ResponseEntity<String>(uputiZaSpecijalistickiPregledXml, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @RequestMapping(value = "/ref-for-lab", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
-    public ResponseEntity<String> getAllReferralsForLab() {
-        User loggedUser = null;
-
+    @RequestMapping(value = {"/ref-for-lab", "/ref-for-lab/{idOfPatientNum}"}, method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> getAllReferralsForLab(@PathVariable(name = "idOfPatientNum", required = false) String idOfPatientNum) {
+        Pacijent pacijent = null;
         try {
-            loggedUser = userService.getLoggedUser();
+            pacijent = patientService.getPatient(idOfPatientNum);
         } catch (Exception e) {
             return new ResponseEntity(HttpStatus.UNAUTHORIZED);
         }
 
         try {
-            String uputiZaLaboratorijuXml = patientService.getReferralsForLab(loggedUser.getId());
+            String uputiZaLaboratorijuXml = patientService.getReferralsForLab(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
             return new ResponseEntity<String>(uputiZaLaboratorijuXml, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @RequestMapping(value = "/all-recipes", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
-    public ResponseEntity<String> getAllRecipes() {
-        User loggedUser = null;
-
+    @RequestMapping(value = {"/all-recipes", "/all-recipes/{idOfPatientNum}"}, method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> getAllRecipes(@PathVariable(name = "idOfPatientNum", required = false) String idOfPatientNum) {
+        Pacijent pacijent = null;
         try {
-            loggedUser = userService.getLoggedUser();
+            pacijent = patientService.getPatient(idOfPatientNum);
         } catch (Exception e) {
+            System.out.println("*************" + e.getMessage());
             return new ResponseEntity(HttpStatus.UNAUTHORIZED);
         }
 
         try {
-            String lekarskiReceptiXml = patientService.getDoctorRecipes(loggedUser.getId());
+            String lekarskiReceptiXml = patientService.getDoctorRecipes(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
             return new ResponseEntity<String>(lekarskiReceptiXml, HttpStatus.OK);
         } catch (Exception e) {
+            System.out.println("##############" + e.getMessage());
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }

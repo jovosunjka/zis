@@ -6,5 +6,7 @@ public interface ReviewService {
 
     String getOrderedReviews(String patientId) throws Exception;
 
-    void updateReview(String idOfPatient, String idOfReview) throws Exception;
+    String getOrderedReviewsByDoctorId(String doctorId) throws Exception;
+
+    void updateReview(String idOfReview, String idOfPatient, String firstNamePatient, String lastNamePatient) throws Exception;
 }

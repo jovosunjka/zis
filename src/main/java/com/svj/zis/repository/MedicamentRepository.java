@@ -6,6 +6,9 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.modules.XMLResource;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+
 
 @Repository
 public class MedicamentRepository extends ResourceRepository{
@@ -34,7 +37,10 @@ public class MedicamentRepository extends ResourceRepository{
     }
 
     public void saveAll() throws Exception {
-        Lekovi lekovi = (Lekovi) super.unmarshaller.unmarshal(lekoviXml.getFile());
+        JAXBContext context = JAXBContext.newInstance("com.svj.zis.model");
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        //Lekovi lekovi = (Lekovi) super.unmarshaller.unmarshal(lekoviXml.getFile());
+        Lekovi lekovi = (Lekovi) unmarshaller.unmarshal(lekoviXml.getFile());
         super.saveAll(collectionId, documentId, lekovi);
     }
 }

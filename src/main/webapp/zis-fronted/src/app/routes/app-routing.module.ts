@@ -9,6 +9,7 @@ import { RegisterPageComponent } from '../auth/register-page/register-page.compo
 import { NotFoundPageComponent } from '../shared/not-found-page/not-found-page.component';
 import { HomePageComponent } from '../core/home-page/home-page.component';
 import { DoctorPageComponent } from '../core/doctor-page/doctor-page.component';
+import { EditHealthCardComponent } from '../core/edit-health-card/edit-health-card.component';
 
 
 const appRoutes: Routes = [
@@ -24,6 +25,14 @@ const appRoutes: Routes = [
     }
   },
   {
+    path: 'patient/:idOfPatientNum',
+    component: PatientPageComponent,
+    canActivate: [CanActivateUserGuard],
+    data: {
+      expectedRoles: ['DOCTOR']
+    }
+  },
+  {
     path: 'nurse',
     component: NursePageComponent,
     canActivate: [CanActivateUserGuard],
@@ -34,6 +43,14 @@ const appRoutes: Routes = [
   {
     path: 'doctor',
     component: DoctorPageComponent,
+    canActivate: [CanActivateUserGuard],
+    data: {
+      expectedRoles: ['DOCTOR']
+    }
+  },
+  {
+    path: 'edit-health-card/:numberOfHealthCard',
+    component: EditHealthCardComponent,
     canActivate: [CanActivateUserGuard],
     data: {
       expectedRoles: ['DOCTOR']

@@ -43,16 +43,15 @@ import javax.xml.bind.annotation.XmlType;
     "mesto",
     "opstina"
 })
-@XmlRootElement(name = "adresa", namespace = "http://www.svj.com/zis/osobe")
+@XmlRootElement(name = "adresa")
 public class Adresa {
 
-    @XmlElement(namespace = "http://www.svj.com/zis/osobe", required = true)
+    @XmlElement(required = true)
     protected String ulica;
-    @XmlElement(namespace = "http://www.svj.com/zis/osobe")
     protected int broj;
-    @XmlElement(namespace = "http://www.svj.com/zis/osobe", required = true)
+    @XmlElement(required = true)
     protected String mesto;
-    @XmlElement(namespace = "http://www.svj.com/zis/osobe", required = true)
+    @XmlElement(required = true)
     protected String opstina;
 
     /**

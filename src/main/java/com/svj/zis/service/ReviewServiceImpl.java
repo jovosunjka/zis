@@ -22,7 +22,12 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public void updateReview(String idOfPatient, String idOfReview) throws Exception {
-        reviewRepository.updateReview(idOfPatient, idOfReview);
+    public String getOrderedReviewsByDoctorId(String doctorId) throws Exception {
+        return reviewRepository.findOrderedReviewsByDoctorId(doctorId);
+    }
+
+    @Override
+    public void updateReview(String idOfReview, String idOfPatient, String firstNamePatient, String lastNamePatient) throws Exception {
+        reviewRepository.updateReview(idOfReview, idOfPatient, firstNamePatient, lastNamePatient);
     }
 }

@@ -6,8 +6,10 @@ import java.util.Map;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAnyAttribute;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.namespace.QName;
@@ -23,6 +25,15 @@ import javax.xml.namespace.QName;
  *   &lt;complexContent>
  *     &lt;extension base="{http://www.svj.com/zis/osobe}TOsoba">
  *       &lt;sequence>
+ *         &lt;element name="user">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
  *         &lt;element name="tip">
  *           &lt;complexType>
  *             &lt;simpleContent>
@@ -51,6 +62,7 @@ import javax.xml.namespace.QName;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+    "user",
     "tip",
     "oblastZastite"
 })
@@ -59,10 +71,36 @@ public class Lekar
     extends TOsoba
 {
 
+    @XmlElement(namespace = "http://www.svj.com/zis/osobe", required = true)
+    protected Lekar.User user;
     @XmlElement(namespace = "http://www.svj.com/zis/osobe", required = true, defaultValue = "opsta_praksa")
     protected Lekar.Tip tip;
     @XmlElement(name = "oblast_zastite", namespace = "http://www.svj.com/zis/osobe", required = true, defaultValue = "odrasli")
     protected Lekar.OblastZastite oblastZastite;
+
+    /**
+     * Gets the value of the user property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Lekar.User }
+     *     
+     */
+    public Lekar.User getUser() {
+        return user;
+    }
+
+    /**
+     * Sets the value of the user property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Lekar.User }
+     *     
+     */
+    public void setUser(Lekar.User value) {
+        this.user = value;
+    }
 
     /**
      * Gets the value of the tip property.
@@ -254,6 +292,58 @@ public class Lekar
          */
         public Map<QName, String> getOtherAttributes() {
             return otherAttributes;
+        }
+
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "")
+    public static class User {
+
+        @XmlAttribute(name = "id", required = true)
+        @XmlSchemaType(name = "anyURI")
+        protected String id;
+
+        /**
+         * Gets the value of the id property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getId() {
+            return id;
+        }
+
+        /**
+         * Sets the value of the id property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setId(String value) {
+            this.id = value;
         }
 
     }

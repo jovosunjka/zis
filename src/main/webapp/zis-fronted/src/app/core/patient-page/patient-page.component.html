@@ -1,4 +1,4 @@
-<section id="tabs">
+<section *ngIf="isPatientUser()" id="tabs">
   <div class="row">
       <div class="col-xl-12 ">
           <nav>
@@ -17,10 +17,12 @@
                   <app-order-review></app-order-review>
               </div>
               <div class="tab-pane fade" id="nav-health-card" role="tabpanel" aria-labelledby="nav-health-card-tab">
-                <app-health-card [xHtmlContetntForSelectedDoctor]="xHtmlContetntForSelectedDoctor"></app-health-card>
+                <app-health-card [idOfPatientNum]="idOfPatientNum" [xHtmlContetntForSelectedDoctor]="xHtmlContetntForSelectedDoctor"></app-health-card>
             </div>
           </div>
       
       </div>
   </div>
 </section>
+
+<app-health-card *ngIf="!isPatientUser()" [idOfPatientNum]="idOfPatientNum" [xHtmlContetntForSelectedDoctor]="xHtmlContetntForSelectedDoctor"></app-health-card>
