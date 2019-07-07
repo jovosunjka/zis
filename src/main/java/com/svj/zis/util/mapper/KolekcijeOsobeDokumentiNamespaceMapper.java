@@ -14,7 +14,7 @@ import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
  * */
 public class KolekcijeOsobeDokumentiNamespaceMapper extends NamespacePrefixMapper {
 
-    private static final String KOLEKCIJE_PREFIX = ""; // DEFAULT NAMESPACE
+    private static final String KOLEKCIJE_PREFIX = "kolekcije";
     private static final String KOLEKCIJE_URI = "http://www.svj.com/zis/kolekcije";
 
     private static final String OSOBE_PREFIX = "osobe";
@@ -23,9 +23,28 @@ public class KolekcijeOsobeDokumentiNamespaceMapper extends NamespacePrefixMappe
     private static final String DOKUMENTI_PREFIX = "dokumenti";
     private static final String DOKUMENTI_URI = "http://www.svj.com/zis/dokumenti";
 
+    private static final String XMLSchema_PREFIX = "xs";
+    private static final String XMLSchema_URI = "http://www.w3.org/2001/XMLSchema#";
+
+    private static final String PREDICATE_PREFIX = "pred";
+    private static final String PREDICATE_URI = "http://www.svj.com/zis/predicate/";
+
+    private static final String RDFA_PREFIX = ""; // DEFAULT NAMESPACE
+    private static final String RDFA_URI = "http://www.w3.org/ns/rdfa#";
+
+
     @Override
     public String getPreferredPrefix(String namespaceUri, String suggestion, boolean requirePrefix) {
-        if(KOLEKCIJE_URI.equals(namespaceUri)) {
+        if(RDFA_URI.equals(namespaceUri)) {
+            return RDFA_PREFIX;
+        }
+        else if(PREDICATE_URI.equals(namespaceUri)) {
+            return PREDICATE_PREFIX;
+        }
+        else if(XMLSchema_URI.equals(namespaceUri)) {
+            return XMLSchema_PREFIX;
+        }
+        else if(KOLEKCIJE_URI.equals(namespaceUri)) {
             return KOLEKCIJE_PREFIX;
         }
         else if(OSOBE_URI.equals(namespaceUri)) {
@@ -39,7 +58,7 @@ public class KolekcijeOsobeDokumentiNamespaceMapper extends NamespacePrefixMappe
 
     @Override
     public String[] getPreDeclaredNamespaceUris() {
-        return new String[] { KOLEKCIJE_URI, OSOBE_URI, DOKUMENTI_URI };
+        return new String[] {RDFA_URI, PREDICATE_URI, XMLSchema_URI, KOLEKCIJE_URI, OSOBE_URI, DOKUMENTI_URI };
     }
 
 }

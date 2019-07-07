@@ -133,10 +133,18 @@
                 <xs:element name="zdravstvena_ustanova_koja_prima" type="xs:string"/>
                 <xs:element name="zdravstveni_karton">
                     <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
                         <xs:attribute name="broj_zdravstvenog_kartona" use="required">
                             <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                     <xs:pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="broj_zdrastvene_knjizice" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[0-9]{11}"/>
                                 </xs:restriction>
                             </xs:simpleType>
                         </xs:attribute>
@@ -222,10 +230,18 @@
                 <xs:element name="zdravstvena_ustanova_koja_prima" type="xs:string"/>
                 <xs:element name="zdravstveni_karton">
                     <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
                         <xs:attribute name="broj_zdravstvenog_kartona" use="required">
                             <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                     <xs:pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="broj_zdrastvene_knjizice" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[0-9]{11}"/>
                                 </xs:restriction>
                             </xs:simpleType>
                         </xs:attribute>
@@ -307,6 +323,7 @@
                 <xs:element ref="ustanova"/>
                 <xs:element name="zdravstveni_karton">
                     <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
                         <xs:attribute name="broj_zdravstvenog_kartona" use="required">
                             <xs:simpleType>
                                 <xs:restriction base="xs:string">
@@ -396,6 +413,25 @@
     <xs:element name="izvestaj">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="zdravstveni_karton">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                        <xs:attribute name="broj_zdravstvenog_kartona" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="broj_zdrastvene_knjizice" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[0-9]{11}"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
                 <xs:element name="dijagnoza" type="xs:string"/>
                 <xs:element name="anamneza">
                     <xs:complexType mixed="true">

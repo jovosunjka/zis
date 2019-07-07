@@ -1,0 +1,104 @@
+SELECT DISTINCT ?izvestaj ?lekar ?lekarski_recept ?pacijent
+FROM <http://localhost:3030/ZisDataset/data/com/svj/zis>
+WHERE {
+    # izvestaj
+    {
+        ?izvestaj <http://www.svj.com/zis/predicate/zdravstveniKarton> <%1$s> .
+        {
+            ?izvestaj <http://www.svj.com/zis/predicate/dijagnoza> ?djagnoza .
+            FILTER (contains(?dijagnoza, %2$s)) .
+        }
+        UNION
+        {
+
+            ?izvestaj <http://www.svj.com/zis/predicate/anamneza> ?anamneza .
+            FILTER (contains(?anamneza, %2$s)) .
+        }
+        UNION
+        {
+            ?izvestaj <http://www.svj.com/zis/predicate/terapija> ?terapija .
+            FILTER (contains(?terapija, %2$s)) .
+        }
+        UNION
+        {
+            ?izvestaj <http://www.svj.com/zis/predicate/datum> ?datum .
+            FILTER (contains(?datum, %2$s)) .
+        }
+    }
+
+    UNION
+
+    # lekar
+    {
+        <%1$s> <http://www.svj.com/zis/predicate/lekar> ?lekar
+        {
+            ?lekar <http://www.svj.com/zis/predicate/ime> ?ime .
+            FILTER (contains(?ime, %2$s)) .
+        }
+        UNION
+        {
+
+            ?lekar <http://www.svj.com/zis/predicate/prezime> ?prezime .
+            FILTER (contains(?prezime, %2$s)) .
+        }
+    }
+
+    UNION
+
+    # lekarski_recept
+    {
+        ?lekarski_recept <http://www.svj.com/zis/predicate/zdravstveniKarton> <%1$s>
+        ?lekarski_recept <http://www.svj.com/zis/predicate/lek> ?lek
+        {
+            ?lek <http://www.svj.com/zis/predicate/nazivLeka> ?naziv_leka .
+            FILTER (contains(?naziv_leka, %2$s)) .
+        }
+        UNION
+        {
+            ?lek <http://www.svj.com/zis/predicate/sifraLeka> ?sifra_leka .
+            FILTER (contains(?sifra_leka, %2$s)) .
+        }
+        UNION
+        {
+            ?lek <http://www.svj.com/zis/predicate/lekDijagnoza> ?lek_dijagnoza .
+            FILTER (contains(?lek_dijagnoza, %2$s)) .
+        }
+        UNION
+        {
+            ?lek <http://www.svj.com/zis/predicate/lekNamena> ?lek_namena .
+            FILTER (contains(?lek_namena, %2$s)) .
+        }
+    }
+
+    UNION
+
+    # pacijent
+    {
+        ?pacijent <http://www.svj.com/zis/predicate/zdravstveniKarton> <%1$s>
+        {
+            <%1$s> <http://www.svj.com/zis/predicate/ime> ?ime .
+            FILTER (contains(?ime, %2$s)) .
+        }
+        UNION
+        {
+            <%1$s> <http://www.svj.com/zis/predicate/prezime> ?prezime .
+            FILTER (contains(?prezime, %2$s)) .
+        }
+        UNION
+        {
+            <%1$s> <http://www.svj.com/zis/predicate/prezime> ?imeJednogRoditelja .
+            FILTER (contains(?imeJednogRoditelja, %2$s)) .
+        }
+        UNION
+        {
+            <%1$s> <http://www.svj.com/zis/predicate/datum> ?datum .
+            FILTER (contains(?datum, %2$s)) .
+        }
+        UNION
+        {
+            <%1$s> <http://www.svj.com/zis/predicate/ulica> ?ulica .
+            FILTER (contains(?ulica, %2$s)) .
+        }
+    }
+
+}

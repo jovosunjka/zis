@@ -1,7 +1,40 @@
 
-<div [innerHTML]="xHtmlContetntForBasicInformations | safeHtml"></div>
+<div class="row">
+    <div class="col-xl-8 table-bordered">
+            <div [innerHTML]="xHtmlContetntForBasicInformations | safeHtml"></div>
 
-<br/>
-<br/>
+            <br/>
+            <br/>
+            
+            <div *ngIf="isAllowedDisplaySelectedDoctor()" [innerHTML]="xHtmlContetntForSelectedDoctor | safeHtml"></div>
+    </div>
+    <div class="col-xl-4 table-bordered">
+        <div class="row">
+            <div class="col-xl-12 table-bordered">
+                <table>
+                    <tr> <td> Basic Search:</td> </tr>
+                    <tr> <td> <input type="text" [(ngModel)]="basicSearchText"/> </td> </tr>
+                    <tr> <td> <button class="btn btn-primary" (click)="basicSearch()">Basic Search</button> </td> </tr>
+                </table>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="col-xl-12 table-bordered">
+                <table>
+                    <tr> <td> Advanced Search:</td> </tr>
+                    <tr> <td> <input type="text" [(ngModel)]="advancedSearchText"/> </td> </tr>
+                    <tr> <td> <button class="btn btn-primary" (click)="advancedSearch()">Advanced Search</button> </td> </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 table-bordered">
+                <div [innerHTML]="xHtmlContetntForAdvancedSearch | safeHtml"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div *ngIf="isAllowedDisplaySelectedDoctor()" [innerHTML]="xHtmlContetntForSelectedDoctor | safeHtml"></div>

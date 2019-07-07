@@ -7,14 +7,14 @@ import java.util.Properties;
 /**
  * Utilities to support and simplify examples.
  */
-public class AuthenticationUtilities {
+public class ExistAuthenticationUtilities {
 	
 	private static String connectionUri = "xmldb:exist://%1$s:%2$s/exist/xmlrpc";
 	
 	/**
 	 * Connection parameters.
 	 */
-	static public class ConnectionProperties {
+	static public class ExistConnectionProperties {
 
 		public String host;
 		public int port = -1;
@@ -23,7 +23,7 @@ public class AuthenticationUtilities {
 		public String driver;
 		public String uri;
 
-		public ConnectionProperties(Properties props) {
+		public ExistConnectionProperties(Properties props) {
 			super();
 			
 			user = props.getProperty("conn.user").trim();
@@ -43,7 +43,7 @@ public class AuthenticationUtilities {
 	 * 
 	 * @return the configuration object
 	 */
-	public static ConnectionProperties loadProperties() throws IOException {
+	public static ExistConnectionProperties loadProperties() throws IOException {
 		String propsName = "exist.properties";
 
 		InputStream propsStream = openStream(propsName);
@@ -53,7 +53,7 @@ public class AuthenticationUtilities {
 		Properties props = new Properties();
 		props.load(propsStream);
 
-		return new ConnectionProperties(props);
+		return new ExistConnectionProperties(props);
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class AuthenticationUtilities {
 	 * @throws IOException
 	 */
 	public static InputStream openStream(String fileName) throws IOException {
-		return AuthenticationUtilities.class.getClassLoader().getResourceAsStream(fileName);
+		return ExistAuthenticationUtilities.class.getClassLoader().getResourceAsStream(fileName);
 	}
 	
 }

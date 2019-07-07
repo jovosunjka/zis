@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uputi_za_laboratoriju xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti">
-    <dokumenti:uput_za_laboratoriju id="http://www.svj.com/zis/dokumenti/uput_za_laboratoriju/1" reg_br="1594782368">
-        <dokumenti:zdravstvena_ustanova_koja_salje>Ambulanta na Klisi</dokumenti:zdravstvena_ustanova_koja_salje>
-        <dokumenti:zdravstvena_ustanova_koja_prima>Klinicki centar Vojvodine</dokumenti:zdravstvena_ustanova_koja_prima>
-        <dokumenti:zdravstveni_karton broj_zdravstvenog_kartona="zk123"/>
+<kolekcije:uputi_za_laboratoriju xmlns:kolekcije="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti"
+    xmlns="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+    xmlns:pred="http://www.svj.com/zis/predicate/">
+    <dokumenti:uput_za_laboratoriju id="http://www.svj.com/zis/dokumenti/uput_za_laboratoriju/1" reg_br="1594782368" about="http://www.svj.com/zis/dokumenti/uput_za_laboratoriju/1">
+        <dokumenti:zdravstvena_ustanova_koja_salje datatype="xs:string" property="pred:ustanova">Ambulanta na Klisi</dokumenti:zdravstvena_ustanova_koja_salje>
+        <dokumenti:zdravstvena_ustanova_koja_prima datatype="xs:string" property="pred:ustanova">Klinicki centar Vojvodine</dokumenti:zdravstvena_ustanova_koja_prima>
+        <dokumenti:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" broj_zdravstvenog_kartona="zk123" broj_zdrastvene_knjizice="12345678901" href="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" rel="pred:zdravstveniKarton"/>
         <dokumenti:podaci_o_osiguranju>
             <dokumenti:nosilac_osiguranja>
                 <dokumenti:ime>Zika</dokumenti:ime>
@@ -13,20 +15,20 @@
             <dokumenti:osnov_osiguranja>zaposlen</dokumenti:osnov_osiguranja>
         </dokumenti:podaci_o_osiguranju>
         <dokumenti:klinicka_dijagnoza>neka klinicka dijagnoza</dokumenti:klinicka_dijagnoza>
-        <dokumenti:kad_je_uzet_materijal>2019-06-23T10:15:00</dokumenti:kad_je_uzet_materijal>
+        <dokumenti:kad_je_uzet_materijal datatype="xs:dateTime" property="pred:datumIVreme">2019-06-23T10:15:00</dokumenti:kad_je_uzet_materijal>
         <dokumenti:ko_salje_materijal>
             <dokumenti:ime>Zika</dokumenti:ime>
             <dokumenti:prezime>Zikic</dokumenti:prezime>
-            <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1"/>
+            <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1" href="http://www.svj.com/zis/osobe/pacijent/1" rel="pred:pacijent"/>
         </dokumenti:ko_salje_materijal>
         <dokumenti:ko_salje_na_pregled>
             <dokumenti:ime>Pera</dokumenti:ime>
             <dokumenti:prezime>Peric</dokumenti:prezime>
             <dokumenti:potpis_lekara>Ovo je lekarov potpis</dokumenti:potpis_lekara>
-            <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1"/>
+            <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1" href="http://www.svj.com/zis/osobe/leakar/1" rel="pred:lekar"/>
         </dokumenti:ko_salje_na_pregled>
         <dokumenti:tip_pregleda>neki tip pregleda</dokumenti:tip_pregleda>
         <dokumenti:pecat>ovo je lekarov pecat</dokumenti:pecat>
         <dokumenti:datum>2019-05-20</dokumenti:datum>
     </dokumenti:uput_za_laboratoriju>
-</uputi_za_laboratoriju>
+</kolekcije:uputi_za_laboratoriju>

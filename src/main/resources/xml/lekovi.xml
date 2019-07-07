@@ -1,393 +1,395 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<lekovi xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti">
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/1" aktivan="true">
-        <dokumenti:naziv>ACIKLOVIR</dokumenti:naziv>
-        <dokumenti:sifra>1328230</dokumenti:sifra>
-        <dokumenti:dijagnoza>B005</dokumenti:dijagnoza>
-        <dokumenti:namena>Bolest oka uzrokovana herpesvirusom</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/2" aktivan="true">
-        <dokumenti:naziv>ACTAPAX</dokumenti:naziv>
-        <dokumenti:sifra>1072915</dokumenti:sifra>
-        <dokumenti:dijagnoza>F411</dokumenti:dijagnoza>
-        <dokumenti:namena>Anksiozni generalizovani poremećaj</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/3" aktivan="true">
-        <dokumenti:naziv>ACTAPAX</dokumenti:naziv>
-        <dokumenti:sifra>1072916</dokumenti:sifra>
-        <dokumenti:dijagnoza>F320</dokumenti:dijagnoza>
-        <dokumenti:namena>Blaga depresijska epizoda</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/4" aktivan="true">
-        <dokumenti:naziv>ACTEMRA</dokumenti:naziv>
-        <dokumenti:sifra>0014401</dokumenti:sifra>
-        <dokumenti:dijagnoza>M051</dokumenti:dijagnoza>
-        <dokumenti:namena>Reumatoidno oboljene pluća</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/5" aktivan="true">
-        <dokumenti:naziv>ACTEMRA</dokumenti:naziv>
-        <dokumenti:sifra>0014401</dokumenti:sifra>
-        <dokumenti:dijagnoza>M052</dokumenti:dijagnoza>
-        <dokumenti:namena>Reumatoidno zapaljenje krvnih sudova</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/6" aktivan="true">
-        <dokumenti:naziv>ACTEMRA</dokumenti:naziv>
-        <dokumenti:sifra>0014401</dokumenti:sifra>
-        <dokumenti:dijagnoza>M06</dokumenti:dijagnoza>
-        <dokumenti:namena>Ostali reumatoidni artritisi</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/7" aktivan="true">
-        <dokumenti:naziv>ACTEMBA</dokumenti:naziv>
-        <dokumenti:sifra>0014402</dokumenti:sifra>
-        <dokumenti:dijagnoza>M064</dokumenti:dijagnoza>
-        <dokumenti:namena>Zapaljensko oboljenje više zglobova</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/8" aktivan="true">
-        <dokumenti:naziv>ADVAGRAF</dokumenti:naziv>
-        <dokumenti:sifra>1014244</dokumenti:sifra>
-        <dokumenti:dijagnoza>Z941</dokumenti:dijagnoza>
-        <dokumenti:namena>Stanje presađenog srca</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/9" aktivan="true">
-        <dokumenti:naziv>ADVAGRAF</dokumenti:naziv>
-        <dokumenti:sifra>1014244</dokumenti:sifra>
-        <dokumenti:dijagnoza>Z942</dokumenti:dijagnoza>
-        <dokumenti:namena>Stanje presađenih pluća</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/10" aktivan="true">
-        <dokumenti:naziv>ADVAGRAF</dokumenti:naziv>
-        <dokumenti:sifra>1014244</dokumenti:sifra>
-        <dokumenti:dijagnoza>Z947</dokumenti:dijagnoza>
-        <dokumenti:namena>Stanje presađene rožnjače</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/11" aktivan="true">
-        <dokumenti:naziv>AZITROMICIN SANDOZ</dokumenti:naziv>
-        <dokumenti:sifra>3325572</dokumenti:sifra>
-        <dokumenti:dijagnoza>J20</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/12" aktivan="true">
-        <dokumenti:naziv>AZITROMICIN SANDOZ</dokumenti:naziv>
-        <dokumenti:sifra>3325572</dokumenti:sifra>
-        <dokumenti:dijagnoza>J203</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis, uzročnik Coxsackie virus</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/13" aktivan="true">
-        <dokumenti:naziv>AZITROMICIN SANDOZ</dokumenti:naziv>
-        <dokumenti:sifra>3325572</dokumenti:sifra>
-        <dokumenti:dijagnoza>J204</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis uzrokovan virusom parainfluence</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/14" aktivan="true">
-        <dokumenti:naziv>AZITROMICIN SANDOZ</dokumenti:naziv>
-        <dokumenti:sifra>3325572</dokumenti:sifra>
-        <dokumenti:dijagnoza>J208</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis uzrokovan drugim označenim mikroorganizmima</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/15" aktivan="true">
-        <dokumenti:naziv>BERODUAL</dokumenti:naziv>
-        <dokumenti:sifra>7114129</dokumenti:sifra>
-        <dokumenti:dijagnoza>J45</dokumenti:dijagnoza>
-        <dokumenti:namena>Astma</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/16" aktivan="true">
-        <dokumenti:naziv>CALIXTA</dokumenti:naziv>
-        <dokumenti:sifra>1072705</dokumenti:sifra>
-        <dokumenti:dijagnoza>F32</dokumenti:dijagnoza>
-        <dokumenti:namena>Depresija-depresijsko duševno oboljenje</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/17" aktivan="true">
-        <dokumenti:naziv>CALIXTA</dokumenti:naziv>
-        <dokumenti:sifra>1072705</dokumenti:sifra>
-        <dokumenti:dijagnoza>F332</dokumenti:dijagnoza>
-        <dokumenti:namena>Težak povratan depresijski poremećaj bez simptoma psihoze</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/18" aktivan="true">
-        <dokumenti:naziv>CALIXTA</dokumenti:naziv>
-        <dokumenti:sifra>1072705</dokumenti:sifra>
-        <dokumenti:dijagnoza>F333</dokumenti:dijagnoza>
-        <dokumenti:namena>Težak povratan depresijski poremećaj sa simptomima psihoze</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/19" aktivan="true">
-        <dokumenti:naziv>CARDIPINE</dokumenti:naziv>
-        <dokumenti:sifra>1402001</dokumenti:sifra>
-        <dokumenti:dijagnoza>I10</dokumenti:dijagnoza>
-        <dokumenti:namena>Povišen krvni pritisak nepoznatog porekla</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/20" aktivan="true">
-        <dokumenti:naziv>CARDIPINE</dokumenti:naziv>
-        <dokumenti:sifra>1402001</dokumenti:sifra>
-        <dokumenti:dijagnoza>I15</dokumenti:dijagnoza>
-        <dokumenti:namena>Sekundarno povišen krvni pritisak</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/21" aktivan="true">
-        <dokumenti:naziv>CEFEXIN</dokumenti:naziv>
-        <dokumenti:sifra>1321627</dokumenti:sifra>
-        <dokumenti:dijagnoza>J20</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/22" aktivan="true">
-        <dokumenti:naziv>CEFEXIN</dokumenti:naziv>
-        <dokumenti:sifra>1321627</dokumenti:sifra>
-        <dokumenti:dijagnoza>J203</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis, uzročnik Coxsackie virus</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/23" aktivan="true">
-        <dokumenti:naziv>CEFEXIN</dokumenti:naziv>
-        <dokumenti:sifra>1321627</dokumenti:sifra>
-        <dokumenti:dijagnoza>J204</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis uzrokovan virusom parainfluence</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/24" aktivan="true">
-        <dokumenti:naziv>CEFEXIN</dokumenti:naziv>
-        <dokumenti:sifra>1321627</dokumenti:sifra>
-        <dokumenti:dijagnoza>J208</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis uzrokovan drugim označenim mikroorganizmima</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/25" aktivan="true">
-        <dokumenti:naziv>CEFEXIN</dokumenti:naziv>
-        <dokumenti:sifra>1321627</dokumenti:sifra>
-        <dokumenti:dijagnoza>J32</dokumenti:dijagnoza>
-        <dokumenti:namena>Hronično zapaljenje sinusa</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/26" aktivan="true">
-        <dokumenti:naziv>CEFZIL</dokumenti:naziv>
-        <dokumenti:sifra>3321951</dokumenti:sifra>
-        <dokumenti:dijagnoza>J13</dokumenti:dijagnoza>
-        <dokumenti:namena>Zapaljenje pluća uzrokovano Streptococcusom pneumoniae(Pneumococcus)</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/27" aktivan="true">
-        <dokumenti:naziv>CEFZIL</dokumenti:naziv>
-        <dokumenti:sifra>3321951</dokumenti:sifra>
-        <dokumenti:dijagnoza>J14</dokumenti:dijagnoza>
-        <dokumenti:namena>Zapaljenje pluća uzrokovano Haemonophilusom influence</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/28" aktivan="true">
-        <dokumenti:naziv>CEFZIL</dokumenti:naziv>
-        <dokumenti:sifra>3321951</dokumenti:sifra>
-        <dokumenti:dijagnoza>J151</dokumenti:dijagnoza>
-        <dokumenti:namena>Zapaljenje pluća uzrokovano Pseudomonasom</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/29" aktivan="true">
-        <dokumenti:naziv>CEFZIL</dokumenti:naziv>
-        <dokumenti:sifra>3321951</dokumenti:sifra>
-        <dokumenti:dijagnoza>J152</dokumenti:dijagnoza>
-        <dokumenti:namena>Stafilokokno zapaljenje pluća</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/30" aktivan="true">
-        <dokumenti:naziv>CEFZIL</dokumenti:naziv>
-        <dokumenti:sifra>3321951</dokumenti:sifra>
-        <dokumenti:dijagnoza>J155</dokumenti:dijagnoza>
-        <dokumenti:namena>Zapaljenje pluća uzrokovano Pseudomonasom</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/31" aktivan="true">
-        <dokumenti:naziv>CEROXIM</dokumenti:naziv>
-        <dokumenti:sifra>1321976</dokumenti:sifra>
-        <dokumenti:dijagnoza>J20</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/32" aktivan="true">
-        <dokumenti:naziv>CEROXIM</dokumenti:naziv>
-        <dokumenti:sifra>1321976</dokumenti:sifra>
-        <dokumenti:dijagnoza>J203</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis, uzročnik Coxsackie virus</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/33" aktivan="true">
-        <dokumenti:naziv>CEFEXIN</dokumenti:naziv>
-        <dokumenti:sifra>1321976</dokumenti:sifra>
-        <dokumenti:dijagnoza>J204</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis uzrokovan virusom parainfluence</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/34" aktivan="true">
-        <dokumenti:naziv>CEROXIM</dokumenti:naziv>
-        <dokumenti:sifra>1321976</dokumenti:sifra>
-        <dokumenti:dijagnoza>J208</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis uzrokovan drugim označenim mikroorganizmima</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/35" aktivan="true">
-        <dokumenti:naziv>CEROXIM</dokumenti:naziv>
-        <dokumenti:sifra>1321977</dokumenti:sifra>
-        <dokumenti:dijagnoza>L04</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutno zapaljenje limfnog čvora</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/36" aktivan="true">
-        <dokumenti:naziv>CIPRALEX</dokumenti:naziv>
-        <dokumenti:sifra>1072613</dokumenti:sifra>
-        <dokumenti:dijagnoza>F320</dokumenti:dijagnoza>
-        <dokumenti:namena>Blaga depresijska epizoda</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/37" aktivan="true">
-        <dokumenti:naziv>CIPRALEX</dokumenti:naziv>
-        <dokumenti:sifra>1072613</dokumenti:sifra>
-        <dokumenti:dijagnoza>F322</dokumenti:dijagnoza>
-        <dokumenti:namena>Teška depresijska epizoda bez simptoma psihoze</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/38" aktivan="true">
-        <dokumenti:naziv>CIPRALEX</dokumenti:naziv>
-        <dokumenti:sifra>1072613</dokumenti:sifra>
-        <dokumenti:dijagnoza>F323</dokumenti:dijagnoza>
-        <dokumenti:namena>Teška depresijska epizoda sa simptomima psihoze</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/39" aktivan="true">
-        <dokumenti:naziv>ERITROMICIN</dokumenti:naziv>
-        <dokumenti:sifra>1325551</dokumenti:sifra>
-        <dokumenti:dijagnoza>J32</dokumenti:dijagnoza>
-        <dokumenti:namena>Hronično zapaljenje sinusa</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/40" aktivan="true">
-        <dokumenti:naziv>ERITROMICIN</dokumenti:naziv>
-        <dokumenti:sifra>1325551</dokumenti:sifra>
-        <dokumenti:dijagnoza>J42</dokumenti:dijagnoza>
-        <dokumenti:namena>Hronični bronhitis</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/41" aktivan="true">
-        <dokumenti:naziv>ERITROMICIN</dokumenti:naziv>
-        <dokumenti:sifra>1325551</dokumenti:sifra>
-        <dokumenti:dijagnoza>Y400</dokumenti:dijagnoza>
-        <dokumenti:namena>Penicilini</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/42" aktivan="true">
-        <dokumenti:naziv>ERITROMICIN</dokumenti:naziv>
-        <dokumenti:sifra>1325551</dokumenti:sifra>
-        <dokumenti:dijagnoza>A481</dokumenti:dijagnoza>
-        <dokumenti:namena>Legioneloza</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/43" aktivan="true">
-        <dokumenti:naziv>ERITROMICIN</dokumenti:naziv>
-        <dokumenti:sifra>1325552</dokumenti:sifra>
-        <dokumenti:dijagnoza>J03</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutno zapaljenje krajnika</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/44" aktivan="true">
-        <dokumenti:naziv>HEMOMYCIN</dokumenti:naziv>
-        <dokumenti:sifra>3325481</dokumenti:sifra>
-        <dokumenti:dijagnoza>J03</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutno zapaljenje krajnika</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/45" aktivan="true">
-        <dokumenti:naziv>PANCEF</dokumenti:naziv>
-        <dokumenti:sifra>1321622</dokumenti:sifra>
-        <dokumenti:dijagnoza>J20</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/46" aktivan="true">
-        <dokumenti:naziv>PANCEF</dokumenti:naziv>
-        <dokumenti:sifra>1321622</dokumenti:sifra>
-        <dokumenti:dijagnoza>J203</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis, uzročnik Coxsackie virus</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/47" aktivan="true">
-        <dokumenti:naziv>PANCEF</dokumenti:naziv>
-        <dokumenti:sifra>1321622</dokumenti:sifra>
-        <dokumenti:dijagnoza>J204</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis uzrokovan virusom parainfluence</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/48" aktivan="true">
-        <dokumenti:naziv>PANCEF</dokumenti:naziv>
-        <dokumenti:sifra>1321622</dokumenti:sifra>
-        <dokumenti:dijagnoza>J208</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis uzrokovan drugim označenim mikroorganizmima</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/49" aktivan="true">
-        <dokumenti:naziv>PANCEF</dokumenti:naziv>
-        <dokumenti:sifra>1321622</dokumenti:sifra>
-        <dokumenti:dijagnoza>J32</dokumenti:dijagnoza>
-        <dokumenti:namena>Hronično zapaljenje sinusa</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/50" aktivan="true">
-        <dokumenti:naziv>PANKLAV</dokumenti:naziv>
-        <dokumenti:sifra>3021602</dokumenti:sifra>
-        <dokumenti:dijagnoza>J32</dokumenti:dijagnoza>
-        <dokumenti:namena>Hronično zapaljenje sinusa</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/51" aktivan="true">
-        <dokumenti:naziv>PANKLAV</dokumenti:naziv>
-        <dokumenti:sifra>3021602</dokumenti:sifra>
-        <dokumenti:dijagnoza>J20</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/52" aktivan="true">
-        <dokumenti:naziv>PANKLAV</dokumenti:naziv>
-        <dokumenti:sifra>3021602</dokumenti:sifra>
-        <dokumenti:dijagnoza>J203</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis, uzročnik Coxsackie virus</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/53" aktivan="true">
-        <dokumenti:naziv>PANKLAV</dokumenti:naziv>
-        <dokumenti:sifra>3021602</dokumenti:sifra>
-        <dokumenti:dijagnoza>J204</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis uzrokovan virusom parainfluence</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/54" aktivan="true">
-        <dokumenti:naziv>PANKLAV</dokumenti:naziv>
-        <dokumenti:sifra>3021602</dokumenti:sifra>
-        <dokumenti:dijagnoza>J208</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutni bronhitis uzrokovan drugim označenim mikroorganizmima</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/55" aktivan="true">
-        <dokumenti:naziv>PANKLAV</dokumenti:naziv>
-        <dokumenti:sifra>3021602</dokumenti:sifra>
-        <dokumenti:dijagnoza>J02</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutno zapaljenje ždrela</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/56" aktivan="true">
-        <dokumenti:naziv>PAROKSETIN PHARMAS</dokumenti:naziv>
-        <dokumenti:sifra>1072907</dokumenti:sifra>
-        <dokumenti:dijagnoza>F411</dokumenti:dijagnoza>
-        <dokumenti:namena>Anksiozni generalizovani poremećaj</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/57" aktivan="true">
-        <dokumenti:naziv>PAROKSETIN PHARMAS</dokumenti:naziv>
-        <dokumenti:sifra>1072907</dokumenti:sifra>
-        <dokumenti:dijagnoza>F411</dokumenti:dijagnoza>
-        <dokumenti:namena>Anksiozni generalizovani poremećaj</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/58" aktivan="true">
-        <dokumenti:naziv>LOFOCIN</dokumenti:naziv>
-        <dokumenti:sifra>1329381</dokumenti:sifra>
-        <dokumenti:dijagnoza>J01</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutno zapaljenje sinusa</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/59" aktivan="true">
-        <dokumenti:naziv>LOFOCIN</dokumenti:naziv>
-        <dokumenti:sifra>1329381</dokumenti:sifra>
-        <dokumenti:dijagnoza>J151</dokumenti:dijagnoza>
-        <dokumenti:namena>Zapaljenje pluća uzrokovano Pseudomonasom</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/60" aktivan="true">
-        <dokumenti:naziv>LOFOCIN</dokumenti:naziv>
-        <dokumenti:sifra>1329381</dokumenti:sifra>
-        <dokumenti:dijagnoza>J155</dokumenti:dijagnoza>
-        <dokumenti:namena>Zapaljenje pluća uzrokovano Ešerihijom koli</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/61" aktivan="true">
-        <dokumenti:naziv>LOFOCIN</dokumenti:naziv>
-        <dokumenti:sifra>1329381</dokumenti:sifra>
-        <dokumenti:dijagnoza>J156</dokumenti:dijagnoza>
-        <dokumenti:namena>Zapaljenje pluća uzrokovano aerobnim Gram-negativnim bakterijama</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/62" aktivan="true">
-        <dokumenti:naziv>LOFOCIN</dokumenti:naziv>
-        <dokumenti:sifra>1329381</dokumenti:sifra>
-        <dokumenti:dijagnoza>J157</dokumenti:dijagnoza>
-        <dokumenti:namena>Zapaljenje pluća uzrokovano Mikroplaymom pneumonije</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/63" aktivan="true">
-        <dokumenti:naziv>PARACETAMOL</dokumenti:naziv>
-        <dokumenti:sifra>3086695</dokumenti:sifra>
-        <dokumenti:dijagnoza>J10</dokumenti:dijagnoza>
-        <dokumenti:namena>Analgetik i antipiretik</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/64" aktivan="true">
-        <dokumenti:naziv>BRUFEN</dokumenti:naziv>
-        <dokumenti:sifra>3162089</dokumenti:sifra>
-        <dokumenti:dijagnoza>J10</dokumenti:dijagnoza>
-        <dokumenti:namena>Analgetik i antipiretik</dokumenti:namena>
-    </dokumenti:lek>
-    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/65" aktivan="true">
-        <dokumenti:naziv>KLACID</dokumenti:naziv>
-        <dokumenti:sifra>2325625</dokumenti:sifra>
-        <dokumenti:dijagnoza>J02</dokumenti:dijagnoza>
-        <dokumenti:namena>Akutno zapaljenje ždrela</dokumenti:namena>
-    </dokumenti:lek>
-</lekovi>
+<kolekcije:lekovi xmlns:kolekcije="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti"
+        xmlns="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+        xmlns:pred="http://www.svj.com/zis/predicate/">
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/1" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ACIKLOVIR</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1328230</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">B005</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Bolest oka uzrokovana herpesvirusom</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/2" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ACTAPAX</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1072915</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">F411</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Anksiozni generalizovani poremećaj</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/3" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ACTAPAX</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1072916</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">F320</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Blaga depresijska epizoda</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/4" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ACTEMRA</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">0014401</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">M051</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Reumatoidno oboljene pluća</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/5" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ACTEMRA</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">0014401</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">M052</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Reumatoidno zapaljenje krvnih sudova</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/6" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ACTEMRA</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">0014401</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">M06</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Ostali reumatoidni artritisi</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/7" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ACTEMBA</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">0014402</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">M064</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Zapaljensko oboljenje više zglobova</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/8" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ADVAGRAF</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1014244</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">Z941</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Stanje presađenog srca</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/9" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ADVAGRAF</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1014244</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">Z942</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Stanje presađenih pluća</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/10" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ADVAGRAF</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1014244</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">Z947</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Stanje presađene rožnjače</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/11" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">AZITROMICIN SANDOZ</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3325572</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J20</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/12" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">AZITROMICIN SANDOZ</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3325572</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J203</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis, uzročnik Coxsackie virus</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/13" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">AZITROMICIN SANDOZ</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3325572</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J204</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis uzrokovan virusom parainfluence</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/14" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">AZITROMICIN SANDOZ</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3325572</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J208</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis uzrokovan drugim označenim mikroorganizmima</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/15" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">BERODUAL</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">7114129</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J45</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Astma</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/16" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CALIXTA</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1072705</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">F32</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Depresija-depresijsko duševno oboljenje</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/17" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CALIXTA</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1072705</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">F332</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Težak povratan depresijski poremećaj bez simptoma psihoze</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/18" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CALIXTA</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1072705</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">F333</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Težak povratan depresijski poremećaj sa simptomima psihoze</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/19" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CARDIPINE</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1402001</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">I10</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Povišen krvni pritisak nepoznatog porekla</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/20" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CARDIPINE</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1402001</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">I15</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Sekundarno povišen krvni pritisak</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/21" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEFEXIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321627</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J20</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/22" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEFEXIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321627</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J203</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis, uzročnik Coxsackie virus</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/23" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEFEXIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321627</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J204</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis uzrokovan virusom parainfluence</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/24" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEFEXIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321627</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J208</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis uzrokovan drugim označenim mikroorganizmima</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/25" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEFEXIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321627</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J32</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Hronično zapaljenje sinusa</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/26" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEFZIL</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3321951</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J13</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Zapaljenje pluća uzrokovano Streptococcusom pneumoniae(Pneumococcus)</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/27" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEFZIL</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3321951</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J14</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Zapaljenje pluća uzrokovano Haemonophilusom influence</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/28" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEFZIL</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3321951</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J151</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Zapaljenje pluća uzrokovano Pseudomonasom</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/29" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEFZIL</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3321951</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J152</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Stafilokokno zapaljenje pluća</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/30" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEFZIL</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3321951</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J155</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Zapaljenje pluća uzrokovano Pseudomonasom</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/31" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEROXIM</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321976</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J20</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/32" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEROXIM</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321976</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J203</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis, uzročnik Coxsackie virus</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/33" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEFEXIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321976</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J204</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis uzrokovan virusom parainfluence</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/34" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEROXIM</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321976</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J208</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis uzrokovan drugim označenim mikroorganizmima</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/35" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CEROXIM</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321977</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">L04</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutno zapaljenje limfnog čvora</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/36" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CIPRALEX</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1072613</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">F320</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Blaga depresijska epizoda</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/37" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CIPRALEX</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1072613</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">F322</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Teška depresijska epizoda bez simptoma psihoze</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/38" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">CIPRALEX</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1072613</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">F323</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Teška depresijska epizoda sa simptomima psihoze</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/39" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ERITROMICIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1325551</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J32</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Hronično zapaljenje sinusa</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/40" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ERITROMICIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1325551</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J42</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Hronični bronhitis</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/41" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ERITROMICIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1325551</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">Y400</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Penicilini</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/42" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ERITROMICIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1325551</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">A481</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Legioneloza</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/43" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">ERITROMICIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1325552</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J03</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutno zapaljenje krajnika</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/44" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">HEMOMYCIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3325481</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J03</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutno zapaljenje krajnika</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/45" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PANCEF</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321622</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J20</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/46" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PANCEF</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321622</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J203</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis, uzročnik Coxsackie virus</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/47" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PANCEF</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321622</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J204</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis uzrokovan virusom parainfluence</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/48" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PANCEF</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321622</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J208</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis uzrokovan drugim označenim mikroorganizmima</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/49" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PANCEF</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1321622</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J32</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Hronično zapaljenje sinusa</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/50" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PANKLAV</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3021602</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J32</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Hronično zapaljenje sinusa</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/51" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PANKLAV</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3021602</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J20</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/52" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PANKLAV</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3021602</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J203</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis, uzročnik Coxsackie virus</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/53" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PANKLAV</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3021602</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J204</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis uzrokovan virusom parainfluence</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/54" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PANKLAV</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3021602</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J208</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutni bronhitis uzrokovan drugim označenim mikroorganizmima</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/55" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PANKLAV</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3021602</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J02</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutno zapaljenje ždrela</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/56" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PAROKSETIN PHARMAS</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1072907</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">F411</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Anksiozni generalizovani poremećaj</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/57" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PAROKSETIN PHARMAS</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1072907</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">F411</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Anksiozni generalizovani poremećaj</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/58" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">LOFOCIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1329381</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J01</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutno zapaljenje sinusa</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/59" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">LOFOCIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1329381</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J151</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Zapaljenje pluća uzrokovano Pseudomonasom</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/60" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">LOFOCIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1329381</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J155</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Zapaljenje pluća uzrokovano Ešerihijom koli</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/61" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">LOFOCIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1329381</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J156</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Zapaljenje pluća uzrokovano aerobnim Gram-negativnim bakterijama</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/62" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">LOFOCIN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">1329381</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J157</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Zapaljenje pluća uzrokovano Mikroplaymom pneumonije</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/63" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">PARACETAMOL</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3086695</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J10</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Analgetik i antipiretik</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/64" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">BRUFEN</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">3162089</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J10</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Analgetik i antipiretik</dokumenti:namena>
+    </dokumenti:lek>
+    <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/65" aktivan="true" about="http://www.svj.com/zis/dokumenti/lek/1">
+        <dokumenti:naziv datatype="xs:string" property="pred:nazivLeka">KLACID</dokumenti:naziv>
+        <dokumenti:sifra datatype="xs:string" property="pred:sifraLeka">2325625</dokumenti:sifra>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:lekDijagnoza">J02</dokumenti:dijagnoza>
+        <dokumenti:namena datatype="xs:string" property="pred:lekNamena">Akutno zapaljenje ždrela</dokumenti:namena>
+    </dokumenti:lek>
+</kolekcije:lekovi>

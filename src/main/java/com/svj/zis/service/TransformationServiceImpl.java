@@ -57,6 +57,29 @@ public class TransformationServiceImpl implements TransformationService {
         return finalString;
     }
 
+    @Override
+    public String generateHTML(String xml, String xslFile) throws TransformerException {
+        // Initialize Transformer instance
+        InputStream xslInputStream = new ByteArrayInputStream(xslFile.getBytes());
+        StreamSource transformSource = new StreamSource(xslInputStream);
+        Transformer transformer = transformerFactory.newTransformer(transformSource);
+        transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "2");
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+        // Generate XHTML
+        transformer.setOutputProperty(OutputKeys.METHOD, "xhtml");
+
+        // Transform DOM to HTML
+        DOMSource source = new DOMSource(buildDocument(xml));
+        StringWriter outWriter = new StringWriter();
+        StreamResult result = new StreamResult( outWriter );
+        transformer.transform(source, result);
+        StringBuffer sb = outWriter.getBuffer();
+        String finalString = sb.toString();
+
+        return finalString;
+    }
+
     public org.w3c.dom.Document buildDocument(String xml) {
         InputStream xmlInputStream = new ByteArrayInputStream(xml.getBytes());
 

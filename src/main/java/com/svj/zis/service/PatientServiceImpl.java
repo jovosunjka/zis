@@ -4,6 +4,7 @@ import com.svj.zis.model.Lekar;
 import com.svj.zis.model.Pacijent;
 import com.svj.zis.model.User;
 import com.svj.zis.model.ZdravstveniKarton;
+import com.svj.zis.model.rdf.SparqlVarNameAndValue;
 import com.svj.zis.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -48,6 +50,11 @@ public class PatientServiceImpl implements PatientService {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RdfService rdfService;
+
+
+    private String[] logicOperators = { "and", "or", "not"};
     private String firstPartOfPatientId = "http://www.svj.com/zis/osobe/pacijent/";
 
 
@@ -55,6 +62,7 @@ public class PatientServiceImpl implements PatientService {
     private ClassPathResource lekarXsl = new ClassPathResource("xsl/xsl_for_patient_page/lekar.xsl");
     private ClassPathResource preglediXsl = new ClassPathResource("xsl/xsl_for_patient_page/pregledi.xsl");
     private ClassPathResource zdravstveniKartonXsl = new ClassPathResource("xsl/xsl_for_patient_page/zdravstveni_karton.xsl");
+    private ClassPathResource zdravstveniKartonPretragaXsl = new ClassPathResource("xsl/xsl_for_patient_page/zdravstveni_karton_pretraga.xsl");
     private ClassPathResource izvestajiXsl = new ClassPathResource("xsl/xsl_for_patient_page/izvestaji.xsl");
     private ClassPathResource uputiZaSpecijalistickiPregledXsl = new ClassPathResource("xsl/xsl_for_patient_page/uputi_za_specijalisticki_pregled.xsl");
     private ClassPathResource uputiZaLaboratorijuXsl = new ClassPathResource("xsl/xsl_for_patient_page/uputi_za_laboratoriju.xsl");
@@ -188,6 +196,56 @@ public class PatientServiceImpl implements PatientService {
 
         xHTML = xHTML.replaceAll("\r?\n?", "");
         return xHTML;
+    }
+
+    @Override
+    public String basicSearchHealthCard(String healthCardNumber, String text) throws Exception {
+        String zdravstveniKartonXml = healthCardService.getHealthCardXml(healthCardNumber);
+
+        String xHTML = null;
+        try {
+            String xslString;
+            if(text.trim().equals("")) {
+                xslString = patientRepository.loadFileContent(zdravstveniKartonXsl.getFile().getPath());
+            }
+            else {
+                String[] args = new String[38];
+                for (int i = 0; i < args.length; i++) args[i] = text;
+
+                String zdravstveniKartonXslString = patientRepository.loadFileContent(zdravstveniKartonPretragaXsl.getFile().getPath());
+                xslString = String.format(zdravstveniKartonXslString, args);
+            }
+            xHTML = transformationService.generateHTML(zdravstveniKartonXml, xslString);
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        xHTML = xHTML.replaceAll("\r?\n?", "");
+        return xHTML;
+    }
+
+    @Override
+    public String advancedSearchHealthCard(String healthCardNumber, String text) throws IOException {
+        List<SparqlVarNameAndValue> uris = rdfService.advancedSearch(healthCardNumber, text);
+        StringBuilder sb = new StringBuilder("");
+        uris.stream()
+                .forEach(uri -> {
+                        sb.append("<a href=\"");
+                        String[] tokens = uri.getValue().split("/");
+                        String idNum = tokens[tokens.length-1];
+                        sb.append("http://localhost:8081/api/search/");
+                        sb.append(uri.getVarName());
+                        sb.append("/");
+                        sb.append(idNum);
+                        sb.append("\">");
+                        sb.append(uri.getValue());
+                        sb.append("</a>");
+                    sb.append("<br/>");
+                    }
+                );
+        return sb.toString();
     }
 
     @Override

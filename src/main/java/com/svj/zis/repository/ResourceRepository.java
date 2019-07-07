@@ -1,6 +1,6 @@
 package com.svj.zis.repository;
 
-import com.svj.zis.util.AuthenticationUtilities;
+import com.svj.zis.util.ExistAuthenticationUtilities;
 import com.svj.zis.util.mapper.KolekcijeOsobeDokumentiNamespaceMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,7 +28,7 @@ public class ResourceRepository {
 
 
     public void saveAll(String collectionId, String documentId, Object object) throws Exception {
-        AuthenticationUtilities.ConnectionProperties conn = AuthenticationUtilities.loadProperties();
+        ExistAuthenticationUtilities.ExistConnectionProperties conn = ExistAuthenticationUtilities.loadProperties();
 
         System.out.println("\t- collection ID: " + collectionId);
         System.out.println("\t- document ID: " + documentId);
@@ -113,7 +113,7 @@ public class ResourceRepository {
 
 
     public XMLResource getResource(String collectionId, String documentId) throws Exception {
-        AuthenticationUtilities.ConnectionProperties conn = AuthenticationUtilities.loadProperties();
+        ExistAuthenticationUtilities.ExistConnectionProperties conn = ExistAuthenticationUtilities.loadProperties();
 
         System.out.println("\t- collection ID: " + collectionId);
         System.out.println("\t- document ID: " + documentId + "\n");
@@ -166,7 +166,7 @@ public class ResourceRepository {
     }
 
     public Collection getCollection(String collectionId) throws Exception {
-        AuthenticationUtilities.ConnectionProperties conn = AuthenticationUtilities.loadProperties();
+        ExistAuthenticationUtilities.ExistConnectionProperties conn = ExistAuthenticationUtilities.loadProperties();
 
         System.out.println("\t- collection ID: " + collectionId);
 
@@ -199,11 +199,11 @@ public class ResourceRepository {
         }
     }
 
-    private static Collection getOrCreateCollection(AuthenticationUtilities.ConnectionProperties conn, String collectionUri) throws XMLDBException {
+    private static Collection getOrCreateCollection(ExistAuthenticationUtilities.ExistConnectionProperties conn, String collectionUri) throws XMLDBException {
         return getOrCreateCollection(conn, collectionUri, 0);
     }
 
-    private static Collection getOrCreateCollection(AuthenticationUtilities.ConnectionProperties conn, String collectionUri, int pathSegmentOffset) throws XMLDBException {
+    private static Collection getOrCreateCollection(ExistAuthenticationUtilities.ExistConnectionProperties conn, String collectionUri, int pathSegmentOffset) throws XMLDBException {
 
         Collection col = DatabaseManager.getCollection(conn.uri + collectionUri, conn.user, conn.password);
 
@@ -250,7 +250,7 @@ public class ResourceRepository {
         }
     }
 
-    protected String loadFileContent(String path) throws IOException {
+    public String loadFileContent(String path) throws IOException {
         byte[] allBytes = Files.readAllBytes(Paths.get(path));
         return new String(allBytes, StandardCharsets.UTF_8);
     }

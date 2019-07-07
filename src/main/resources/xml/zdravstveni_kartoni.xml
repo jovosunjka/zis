@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zdravstveni_kartoni xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti">
-    <dokumenti:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" broj_kartona="zk123" broj_zdrastvene_knjizice="12345678901">
+<kolekcije:zdravstveni_kartoni xmlns:kolekcije="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti"
+   xmlns="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+   xmlns:pred="http://www.svj.com/zis/predicate/">
+    <dokumenti:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1"
+      broj_kartona="zk123" broj_zdrastvene_knjizice="12345678901" about="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1">
         <dokumenti:pacijentovi_podaci jmbg="4561237897418" lbo="96385274145">
-            <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1"/>
-            <dokumenti:ime>Zika</dokumenti:ime>
-            <dokumenti:prezime>Zikic</dokumenti:prezime>
-            <dokumenti:ime_jednog_roditelja>Marko</dokumenti:ime_jednog_roditelja>
-            <dokumenti:datum_rodjenja>1987-08-27</dokumenti:datum_rodjenja>
+            <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1" href="http://www.svj.com/zis/osobe/pacijent/1" />
+            <dokumenti:ime datatype="xs:string" property="pred:ime">Zika</dokumenti:ime>
+            <dokumenti:prezime datatype="xs:string" property="pred:prezime">Zikic</dokumenti:prezime>
+            <dokumenti:ime_jednog_roditelja datatype="xs:string" property="pred:imeJednogRoditelja">Marko</dokumenti:ime_jednog_roditelja>
+            <dokumenti:datum_rodjenja datatype="xs:date" property="pred:datum">1987-08-27</dokumenti:datum_rodjenja>
             <dokumenti:adresa>
-                <dokumenti:ulica>Bulevar cara Lazara</dokumenti:ulica>
+                <dokumenti:ulica  datatype="xs:string" property="pred:ulica">Bulevar cara Lazara</dokumenti:ulica>
                 <dokumenti:broj>108</dokumenti:broj>
                 <dokumenti:mesto>Novi Sad</dokumenti:mesto>
                 <dokumenti:opstina>Novi Sad</dokumenti:opstina>
@@ -19,6 +22,6 @@
             <dokumenti:bracno_stanje>ozenjen</dokumenti:bracno_stanje>
             <dokumenti:osnov_oslobadjanja_od_participacije>penzioner</dokumenti:osnov_oslobadjanja_od_participacije>
         </dokumenti:pacijentovi_podaci>
-        <dokumenti:odabrani_lekar id="http://www.svj.com/zis/osobe/lekar/1"/>
+        <dokumenti:odabrani_lekar id="http://www.svj.com/zis/osobe/lekar/1"  href="http://www.svj.com/zis/osobe/lekar/1" rel="pred:lekar"/>
     </dokumenti:zdravstveni_karton>
-</zdravstveni_kartoni>
+</kolekcije:zdravstveni_kartoni>

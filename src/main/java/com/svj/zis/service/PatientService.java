@@ -2,6 +2,7 @@ package com.svj.zis.service;
 
 import com.svj.zis.model.Pacijent;
 
+import java.io.IOException;
 import java.util.Optional;
 
 public interface PatientService {
@@ -31,4 +32,8 @@ public interface PatientService {
     Pacijent getPatientByUserId(String idOfUser) throws Exception;
 
     Pacijent getPatient(String idOfPatientNum) throws Exception;
+
+    String basicSearchHealthCard(String healthCardNumber, String text) throws Exception;
+
+    String advancedSearchHealthCard(String healthCardNumber, String text) throws IOException;
 }

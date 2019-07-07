@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<izvestaji xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti">
-    <dokumenti:izvestaj oznaka="iz_oznaka_123" id="http://www.svj.com/zis/dokumenti/izvestaj/1">
-        <dokumenti:dijagnoza>M051</dokumenti:dijagnoza>
-        <dokumenti:anamneza>
-            Na osnovu izvestaja
-            <dokumenti:link href="http://www.zis.rs/izvestaji/id88" id="http://www.zis.rs/izvestaji/id88"/> i recepta
-            <dokumenti:link href="http://www.svj.com/zis/dokumenti/lekarski_recept/1" id="http://www.svj.com/zis/dokumenti/lekarski_recept/1"/> ustanovili smo da se bolest prosirila na sve organe.
-        </dokumenti:anamneza>
-        <dokumenti:terapija>
-            Na osnovu izvestaja
-            <dokumenti:link href="http://www.zis.rs/izvestaji/id88" id="http://www.zis.rs/izvestaji/id88"/> i recepta
-            <dokumenti:link href="http://www.svj.com/zis/dokumenti/lekarski_recept/2" id="http://www.svj.com/zis/dokumenti/lekarski_recept/2"/> ustanovili smo da je potrebno otici kod lekara specijaliste.
-        </dokumenti:terapija>
-        <dokumenti:datum>2019-06-27</dokumenti:datum>
-        <dokumenti:osigurano_lice id="http://www.svj.com/zis/osobe/pacijent/1">
-            <dokumenti:ime></dokumenti:ime>
-            <dokumenti:prezime></dokumenti:prezime>
+<kolekcije:izvestaji xmlns:kolekcije="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti"
+           xmlns="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+           xmlns:pred="http://www.svj.com/zis/predicate/">
+    <dokumenti:izvestaj about="http://www.svj.com/zis/dokumenti/izvestaj/1" aktivan="true" id="http://http://www.svj.com/zis/dokumenti/izvestaj/1" oznaka="il1">
+        <dokumenti:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" broj_zdravstvenog_kartona="zk123" broj_zdrastvene_knjizice="12345678901" href="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" rel="pred:zdravstveniKarton"/>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:dijagnoza">F320</dokumenti:dijagnoza>
+        <dokumenti:anamneza  datatype="xs:string" property="pred:anamneza">Obicna prehlada</dokumenti:anamneza>
+        <dokumenti:terapija  datatype="xs:string" property="pred:terapija">Lecenje antibioticima</dokumenti:terapija>
+        <dokumenti:datum datatype="xs:date" property="pred:datum">2019-06-21</dokumenti:datum>
+        <dokumenti:osigurano_lice id="http://www.svj.com/zis/osobe/pacijent/1" rel="pred:osiguranoLice" href="http://www.svj.com/zis/osobe/pacijent/1">
+            <dokumenti:ime>Zika</dokumenti:ime>
+            <dokumenti:prezime>Zikic</dokumenti:prezime>
         </dokumenti:osigurano_lice>
-        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1">
+        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/3" href="http://www.svj.com/zis/osobe/lekar/3" rel="pred:lekar">
+            <dokumenti:ime>Djura</dokumenti:ime>
+            <dokumenti:prezime>Djuric</dokumenti:prezime>
+        </dokumenti:lekar>
+    </dokumenti:izvestaj>
+    <dokumenti:izvestaj about="http://www.svj.com/zis/dokumenti/izvestaj/2" oznaka="iz_oznaka_123"  id="http://http://www.svj.com/zis/dokumenti/izvestaj/2">
+        <dokumenti:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" broj_zdravstvenog_kartona="zk123" broj_zdrastvene_knjizice="12345678901" href="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" rel="pred:zdravstveniKarton"/>
+        <dokumenti:dijagnoza datatype="xs:string" property="pred:dijagnoza">M051</dokumenti:dijagnoza>
+        <dokumenti:anamneza  datatype="xs:string" property="pred:anamneza">
+            Na osnovu izvestaja
+            <dokumenti:link id="http://http://www.svj.com/zis/dokumenti/izvestaj/1" href="http://http://www.svj.com/zis/dokumenti/izvestaj/1" rel="pred:referencaNaDokument"/> i recepta
+            <dokumenti:link id="http://www.svj.com/zis/dokumenti/lekarski_recept/1" href="http://www.svj.com/zis/dokumenti/lekarski_recept/1" rel="pred:referencaNaDokument"/> ustanovili smo da se bolest prosirila na sve organe.
+        </dokumenti:anamneza>
+        <dokumenti:terapija  datatype="xs:string" property="pred:terapija">
+            Na osnovu izvestaja
+            <dokumenti:link id="http://http://www.svj.com/zis/dokumenti/izvestaj/1" href="http://http://www.svj.com/zis/dokumenti/izvestaj/1" rel="pred:referencaNaDokument"/> i recepta
+            <dokumenti:link id="http://www.svj.com/zis/dokumenti/lekarski_recept/2" href="http://www.svj.com/zis/dokumenti/lekarski_recept/2" rel="pred:referencaNaDokument"/> ustanovili smo da je potrebno otici kod lekara specijaliste.
+        </dokumenti:terapija>
+        <dokumenti:datum datatype="xs:date" property="pred:datum">2019-06-27</dokumenti:datum>
+        <dokumenti:osigurano_lice id="http://www.svj.com/zis/osobe/pacijent/1" rel="pred:osiguranoLice" href="http://www.svj.com/zis/osobe/pacijent/1">
+            <dokumenti:ime>Zika</dokumenti:ime>
+            <dokumenti:prezime>Zikic</dokumenti:prezime>
+        </dokumenti:osigurano_lice>
+        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1" rel="pred:lekar" href="http://www.svj.com/zis/osobe/lekar/1">
             <dokumenti:ime>Pera</dokumenti:ime>
             <dokumenti:prezime>Peric</dokumenti:prezime>
         </dokumenti:lekar>
     </dokumenti:izvestaj>
-</izvestaji>
+</kolekcije:izvestaji>

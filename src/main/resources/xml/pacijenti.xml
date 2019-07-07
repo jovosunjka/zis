@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pacijenti xmlns="http://www.svj.com/zis/kolekcije" xmlns:osobe="http://www.svj.com/zis/osobe">
-    <osobe:pacijent id="http://www.svj.com/zis/osobe/pacijent/1">
+<kolekcije:pacijenti xmlns:kolekcije="http://www.svj.com/zis/kolekcije" xmlns:osobe="http://www.svj.com/zis/osobe"
+     xmlns="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+     xmlns:pred="http://www.svj.com/zis/predicate/">
+    <osobe:pacijent id="http://www.svj.com/zis/osobe/pacijent/1" about="http://www.svj.com/zis/osobe/pacijent/1">
         <osobe:user id="http://www.svj.com/zis/osobe/user/2"/>
-        <osobe:zdravstveni_karton broj_zdravstvenog_kartona="zk123"/>
+        <osobe:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" broj_zdravstvenog_kartona="zk123" broj_zdrastvene_knjizice="12345678901" href="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" rel="pred:zdravstveniKarton"/>
         <osobe:obavestenja></osobe:obavestenja>
     </osobe:pacijent>
-</pacijenti>
+</kolekcije:pacijenti>

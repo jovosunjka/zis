@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<lekarski_recepti xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti">
-    <dokumenti:lekarski_recept id="http://www.svj.com/zis/dokumenti/lekarski_recept/1">
+<kolekcije:lekarski_recepti xmlns:kolekcije="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti"
+      xmlns="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+      xmlns:pred="http://www.svj.com/zis/predicate/">
+    <dokumenti:lekarski_recept id="http://www.svj.com/zis/dokumenti/lekarski_recept/1" about="http://www.svj.com/zis/dokumenti/lekarski_recept/1">
         <dokumenti:osigurano_lice>
             <dokumenti:ime>Zika</dokumenti:ime>
             <dokumenti:prezime>Zikic</dokumenti:prezime>
             <dokumenti:datum_rodjenja>1956-12-21</dokumenti:datum_rodjenja>
-            <dokumenti:pacijent id="http://www.svj.com/zis/osobe/user/2"/>
+            <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1" href="http://www.svj.com/zis/osobe/pacijent/1" rel="pred:osiguranoLice"/>
         </dokumenti:osigurano_lice>
-        
         <dokumenti:ustanova>
             <dokumenti:naziv_zdrastvene_ustanove>Ambulanta na Klisi</dokumenti:naziv_zdrastvene_ustanove>
             <dokumenti:drzava>Republika Srbija</dokumenti:drzava>
         </dokumenti:ustanova>
-        <dokumenti:zdravstveni_karton broj_zdravstvenog_kartona="zk123" broj_zdrastvene_knjizice="12345678901"/>
+        <dokumenti:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" broj_zdravstvenog_kartona="zk123" broj_zdrastvene_knjizice="12345678901" href="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" rel="pred:zdravstveniKarton"/>
         <dokumenti:osnov_oslobadjanja_od_participacije>penzioner</dokumenti:osnov_oslobadjanja_od_participacije>
         <dokumenti:podaci_o_lekaru>
             <dokumenti:ime>Pera</dokumenti:ime>
             <dokumenti:prezime>Peric</dokumenti:prezime>
             <dokumenti:potpis_lekara>ovo je lekarov potpis</dokumenti:potpis_lekara>
-            <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1"/>
+            <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1" href="http://www.svj.com/zis/osobe/lekar/1" rel="pred:lekar"/>
         </dokumenti:podaci_o_lekaru>
         <dokumenti:propisani_lek>
             <dokumenti:naziv>ACIKLOVIR</dokumenti:naziv>
             <dokumenti:sifra>1328230</dokumenti:sifra>
             <dokumenti:datum>2019-06-29</dokumenti:datum>
-            <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/1"/>
+            <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/1"  href="http://www.svj.com/zis/dokumenti/lek/1" rel="pred:lek"/>
         </dokumenti:propisani_lek>
         <dokumenti:izdati_lek>
             <dokumenti:naziv>ACTAPAX</dokumenti:naziv>
             <dokumenti:sifra>1072915</dokumenti:sifra>
             <dokumenti:datum>2019-06-30</dokumenti:datum>
-            <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/2"/>
+            <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/2"  href="http://www.svj.com/zis/dokumenti/lek/2" rel="pred:lek"/>
         </dokumenti:izdati_lek>
         <dokumenti:dijagnoza>Visok krvni pritisak</dokumenti:dijagnoza>
         <dokumenti:redni_broj>12</dokumenti:redni_broj>
@@ -39,42 +40,43 @@
         <dokumenti:lek_primio>Zika</dokumenti:lek_primio>
         <dokumenti:rp/>
     </dokumenti:lekarski_recept>
-    <dokumenti:lekarski_recept id="http://www.svj.com/zis/dokumenti/lekarski_recept/2">
+
+    <dokumenti:lekarski_recept id="http://www.svj.com/zis/dokumenti/lekarski_recept/2"  about="http://www.svj.com/zis/dokumenti/lekarski_recept/2">
         <dokumenti:osigurano_lice>
             <dokumenti:ime>Zika</dokumenti:ime>
             <dokumenti:prezime>Zikic</dokumenti:prezime>
             <dokumenti:datum_rodjenja>1956-12-21</dokumenti:datum_rodjenja>
-            <dokumenti:pacijent id="http://www.svj.com/zis/osobe/user/2"/>
+            <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1" href="http://www.svj.com/zis/osobe/pacijent/1" rel="pred:osiguranoLice"/>
         </dokumenti:osigurano_lice>
         <dokumenti:ustanova>
             <dokumenti:naziv_zdrastvene_ustanove>Ambulanta na Klisi</dokumenti:naziv_zdrastvene_ustanove>
             <dokumenti:drzava>Republika Srbija</dokumenti:drzava>
         </dokumenti:ustanova>
-        <dokumenti:zdravstveni_karton broj_zdravstvenog_kartona="zk123" broj_zdrastvene_knjizice="12345678901"/>
+        <dokumenti:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" broj_zdravstvenog_kartona="zk123" broj_zdrastvene_knjizice="12345678901" href="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" rel="pred:zdravstveniKarton"/>
         <dokumenti:osnov_oslobadjanja_od_participacije>penzioner</dokumenti:osnov_oslobadjanja_od_participacije>
         <dokumenti:podaci_o_lekaru>
             <dokumenti:ime>Pera</dokumenti:ime>
             <dokumenti:prezime>Peric</dokumenti:prezime>
             <dokumenti:potpis_lekara>ovo je lekarov potpis</dokumenti:potpis_lekara>
-            <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1"/>
+            <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1" href="http://www.svj.com/zis/osobe/lekar/1" rel="pred:lekar"/>
         </dokumenti:podaci_o_lekaru>
         <dokumenti:propisani_lek>
             <dokumenti:naziv>ACTEMBA</dokumenti:naziv>
             <dokumenti:sifra>0014402</dokumenti:sifra>
             <dokumenti:datum>2019-06-29</dokumenti:datum>
-            <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/7"/>
+            <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/7"  href="http://www.svj.com/zis/dokumenti/lek/7" rel="pred:lek"/>
         </dokumenti:propisani_lek>
         <dokumenti:izdati_lek>
             <dokumenti:naziv>ADVAGRAF</dokumenti:naziv>
             <dokumenti:sifra>1014244</dokumenti:sifra>
             <dokumenti:datum>2019-06-30</dokumenti:datum>
-            <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/8"/>
+            <dokumenti:lek id="http://www.svj.com/zis/dokumenti/lek/8"  href="http://www.svj.com/zis/dokumenti/lek/8" rel="pred:lek"/>
         </dokumenti:izdati_lek>
-        <dokumenti:dijagnoza>Stanje presađenog srca</dokumenti:dijagnoza>
+        <dokumenti:dijagnoza  datatype="xs:string" property="pred:dijagnoza">Stanje presađenog srca</dokumenti:dijagnoza>
         <dokumenti:redni_broj>10</dokumenti:redni_broj>
         <dokumenti:kolicina>2</dokumenti:kolicina>
         <dokumenti:potpis_farmaceuta>ovo je farmaceutov potpis</dokumenti:potpis_farmaceuta>
         <dokumenti:lek_primio>Zika</dokumenti:lek_primio>
         <dokumenti:rp/>
     </dokumenti:lekarski_recept>
-</lekarski_recepti>
+</kolekcije:lekarski_recepti>

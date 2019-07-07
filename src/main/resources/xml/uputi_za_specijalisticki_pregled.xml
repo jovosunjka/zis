@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uputi_za_specijalisticki_pregled xmlns="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti">
-    <dokumenti:uput_za_specijalisticki_pregled id="http://www.svj.com/zis/dokumenti/uput_za_specijalisticki_pregled/1" reg_br="7534128965">
-        <dokumenti:zdravstvena_ustanova_koja_salje>Ambulanta na Klisi</dokumenti:zdravstvena_ustanova_koja_salje>
-        <dokumenti:zdravstvena_ustanova_koja_prima>Klinicki centar Vojvodine</dokumenti:zdravstvena_ustanova_koja_prima>
-        <dokumenti:zdravstveni_karton broj_zdravstvenog_kartona="zk123"/>
+<kolekcije:uputi_za_specijalisticki_pregled xmlns:kolekcije="http://www.svj.com/zis/kolekcije" xmlns:dokumenti="http://www.svj.com/zis/dokumenti"
+      xmlns="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+      xmlns:pred="http://www.svj.com/zis/predicate/">
+    <dokumenti:uput_za_specijalisticki_pregled id="http://www.svj.com/zis/dokumenti/uput_za_specijalisticki_pregled/1"
+       reg_br="7534128965" about="http://www.svj.com/zis/dokumenti/uput_za_specijalisticki_pregled/1">
+        <dokumenti:zdravstvena_ustanova_koja_salje datatype="xs:string" property="pred:ustanova">Ambulanta na Klisi</dokumenti:zdravstvena_ustanova_koja_salje>
+        <dokumenti:zdravstvena_ustanova_koja_prima datatype="xs:string" property="pred:ustanova">Klinicki centar Vojvodine</dokumenti:zdravstvena_ustanova_koja_prima>
+        <dokumenti:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" broj_zdravstvenog_kartona="zk123" broj_zdrastvene_knjizice="12345678901" href="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" rel="pred:zdravstveniKarton"/>
         <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1">
             <dokumenti:ime>Pera</dokumenti:ime>
             <dokumenti:prezime>Peric</dokumenti:prezime>
@@ -28,8 +31,8 @@
         <dokumenti:podaci_o_pregledu>
             <dokumenti:svrha_pregleda>Preventiva</dokumenti:svrha_pregleda>
             <dokumenti:obavljen_u_zdravstvenoj_ustanovi>Klinicki centar Vojvodine</dokumenti:obavljen_u_zdravstvenoj_ustanovi>
-            <dokumenti:datum_i_vreme_prijave>2019-05-20T14:45:00</dokumenti:datum_i_vreme_prijave>
-            <dokumenti:datum_i_vreme_zavrsetka>2019-06-27T16:00:00</dokumenti:datum_i_vreme_zavrsetka>
+            <dokumenti:datum_i_vreme_prijave datatype="xs:dateTime" property="pred:datumIVreme">2019-05-20T14:45:00</dokumenti:datum_i_vreme_prijave>
+            <dokumenti:datum_i_vreme_zavrsetka datatype="xs:dateTime" property="pred:datumIVreme">2019-06-27T16:00:00</dokumenti:datum_i_vreme_zavrsetka>
         </dokumenti:podaci_o_pregledu>
         <dokumenti:izvestaj>
             <dokumenti:osiguranik>
@@ -45,4 +48,4 @@
             <dokumenti:pecat>Ovo je lekarov pecat</dokumenti:pecat>
         </dokumenti:izvestaj>
     </dokumenti:uput_za_specijalisticki_pregled>
-</uputi_za_specijalisticki_pregled>
+</kolekcije:uputi_za_specijalisticki_pregled>

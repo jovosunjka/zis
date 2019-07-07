@@ -28,6 +28,7 @@ public class PatientController {
     private String firstPartOfPatientId = "http://www.svj.com/zis/osobe/pacijent/";
 
 
+
     @RequestMapping(value = "/all-doctors", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<String> getAllDoctors() {
         String lekariXml = patientService.getAllDoctors();
@@ -215,4 +216,39 @@ public class PatientController {
         }
     }
 
+    @RequestMapping(value = {"/basic-search", "/basic-search/{idOfPatientNum}"}, method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> basicSearch(@PathVariable(name = "idOfPatientNum", required = false) String idOfPatientNum,
+                                              @RequestParam("text") String text) {
+        Pacijent pacijent = null;
+        try {
+            pacijent = patientService.getPatient(idOfPatientNum);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+        }
+
+        try {
+            String zdravstveniKartonXml = patientService.basicSearchHealthCard(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona(), text);
+            return new ResponseEntity<String>(zdravstveniKartonXml, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = {"/basic-search", "/advanced-search/{idOfPatientNum}"}, method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> advancedSearch(@PathVariable(name = "idOfPatientNum", required = false) String idOfPatientNum,
+                                              @RequestParam("text") String text) {
+        Pacijent pacijent = null;
+        try {
+            pacijent = patientService.getPatient(idOfPatientNum);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+        }
+
+        try {
+            String zdravstveniKartonXml = patientService.advancedSearchHealthCard(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona(), text);
+            return new ResponseEntity<String>(zdravstveniKartonXml, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
 }

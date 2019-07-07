@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<medicinske_sestre xmlns="http://www.svj.com/zis/kolekcije" xmlns:osobe="http://www.svj.com/zis/osobe">
-    <osobe:medicinskia_sestra id="http://www.svj.com/zis/osobe/medicinskia_sestra/1">
-        <osobe:ime>Sima</osobe:ime>
-        <osobe:prezime>Simic</osobe:prezime>
+<kolekcije:medicinske_sestre xmlns:kolekcije="http://www.svj.com/zis/kolekcije" xmlns:osobe="http://www.svj.com/zis/osobe"
+   xmlns="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+   xmlns:pred="http://www.svj.com/zis/predicate/">
+    <osobe:medicinskia_sestra id="http://www.svj.com/zis/osobe/medicinskia_sestra/1" about="http://www.svj.com/zis/osobe/medicinskia_sestra/1">
+        <osobe:ime datatype="xs:string" property="pred:ime">Sima</osobe:ime>
+        <osobe:prezime datatype="xs:string" property="pred:prezime">Simic</osobe:prezime>
         <osobe:user id="http://www.svj.com/zis/osobe/user/4"/>
     </osobe:medicinskia_sestra>
-</medicinske_sestre>
+</kolekcije:medicinske_sestre>

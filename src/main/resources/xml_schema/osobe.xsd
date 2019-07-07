@@ -19,10 +19,18 @@
                 </xs:element>
                 <xs:element name="zdravstveni_karton">
                     <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
                         <xs:attribute name="broj_zdravstvenog_kartona" use="required">
                             <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                     <xs:pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="broj_zdrastvene_knjizice" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[0-9]{11}"/>
                                 </xs:restriction>
                             </xs:simpleType>
                         </xs:attribute>

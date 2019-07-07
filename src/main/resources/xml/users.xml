@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<users xmlns="http://www.svj.com/zis/kolekcije" xmlns:osobe="http://www.svj.com/zis/osobe">
+<kolekcije:users xmlns:kolekcije="http://www.svj.com/zis/kolekcije" xmlns:osobe="http://www.svj.com/zis/osobe"
+     xmlns="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+     xmlns:pred="http://www.svj.com/zis/predicate/">
     <osobe:user id="http://www.svj.com/zis/osobe/user/1">
         <osobe:username>pera</osobe:username>
         <osobe:password>$2a$10$Gb8L48XmlXj/2HD.85JzyOXhQkv9FLT9CalS0sQzL8MNdNuAhKHEi</osobe:password>
@@ -40,4 +42,4 @@
             <osobe:role>DOCTOR</osobe:role>
         </osobe:roles>
     </osobe:user>
-</users>
+</kolekcije:users>

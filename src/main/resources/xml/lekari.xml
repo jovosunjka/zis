@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<lekari xmlns="http://www.svj.com/zis/kolekcije" xmlns:osobe="http://www.svj.com/zis/osobe">
-    <osobe:lekar id="http://www.svj.com/zis/osobe/lekar/1">
-        <osobe:ime>Pera</osobe:ime>
-        <osobe:prezime>Peric</osobe:prezime>
+<kolekcije:lekari xmlns:kolekcije="http://www.svj.com/zis/kolekcije" xmlns:osobe="http://www.svj.com/zis/osobe"
+        xmlns="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+        xmlns:pred="http://www.svj.com/zis/predicate/">
+    <osobe:lekar id="http://www.svj.com/zis/osobe/lekar/1" about="http://www.svj.com/zis/osobe/lekar/1">
+        <osobe:ime datatype="xs:string" property="pred:ime">Pera</osobe:ime>
+        <osobe:prezime datatype="xs:string" property="pred:prezime">Peric</osobe:prezime>
         <osobe:user id="http://www.svj.com/zis/osobe/user/1"/>
         <osobe:tip>opsta_praksa</osobe:tip>
         <osobe:oblast_zastite>odrasli</osobe:oblast_zastite>
     </osobe:lekar>
-    <osobe:lekar id="http://www.svj.com/zis/osobe/lekar/2">
-        <osobe:ime>Mika</osobe:ime>
-        <osobe:prezime>Mikic</osobe:prezime>
+    <osobe:lekar id="http://www.svj.com/zis/osobe/lekar/2" about="http://www.svj.com/zis/osobe/lekar/2">
+        <osobe:ime datatype="xs:string" property="pred:ime">Mika</osobe:ime>
+        <osobe:prezime datatype="xs:string" property="pred:prezime">Mikic</osobe:prezime>
         <osobe:user id="http://www.svj.com/zis/osobe/user/3"/>
         <osobe:tip>pedijatar</osobe:tip>
         <osobe:oblast_zastite>deca</osobe:oblast_zastite>
     </osobe:lekar>
-    <osobe:lekar id="http://www.svj.com/zis/osobe/lekar/3">
-        <osobe:ime>Djura</osobe:ime>
-        <osobe:prezime>Djuric</osobe:prezime>
+    <osobe:lekar id="http://www.svj.com/zis/osobe/lekar/3" about="http://www.svj.com/zis/osobe/lekar/3">
+        <osobe:ime datatype="xs:string" property="pred:ime">Djura</osobe:ime>
+        <osobe:prezime datatype="xs:string" property="pred:prezime">Djuric</osobe:prezime>
         <osobe:user id="http://www.svj.com/zis/osobe/user/5"/>
         <osobe:tip>ginekolog</osobe:tip>
         <osobe:oblast_zastite>zene</osobe:oblast_zastite>
     </osobe:lekar>
-</lekari>
+</kolekcije:lekari>

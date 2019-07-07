@@ -36,6 +36,26 @@
                     </table>
                 </td>
             </tr>
+            <tr>
+                <td>- Phone Number:</td>
+                <td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:telefon"/></td>
+            </tr>
+            <tr>
+                <td>- Our:</td>
+                <td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:our"/></td>
+            </tr>
+            <tr>
+                <td>- Sex:</td>
+                <td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:pol"/></td>
+            </tr>
+            <tr>
+                <td>- Marital Status:</td>
+                <td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:bracno_stanje"/></td>
+            </tr>
+            <tr>
+                <td>- Reason For Exemption From Participation:</td>
+                <td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:osnov_oslobadjanja_od_participacije"/></td>
+            </tr>
         </table>
     </xsl:template>
 
