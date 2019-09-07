@@ -9,6 +9,8 @@ public interface PatientService {
 
     String getAllDoctors();
 
+    String getNotOverburdenedDoctors() throws Exception;
+
     String getDoctor(String idOfUser) throws Exception;
 
     void selectDoctor(String idOfUser, String idOfDoctor) throws Exception;
@@ -31,9 +33,16 @@ public interface PatientService {
 
     Pacijent getPatientByUserId(String idOfUser) throws Exception;
 
+    Pacijent getPatientByPatientId(String idOfPatient) throws Exception;
+
     Pacijent getPatient(String idOfPatientNum) throws Exception;
 
     String basicSearchHealthCard(String healthCardNumber, String text) throws Exception;
 
-    String advancedSearchHealthCard(String healthCardNumber, String text) throws IOException;
+    String advancedSearchHealthCard(String idOfHealthCard, String text) throws Exception;
+
+    void updatePatientAddNotification(String patientId, String idOfReview, String oldDateAndTime, String newDateAndTime,
+                                      boolean firstNotification) throws Exception;
+
+    String getNotifications(String idOfUser) throws Exception;
 }

@@ -25,13 +25,13 @@ public class ExtractAndSaveMetadataInJenaDB {
             new ClassPathResource("xml/pacijenti.xml"),
             new ClassPathResource("xml/pregledi.xml"),
             new ClassPathResource("xml/uputi_za_laboratoriju.xml"),
-            new ClassPathResource("xml/uuti_za_specijalisticki_pregled.xml"),
+            new ClassPathResource("xml/uputi_za_specijalisticki_pregled.xml"),
             //new ClassPathResource("xml/users.xml"),
             new ClassPathResource("xml/zdravstveni_kartoni.xml")
     };
 
 
-    @EventListener(ApplicationReadyEvent.class)
+    // @EventListener(ApplicationReadyEvent.class)
     private void extractAndSave() {
         Arrays.stream(xmls).forEach(xml -> {
             try {

@@ -32,6 +32,29 @@ import javax.xml.namespace.QName;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="zdravstveni_karton">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *                 &lt;attribute name="broj_zdravstvenog_kartona" use="required">
+ *                   &lt;simpleType>
+ *                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                       &lt;pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+ *                     &lt;/restriction>
+ *                   &lt;/simpleType>
+ *                 &lt;/attribute>
+ *                 &lt;attribute name="broj_zdrastvene_knjizice" use="required">
+ *                   &lt;simpleType>
+ *                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                       &lt;pattern value="[0-9]{11}"/>
+ *                     &lt;/restriction>
+ *                   &lt;/simpleType>
+ *                 &lt;/attribute>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
  *         &lt;element name="dijagnoza" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="anamneza">
  *           &lt;complexType>
@@ -120,6 +143,7 @@ import javax.xml.namespace.QName;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+    "zdravstveniKarton",
     "dijagnoza",
     "anamneza",
     "terapija",
@@ -130,6 +154,8 @@ import javax.xml.namespace.QName;
 @XmlRootElement(name = "izvestaj")
 public class Izvestaj {
 
+    @XmlElement(name = "zdravstveni_karton", required = true)
+    protected Izvestaj.ZdravstveniKarton zdravstveniKarton;
     @XmlElement(required = true)
     protected String dijagnoza;
     @XmlElement(required = true)
@@ -147,6 +173,30 @@ public class Izvestaj {
     @XmlAttribute(name = "id", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String id;
+
+    /**
+     * Gets the value of the zdravstveniKarton property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Izvestaj.ZdravstveniKarton }
+     *     
+     */
+    public Izvestaj.ZdravstveniKarton getZdravstveniKarton() {
+        return zdravstveniKarton;
+    }
+
+    /**
+     * Sets the value of the zdravstveniKarton property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Izvestaj.ZdravstveniKarton }
+     *     
+     */
+    public void setZdravstveniKarton(Izvestaj.ZdravstveniKarton value) {
+        this.zdravstveniKarton = value;
+    }
 
     /**
      * Gets the value of the dijagnoza property.
@@ -920,6 +970,124 @@ public class Izvestaj {
                 return otherAttributes;
             }
 
+        }
+
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+     *       &lt;attribute name="broj_zdravstvenog_kartona" use="required">
+     *         &lt;simpleType>
+     *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *             &lt;pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+     *           &lt;/restriction>
+     *         &lt;/simpleType>
+     *       &lt;/attribute>
+     *       &lt;attribute name="broj_zdrastvene_knjizice" use="required">
+     *         &lt;simpleType>
+     *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *             &lt;pattern value="[0-9]{11}"/>
+     *           &lt;/restriction>
+     *         &lt;/simpleType>
+     *       &lt;/attribute>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "")
+    public static class ZdravstveniKarton {
+
+        @XmlAttribute(name = "id", required = true)
+        @XmlSchemaType(name = "anyURI")
+        protected String id;
+        @XmlAttribute(name = "broj_zdravstvenog_kartona", required = true)
+        protected String brojZdravstvenogKartona;
+        @XmlAttribute(name = "broj_zdrastvene_knjizice", required = true)
+        protected String brojZdrastveneKnjizice;
+
+        /**
+         * Gets the value of the id property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getId() {
+            return id;
+        }
+
+        /**
+         * Sets the value of the id property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setId(String value) {
+            this.id = value;
+        }
+
+        /**
+         * Gets the value of the brojZdravstvenogKartona property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getBrojZdravstvenogKartona() {
+            return brojZdravstvenogKartona;
+        }
+
+        /**
+         * Sets the value of the brojZdravstvenogKartona property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setBrojZdravstvenogKartona(String value) {
+            this.brojZdravstvenogKartona = value;
+        }
+
+        /**
+         * Gets the value of the brojZdrastveneKnjizice property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getBrojZdrastveneKnjizice() {
+            return brojZdrastveneKnjizice;
+        }
+
+        /**
+         * Sets the value of the brojZdrastveneKnjizice property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setBrojZdrastveneKnjizice(String value) {
+            this.brojZdrastveneKnjizice = value;
         }
 
     }

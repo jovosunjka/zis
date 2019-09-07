@@ -68,10 +68,10 @@ export class GenericService {
     const httpOptions = {
       headers: new HttpHeaders({
           'Content-Type':  'application/xml',
-          'Accept':  'application/xml',
+          // 'Accept':  'application/xml',
           // 'Response-Type': 'text'
       }),
-      responseType: 'text' as 'json' // Ovo as 'json' smo dodali samo da ne bismo dobijali kompajlersku gresku.
+      // responseType: 'text' as 'json' // Ovo as 'json' smo dodali samo da ne bismo dobijali kompajlersku gresku.
       // Bez brige, xml text koji bude u http response-u bice posmatran kao xml, nece mu smetati ovo as 'json'
     };
     // return this.http.post(this.baseUrl + relativeUrl, t, { headers });

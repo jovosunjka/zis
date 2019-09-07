@@ -15,4 +15,9 @@ public class ReferralForSpecialistExaminationServiceImpl implements ReferralForS
     public String getReferralsForSpecialistExamination(String numberOfHeathCard) throws Exception {
         return referralForSpecialistExaminationRepository.getReferralsForSpecialistExamination(numberOfHeathCard);
     }
+
+    @Override
+    public String getReferralForSpecialistExamination(String id) throws Exception {
+        return referralForSpecialistExaminationRepository.getReferralForSpecialistExamination(id);
+    }
 }

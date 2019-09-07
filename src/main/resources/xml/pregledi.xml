@@ -3,11 +3,11 @@
     xmlns="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema#"
     xmlns:pred="http://www.svj.com/zis/predicate/">
     <dokumenti:pregled id="http://www.svj.com/zis/dokumenti/pregled/1" tip="opsta_praksa" about="http://www.svj.com/zis/dokumenti/pregled/1">
-        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/3"  href="http://www.svj.com/zis/osobe/lekar/3" rel="pred:lekar">
-            <dokumenti:ime>Djura</dokumenti:ime>
-            <dokumenti:prezime>Djuric</dokumenti:prezime>
+        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1"  href="http://www.svj.com/zis/osobe/lekar/1" rel="pred:lekar">
+            <dokumenti:ime>Pera</dokumenti:ime>
+            <dokumenti:prezime>Peric</dokumenti:prezime>
         </dokumenti:lekar>
-        <dokumenti:datum_i_vreme datatype="xs:dataTIme" property="pred:datumIVreme">2019-07-27T16:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:datum_i_vreme datatype="xs:dataTIme" property="pred:datumIVreme">2019-09-27T16:00:00</dokumenti:datum_i_vreme>
         <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1" href="http://www.svj.com/zis/osobe/pacijent/1" rel="pred:pacijent">
             <dokumenti:ime>Zika</dokumenti:ime>
             <dokumenti:prezime>Zikic</dokumenti:prezime>
@@ -18,7 +18,7 @@
             <dokumenti:ime>Mika</dokumenti:ime>
             <dokumenti:prezime>Mikic</dokumenti:prezime>
         </dokumenti:lekar>
-        <dokumenti:datum_i_vreme datatype="xs:dataTIme" property="pred:datumIVreme">2019-07-28T15:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:datum_i_vreme datatype="xs:dataTIme" property="pred:datumIVreme">2019-09-28T15:00:00</dokumenti:datum_i_vreme>
         <dokumenti:pacijent id="">
             <dokumenti:ime></dokumenti:ime>
             <dokumenti:prezime></dokumenti:prezime>
@@ -29,7 +29,7 @@
             <dokumenti:ime>Pera</dokumenti:ime>
             <dokumenti:prezime>Peric</dokumenti:prezime>
         </dokumenti:lekar>
-        <dokumenti:datum_i_vreme datatype="xs:dataTIme" property="pred:datumIVreme">2019-07-29T14:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:datum_i_vreme datatype="xs:dataTIme" property="pred:datumIVreme">2019-09-29T14:00:00</dokumenti:datum_i_vreme>
         <dokumenti:pacijent id="">
             <dokumenti:ime></dokumenti:ime>
             <dokumenti:prezime></dokumenti:prezime>
@@ -40,7 +40,7 @@
             <dokumenti:ime>Djura</dokumenti:ime>
             <dokumenti:prezime>Djuric</dokumenti:prezime>
         </dokumenti:lekar>
-        <dokumenti:datum_i_vreme datatype="xs:dataTIme" property="pred:datumIVreme">2019-07-30T13:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:datum_i_vreme datatype="xs:dataTIme" property="pred:datumIVreme">2019-09-30T13:00:00</dokumenti:datum_i_vreme>
         <dokumenti:pacijent id="">
             <dokumenti:ime></dokumenti:ime>
             <dokumenti:prezime></dokumenti:prezime>
@@ -51,7 +51,29 @@
             <dokumenti:ime>Mika</dokumenti:ime>
             <dokumenti:prezime>Mikic</dokumenti:prezime>
         </dokumenti:lekar>
-        <dokumenti:datum_i_vreme datatype="xs:dataTIme" property="pred:datumIVreme">2019-07-015T12:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:datum_i_vreme datatype="xs:dataTIme" property="pred:datumIVreme">2019-09-15T12:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:pacijent id="">
+            <dokumenti:ime></dokumenti:ime>
+            <dokumenti:prezime></dokumenti:prezime>
+        </dokumenti:pacijent>
+    </dokumenti:pregled>
+    <dokumenti:pregled id="http://www.svj.com/zis/dokumenti/pregled/6" tip="opsta_praksa" about="http://www.svj.com/zis/dokumenti/pregled/1">
+        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1"  href="http://www.svj.com/zis/osobe/lekar/1" rel="pred:lekar">
+            <dokumenti:ime>Pera</dokumenti:ime>
+            <dokumenti:prezime>Peric</dokumenti:prezime>
+        </dokumenti:lekar>
+        <dokumenti:datum_i_vreme datatype="xs:dataTIme" property="pred:datumIVreme">2019-09-28T18:00:00</dokumenti:datum_i_vreme>
+        <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1" href="http://www.svj.com/zis/osobe/pacijent/1" rel="pred:pacijent">
+            <dokumenti:ime>Zika</dokumenti:ime>
+            <dokumenti:prezime>Zikic</dokumenti:prezime>
+        </dokumenti:pacijent>
+    </dokumenti:pregled>
+    <dokumenti:pregled id="http://www.svj.com/zis/dokumenti/pregled/7" tip="opsta_praksa" about="http://www.svj.com/zis/dokumenti/pregled/7">
+        <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/3"  href="http://www.svj.com/zis/osobe/lekar/3" rel="pred:lekar">
+            <dokumenti:ime>Djura</dokumenti:ime>
+            <dokumenti:prezime>Djuric</dokumenti:prezime>
+        </dokumenti:lekar>
+        <dokumenti:datum_i_vreme datatype="xs:dataTIme" property="pred:datumIVreme">2019-09-27T16:00:00</dokumenti:datum_i_vreme>
         <dokumenti:pacijent id="">
             <dokumenti:ime></dokumenti:ime>
             <dokumenti:prezime></dokumenti:prezime>

@@ -1,12 +1,10 @@
 
 package com.svj.zis.model;
 
-import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
@@ -125,8 +123,8 @@ public class PacijentoviPodaci {
     protected String pol;
     @XmlElement(name = "bracno_stanje")
     protected String bracnoStanje;
-    @XmlElementRef(name = "osnov_oslobadjanja_od_participacije", namespace = "http://www.svj.com/zis/dokumenti", type = JAXBElement.class, required = false)
-    protected JAXBElement<String> osnovOslobadjanjaOdParticipacije;
+    @XmlElement(name = "osnov_oslobadjanja_od_participacije")
+    protected String osnovOslobadjanjaOdParticipacije;
     @XmlAttribute(name = "lbo", required = true)
     protected String lbo;
     @XmlAttribute(name = "jmbg", required = true)
@@ -377,10 +375,10 @@ public class PacijentoviPodaci {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getOsnovOslobadjanjaOdParticipacije() {
+    public String getOsnovOslobadjanjaOdParticipacije() {
         return osnovOslobadjanjaOdParticipacije;
     }
 
@@ -389,10 +387,10 @@ public class PacijentoviPodaci {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setOsnovOslobadjanjaOdParticipacije(JAXBElement<String> value) {
+    public void setOsnovOslobadjanjaOdParticipacije(String value) {
         this.osnovOslobadjanjaOdParticipacije = value;
     }
 

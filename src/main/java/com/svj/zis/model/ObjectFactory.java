@@ -25,7 +25,6 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _IzvestajTerapijaLink_QNAME = new QName("http://www.svj.com/zis/dokumenti", "link");
-    private final static QName _PacijentoviPodaciOsnovOslobadjanjaOdParticipacije_QNAME = new QName("http://www.svj.com/zis/dokumenti", "osnov_oslobadjanja_od_participacije");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.svj.zis.model
@@ -371,6 +370,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link com.svj.zis.model.Izvestaj.ZdravstveniKarton }
+     * 
+     */
+    public com.svj.zis.model.Izvestaj.ZdravstveniKarton createIzvestajZdravstveniKarton() {
+        return new com.svj.zis.model.Izvestaj.ZdravstveniKarton();
+    }
+
+    /**
      * Create an instance of {@link com.svj.zis.model.Izvestaj.Datum }
      * 
      */
@@ -610,15 +617,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.svj.com/zis/dokumenti", name = "link", scope = com.svj.zis.model.Izvestaj.Anamneza.class)
     public JAXBElement<com.svj.zis.model.Izvestaj.Anamneza.Link> createIzvestajAnamnezaLink(com.svj.zis.model.Izvestaj.Anamneza.Link value) {
         return new JAXBElement<com.svj.zis.model.Izvestaj.Anamneza.Link>(_IzvestajTerapijaLink_QNAME, com.svj.zis.model.Izvestaj.Anamneza.Link.class, com.svj.zis.model.Izvestaj.Anamneza.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.svj.com/zis/dokumenti", name = "osnov_oslobadjanja_od_participacije", scope = PacijentoviPodaci.class)
-    public JAXBElement<String> createPacijentoviPodaciOsnovOslobadjanjaOdParticipacije(String value) {
-        return new JAXBElement<String>(_PacijentoviPodaciOsnovOslobadjanjaOdParticipacije_QNAME, String.class, PacijentoviPodaci.class, value);
     }
 
 }

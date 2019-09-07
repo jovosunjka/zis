@@ -4,6 +4,7 @@ import com.svj.zis.model.Lekar;
 import com.svj.zis.model.Lekari;
 import com.svj.zis.model.Pacijent;
 import org.exist.xmldb.EXistResource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.*;
@@ -20,8 +21,11 @@ public class DoctorRepository extends ResourceRepository {
     private String documentId = "lekari.xml";
     private ClassPathResource lekariXml = new ClassPathResource("xml/" + documentId);
     private ClassPathResource findDoctorByDoctorIdXQuery = new ClassPathResource("xqueries/find_doctor_by_doctor_id.xqy");
+    private ClassPathResource findNotOverburdenedDoctorsXQuery = new ClassPathResource("xqueries/find_not_overburdened_doctors.xqy");
     private ClassPathResource findDoctorByUserIdXQuery = new ClassPathResource("xqueries/find_doctor_by_user_id.xqy");
 
+    @Value("${number-of-patients-per-doctor}")
+    private int numberOfPatientsPerDoctor;
 
     public String getAllDoctors() {
         try {
@@ -41,6 +45,38 @@ public class DoctorRepository extends ResourceRepository {
 
         return null;
     }
+
+    public String getNotOverburdenedDoctors() throws Exception {
+        Collection collection = getCollection(collectionId);
+        XQueryService xQueryService = (XQueryService) collection.getService("XQueryService", "1.0");
+        xQueryService.setProperty("indent", "yes");
+
+        String contentStr = loadFileContent(findNotOverburdenedDoctorsXQuery.getFile().getPath());
+        String sadrzajUpita = String.format(contentStr, ""+numberOfPatientsPerDoctor);
+        CompiledExpression compiledExpression = xQueryService.compile(sadrzajUpita);
+        ResourceSet resourceSet = xQueryService.execute(compiledExpression);
+        ResourceIterator i = resourceSet.getIterator();
+
+        org.xmldb.api.base.Resource resource = null;
+        if(i.hasMoreResources()) {
+
+            try {
+                resource = i.nextResource();
+                return (String) resource.getContent();
+            } finally {
+
+                // don't forget to cleanup resources
+                try {
+                    ((EXistResource)resource).freeResources();
+                } catch (XMLDBException xe) {
+                    xe.printStackTrace();
+                }
+            }
+        }
+
+        return null;
+    }
+
 
     private org.xmldb.api.base.Resource findResourceBySomeId(String path, String id) throws Exception {
         Collection collection = getCollection(collectionId);
@@ -78,6 +114,18 @@ public class DoctorRepository extends ResourceRepository {
         return (String) resource.getContent();
     }
 
+    public Lekar findDoctorByDoctorId(String idOfDoctor) throws Exception {
+        org.xmldb.api.base.Resource resource = findResourceBySomeId(findDoctorByDoctorIdXQuery.getFile().getPath(), idOfDoctor);
+        XMLResource xmlResource = (XMLResource) resource;
+        System.out.println("[INFO] Binding XML resouce to an JAXB instance: ");
+
+        JAXBContext context = JAXBContext.newInstance("com.svj.zis.model");
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        //Lekar lekar = (Lekar) super.unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+        Lekar lekar = (Lekar) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+        return lekar;
+    }
+
     public Lekar findByUserId(String idOfUser) throws Exception {
         org.xmldb.api.base.Resource resource = findResourceBySomeId(findDoctorByUserIdXQuery.getFile().getPath(), idOfUser);
         XMLResource xmlResource = (XMLResource) resource;
@@ -97,4 +145,5 @@ public class DoctorRepository extends ResourceRepository {
         Lekari lekari = (Lekari) unmarshaller.unmarshal(lekariXml.getFile());
         super.saveAll(collectionId, documentId, lekari);
     }
+
 }

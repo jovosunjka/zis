@@ -8,23 +8,23 @@
         <dokumenti:zdravstvena_ustanova_koja_prima datatype="xs:string" property="pred:ustanova">Klinicki centar Vojvodine</dokumenti:zdravstvena_ustanova_koja_prima>
         <dokumenti:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" broj_zdravstvenog_kartona="zk123" broj_zdrastvene_knjizice="12345678901" href="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" rel="pred:zdravstveniKarton"/>
         <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/1">
-            <dokumenti:ime>Pera</dokumenti:ime>
-            <dokumenti:prezime>Peric</dokumenti:prezime>
+            <dokumenti:ime datatype="xs:string" property="pred:ime">Pera</dokumenti:ime>
+            <dokumenti:prezime datatype="xs:string" property="pred:prezime">Peric</dokumenti:prezime>
             <dokumenti:potpis_lekara>ovo je lekarov potpis</dokumenti:potpis_lekara>
         </dokumenti:lekar>
         <dokumenti:pecat>ovo je lekarov pecat</dokumenti:pecat>
         <dokumenti:datum>2019-05-20</dokumenti:datum>
         <dokumenti:podaci_o_osiguranju>
             <dokumenti:nosilac_osiguranja>
-                <dokumenti:ime>Zika</dokumenti:ime>
-                <dokumenti:prezime>Zikic</dokumenti:prezime>
+                <dokumenti:ime datatype="xs:string" property="pred:ime">Zika</dokumenti:ime>
+                <dokumenti:prezime datatype="xs:string" property="pred:prezime">Zikic</dokumenti:prezime>
                 <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1"/>
             </dokumenti:nosilac_osiguranja>
             <dokumenti:osnov_osiguranja>zaposlen</dokumenti:osnov_osiguranja>
         </dokumenti:podaci_o_osiguranju>
         <dokumenti:specijalista>
-            <dokumenti:ime>Djura</dokumenti:ime>
-            <dokumenti:prezime>Djuric</dokumenti:prezime>
+            <dokumenti:ime datatype="xs:string" property="pred:ime">Djura</dokumenti:ime>
+            <dokumenti:prezime datatype="xs:string" property="pred:prezime">Djuric</dokumenti:prezime>
             <dokumenti:lekar id="http://www.svj.com/zis/osobe/lekar/3"/>
             <dokumenti:lekar_specijalista_za>Uho,grlo i nos</dokumenti:lekar_specijalista_za>
         </dokumenti:specijalista>
@@ -36,8 +36,8 @@
         </dokumenti:podaci_o_pregledu>
         <dokumenti:izvestaj>
             <dokumenti:osiguranik>
-                <dokumenti:ime>Zika</dokumenti:ime>
-                <dokumenti:prezime>Zikic</dokumenti:prezime>
+                <dokumenti:ime datatype="xs:string" property="pred:ime">Zika</dokumenti:ime>
+                <dokumenti:prezime datatype="xs:string" property="pred:prezime">Zikic</dokumenti:prezime>
                 <dokumenti:pacijent id="http://www.svj.com/zis/osobe/pacijent/1"/>
             </dokumenti:osiguranik>
             <dokumenti:boluje_od>Boli ga uho</dokumenti:boluje_od>

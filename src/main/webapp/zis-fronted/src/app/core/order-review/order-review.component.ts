@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GenericService } from '../services/generic/generic.service';
 import { ToastrService } from 'ngx-toastr';
 
+declare const $: any;
+
 @Component({
   selector: 'app-order-review',
   templateUrl: './order-review.component.html',
@@ -13,7 +15,6 @@ export class OrderReviewComponent implements OnInit {
   relativeUrlFreeReviews: string;
   relativeUrlOrderedReviews: string;
   relativeUrlOrderReview: string;
-  idOfReview: string;
 
   constructor(private reviewService: GenericService, private toastr: ToastrService) {
     this.xHtmlContetntForFreeReviews = 'Loading free reviews...';
@@ -73,10 +74,11 @@ export class OrderReviewComponent implements OnInit {
   }
 
   orderReview() {
-    if (this.idOfReview && this.idOfReview !== '') {
-      this.reviewService.putById(this.relativeUrlOrderReview, this.idOfReview).subscribe(
+	const idOfReview = $('#id_select_review').val();
+    if (idOfReview && idOfReview !== '') {
+      this.reviewService.putById(this.relativeUrlOrderReview, idOfReview).subscribe(
         () => {
-          this.idOfReview = '';
+          // this.idOfReview = '';
           this.getOrderedReviews();
           this.getFreeReviews();
           this.toastr.success('You have successfully order a review!');
@@ -85,7 +87,7 @@ export class OrderReviewComponent implements OnInit {
       );
     }
     else {
-      this.toastr.error('You did not enter the id of the review!');
+      this.toastr.error('You did not choose a review!');
     }
   }
 

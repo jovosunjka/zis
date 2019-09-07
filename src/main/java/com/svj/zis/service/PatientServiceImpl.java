@@ -1,21 +1,21 @@
 package com.svj.zis.service;
 
-import com.svj.zis.model.Lekar;
 import com.svj.zis.model.Pacijent;
 import com.svj.zis.model.User;
 import com.svj.zis.model.ZdravstveniKarton;
 import com.svj.zis.model.rdf.SparqlVarNameAndValue;
 import com.svj.zis.repository.PatientRepository;
+import io.jsonwebtoken.lang.Collections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PatientServiceImpl implements PatientService {
@@ -59,20 +59,40 @@ public class PatientServiceImpl implements PatientService {
 
 
     private ClassPathResource lekariXsl = new ClassPathResource("xsl/xsl_for_patient_page/lekari.xsl");
-    private ClassPathResource lekarXsl = new ClassPathResource("xsl/xsl_for_patient_page/lekar.xsl");
+    private ClassPathResource lekarXsl = new ClassPathResource("xsl/xsl_for_patient_page/odabrani_lekar.xsl");
     private ClassPathResource preglediXsl = new ClassPathResource("xsl/xsl_for_patient_page/pregledi.xsl");
+    private ClassPathResource izaberiPregledXsl = new ClassPathResource("xsl/xsl_for_patient_page/izaberi_pregled.xsl");
     private ClassPathResource zdravstveniKartonXsl = new ClassPathResource("xsl/xsl_for_patient_page/zdravstveni_karton.xsl");
     private ClassPathResource zdravstveniKartonPretragaXsl = new ClassPathResource("xsl/xsl_for_patient_page/zdravstveni_karton_pretraga.xsl");
     private ClassPathResource izvestajiXsl = new ClassPathResource("xsl/xsl_for_patient_page/izvestaji.xsl");
     private ClassPathResource uputiZaSpecijalistickiPregledXsl = new ClassPathResource("xsl/xsl_for_patient_page/uputi_za_specijalisticki_pregled.xsl");
     private ClassPathResource uputiZaLaboratorijuXsl = new ClassPathResource("xsl/xsl_for_patient_page/uputi_za_laboratoriju.xsl");
     private ClassPathResource lekarskiReceptiXsl = new ClassPathResource("xsl/xsl_for_patient_page/lekarski_recepti.xsl");
+    private ClassPathResource obavestenjaXsl = new ClassPathResource("xsl/xsl_for_patient_page/obavestenja.xsl");
 
 
     @Override
     public String getAllDoctors() {
         //String processInstruction = "<?xml-stylesheet type=\"text/xsl\" href=\"src/main/resources/xsl/lekari.xsl\"?>\n";
         String doctorsXml = doctorService.getAllDoctors();
+        //doctorsXml = processInstruction + doctorsXml;
+        String xHTML = null;
+        try {
+            xHTML = transformationService.generateHTML(doctorsXml, lekariXsl.getFile());
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        xHTML = xHTML.replaceAll("\r?\n?", "");
+        return xHTML;
+    }
+
+    @Override
+    public String getNotOverburdenedDoctors() throws Exception {
+        //String processInstruction = "<?xml-stylesheet type=\"text/xsl\" href=\"src/main/resources/xsl/lekari.xsl\"?>\n";
+        String doctorsXml = doctorService.getNotOverburdenedDoctors();
         //doctorsXml = processInstruction + doctorsXml;
         String xHTML = null;
         try {
@@ -120,7 +140,7 @@ public class PatientServiceImpl implements PatientService {
 
         String xHTML = null;
         try {
-            xHTML = transformationService.generateHTML(preglediXml, preglediXsl.getFile());
+            xHTML = transformationService.generateHTML(preglediXml, izaberiPregledXsl.getFile());
         } catch (TransformerException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -160,6 +180,11 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public Pacijent getPatientByUserId(String idOfUser) throws Exception {
         return patientRepository.findByUserId(idOfUser);
+    }
+
+    @Override
+    public Pacijent getPatientByPatientId(String idOfPatient) throws Exception {
+        return patientRepository.findByPatientId(idOfPatient);
     }
 
     @Override
@@ -209,11 +234,8 @@ public class PatientServiceImpl implements PatientService {
                 xslString = patientRepository.loadFileContent(zdravstveniKartonXsl.getFile().getPath());
             }
             else {
-                String[] args = new String[38];
-                for (int i = 0; i < args.length; i++) args[i] = text;
-
                 String zdravstveniKartonXslString = patientRepository.loadFileContent(zdravstveniKartonPretragaXsl.getFile().getPath());
-                xslString = String.format(zdravstveniKartonXslString, args);
+                xslString = String.format(zdravstveniKartonXslString, text);
             }
             xHTML = transformationService.generateHTML(zdravstveniKartonXml, xslString);
         } catch (TransformerException e) {
@@ -226,26 +248,102 @@ public class PatientServiceImpl implements PatientService {
         return xHTML;
     }
 
+    private List<SparqlVarNameAndValue> addOnlyNew(List<SparqlVarNameAndValue> uris, List<SparqlVarNameAndValue> newUris) {
+        newUris.stream()
+                .filter(newUri -> !uris.contains(newUri))
+                .forEach(newUri -> uris.add(newUri));
+        return uris;
+    }
+
+    private List<SparqlVarNameAndValue> intersection(List<SparqlVarNameAndValue> uris, List<SparqlVarNameAndValue> newUris) {
+        return uris.stream()
+                .filter(uri -> newUris.contains(uri))
+                .collect(Collectors.toList());
+    }
+
+    private List<SparqlVarNameAndValue> not(List<SparqlVarNameAndValue> uris, List<SparqlVarNameAndValue> newUris) {
+        return uris.stream()
+                .filter(uri -> !newUris.contains(uri))
+                .collect(Collectors.toList());
+    }
+
     @Override
-    public String advancedSearchHealthCard(String healthCardNumber, String text) throws IOException {
-        List<SparqlVarNameAndValue> uris = rdfService.advancedSearch(healthCardNumber, text);
-        StringBuilder sb = new StringBuilder("");
-        uris.stream()
-                .forEach(uri -> {
-                        sb.append("<a href=\"");
-                        String[] tokens = uri.getValue().split("/");
-                        String idNum = tokens[tokens.length-1];
-                        sb.append("http://localhost:8081/api/search/");
-                        sb.append(uri.getVarName());
-                        sb.append("/");
-                        sb.append(idNum);
-                        sb.append("\">");
-                        sb.append(uri.getValue());
-                        sb.append("</a>");
-                    sb.append("<br/>");
-                    }
-                );
-        return sb.toString();
+    public String advancedSearchHealthCard(String idOfHealthCard, String text) throws Exception {
+        List<SparqlVarNameAndValue> uris = new ArrayList<SparqlVarNameAndValue>();
+        List<SparqlVarNameAndValue> notUris = new ArrayList<SparqlVarNameAndValue>();
+        List<SparqlVarNameAndValue> newUris;
+
+        List<String> tokensUris = new ArrayList<String>();
+        String[] tokensUris2 = text.split("\"");
+        for(String token2 : tokensUris2) {
+            if(token2.equals("")) continue;
+
+            int start = text.indexOf(token2);
+            int end = start + token2.length() - 1;
+            if(start == 0 || end == text.length()-1 ||  text.charAt(start-1) != '"' || text.charAt(end+1) != '"') {
+                tokensUris.addAll(Collections.arrayToList(token2.split("\\s+")));
+                // proveravamo da li se radi o tokenu sa vise reci, tj, o tokenu koji sadrzi navodnike
+            }
+            else {
+                tokensUris.add(token2);
+            }
+
+        }
+
+        String operator = null;
+        for(String token : tokensUris) {
+            if(token.startsWith("<") && token.endsWith(">")) {
+                operator = token.substring(1, token.length()-1); // izbacujemo < i >
+            }
+            else {
+                newUris = rdfService.advancedSearch(idOfHealthCard, token);
+                if(operator == null) {
+                    uris = addOnlyNew(uris, newUris);
+                }
+                else if(operator.equals("and")) {
+                    uris = intersection(uris, newUris);
+
+                }
+                else if(operator.equals("or")) {
+                    uris = addOnlyNew(uris, newUris);
+                }
+                else if(operator.equals("not")) {
+                    notUris = addOnlyNew(notUris, newUris);
+                }
+                else {
+                    throw new Exception("Logicki operator mora biti and, or ili not");
+                }
+
+                operator = null;
+            }
+        }
+
+        uris = not(uris, notUris);
+
+        if(uris.isEmpty()) {
+            return "There are no results for:  " + text;
+        }
+        else {
+            StringBuilder sb = new StringBuilder("");
+            uris.stream()
+                    .forEach(uri -> {
+                                sb.append("<a style=\"color: #00ff00\" href=\"");
+                                String[] tokens = uri.getValue().split("/");
+                                String idNum = tokens[tokens.length - 1];
+                                sb.append("http://localhost:8081/api/search/");
+                                sb.append(uri.getVarName());
+                                sb.append("/");
+                                sb.append(idNum);
+                                sb.append("?text=");
+                                sb.append(text);
+                                sb.append("\">");
+                                sb.append(uri.getValue());
+                                sb.append("</a>");
+                                sb.append("<br/>");
+                            }
+                    );
+            return sb.toString();
+        }
     }
 
     @Override
@@ -306,6 +404,29 @@ public class PatientServiceImpl implements PatientService {
         String xHTML = null;
         try {
             xHTML = transformationService.generateHTML(lekarskiReceptiXml, lekarskiReceptiXsl.getFile());
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        xHTML = xHTML.replaceAll("\r?\n?", "");
+        return xHTML;
+    }
+
+    @Override
+    public void updatePatientAddNotification(String patientId, String idOfReview, String oldDateAndTime,
+                                             String newDateAndTime, boolean firstNotification) throws Exception {
+        patientRepository.updatePatientAddNotification(patientId, idOfReview, oldDateAndTime, newDateAndTime, firstNotification);
+    }
+
+    @Override
+    public String getNotifications(String idOfUser) throws Exception {
+        String obavestenjaXml = patientRepository.getNotifications(idOfUser);
+
+        String xHTML = null;
+        try {
+            xHTML = transformationService.generateHTML(obavestenjaXml, obavestenjaXsl.getFile());
         } catch (TransformerException e) {
             e.printStackTrace();
         } catch (IOException e) {

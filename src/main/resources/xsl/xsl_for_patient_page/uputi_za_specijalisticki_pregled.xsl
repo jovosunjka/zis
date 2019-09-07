@@ -37,7 +37,7 @@
                                     <td><b>- Id:</b></td> <td><xsl:value-of select="dokumenti:lekar/@id"/></td>
                                 </tr>
                                 <tr>
-                                    <td><b>- First Name:</b></td> <td><xsl:value-of select="dokumenti:specijalista/dokumenti:ime"/></td>
+                                    <td><b>- First Name:</b></td> <td><xsl:value-of select="dokumenti:lekar/dokumenti:ime"/></td>
                                 </tr>
                                 <tr>
                                     <td><b>- Last Name:</b></td> <td><xsl:value-of select="dokumenti:lekar/dokumenti:prezime"/></td>

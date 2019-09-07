@@ -15,4 +15,9 @@ public class ReferralForLabServiceImpl implements ReferralForLabService {
     public String getReferralsForLab(String numberOfHeathCard) throws Exception {
         return referralForLabRepository.getReferralsForLab(numberOfHeathCard);
     }
+
+    @Override
+    public String getReferralForLab(String id) throws Exception {
+        return referralForLabRepository.getReferralForLab(id);
+    }
 }

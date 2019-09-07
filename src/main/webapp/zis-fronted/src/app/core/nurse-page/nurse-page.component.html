@@ -1,3 +1,23 @@
-<p>
-  nurse-page works!
-</p>
+
+<br/>
+<br/>
+
+<table>
+	<tr>
+		<td>
+			<button class="btn btn-primary" (click)="getReviews()">Show Reviews</button>
+		</td> 
+		
+		<td>
+			<button class="btn btn-success" (click)="add()">Add</button>
+		</td>
+		
+		<td>
+			<button class="btn btn-warning" (click)="save()">Save</button>
+		</td>
+	</tr>
+</table>
+<div [innerHTML]="xHtmlContetntForDoctors | safeHtml"></div>
+<br/>
+<br/>
+<div [innerHTML]="xHtmlContetntForReviews | safeHtml"></div>

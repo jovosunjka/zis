@@ -1,0 +1,140 @@
+SELECT DISTINCT ?izvestaj ?lekar ?lekarski_recept ?pacijent ?uput_za_laboratoriju ?uput_za_specijalisticki_pregled
+FROM <%1$s>
+WHERE {
+    # izvestaj
+    {
+        {
+            ?izvestaj <http://www.svj.com/zis/predicate/dijagnoza> ?djagnoza .
+            FILTER (contains(?dijagnoza, '%3$s')) .
+        }
+        UNION
+        {
+
+            ?izvestaj <http://www.svj.com/zis/predicate/anamneza> ?anamneza .
+            FILTER (contains(?anamneza, '%3$s')) .
+        }
+        UNION
+        {
+            ?izvestaj <http://www.svj.com/zis/predicate/terapija> ?terapija .
+            FILTER (contains(?terapija, '%3$s')) .
+        }
+        UNION
+        {
+            ?izvestaj <http://www.svj.com/zis/predicate/datum> ?datum .
+            FILTER (contains(?datum, '%3$s')) .
+        }
+    }
+
+    UNION
+
+    # lekar
+    {
+        <%2$s> <http://www.svj.com/zis/predicate/lekar> ?lekar .
+        {
+            ?lekar <http://www.svj.com/zis/predicate/ime> ?ime .
+            FILTER (contains(?ime, '%3$s')) .
+        }
+        UNION
+        {
+
+            ?lekar <http://www.svj.com/zis/predicate/prezime> ?prezime .
+            FILTER (contains(?prezime, '%3$s')) .
+        }
+    }
+
+    UNION
+
+    # lekarski_recept
+    {
+        ?lekarski_recept <http://www.svj.com/zis/predicate/zdravstveniKarton> <%2$s> .
+        ?lekarski_recept <http://www.svj.com/zis/predicate/lek> ?lek .
+        {
+            ?lek <http://www.svj.com/zis/predicate/nazivLeka> ?naziv_leka .
+            FILTER (contains(?naziv_leka, '%3$s')) .
+        }
+        UNION
+        {
+            ?lek <http://www.svj.com/zis/predicate/sifraLeka> ?sifra_leka .
+            FILTER (contains(?sifra_leka, '%3$s')) .
+        }
+        UNION
+        {
+            ?lek <http://www.svj.com/zis/predicate/lekDijagnoza> ?lek_dijagnoza .
+            FILTER (contains(?lek_dijagnoza, '%3$s')) .
+        }
+        UNION
+        {
+            ?lek <http://www.svj.com/zis/predicate/lekNamena> ?lek_namena .
+            FILTER (contains(?lek_namena, '%3$s')) .
+        }
+    }
+
+    UNION
+
+    # pacijent
+    {
+        ?pacijent <http://www.svj.com/zis/predicate/zdravstveniKarton> <%2$s> .
+        {
+            <%2$s> <http://www.svj.com/zis/predicate/ime> ?ime .
+            FILTER (contains(?ime, '%3$s')) .
+        }
+        UNION
+        {
+            <%2$s> <http://www.svj.com/zis/predicate/prezime> ?prezime .
+            FILTER (contains(?prezime, '%3$s')) .
+        }
+        UNION
+        {
+            <%2$s> <http://www.svj.com/zis/predicate/prezime> ?imeJednogRoditelja .
+            FILTER (contains(?imeJednogRoditelja, '%3$s')) .
+        }
+        UNION
+        {
+            <%2$s> <http://www.svj.com/zis/predicate/datum> ?datum .
+            FILTER (contains(?datum, '%3$s')) .
+        }
+        UNION
+        {
+            <%2$s> <http://www.svj.com/zis/predicate/ulica> ?ulica .
+            FILTER (contains(?ulica, '%3$s')) .
+        }
+    }
+
+    UNION
+
+    # uput_za_specijalisticki_pregled
+    {
+        ?uput_za_specijalisticki_pregled <http://www.svj.com/zis/predicate/zdravstveniKarton> <%2$s> .
+        ?uput_za_specijalisticki_pregled <http://www.svj.com/zis/predicate/pacijent> ?pacijent .
+        {
+            ?pacijent <http://www.svj.com/zis/predicate/ime> ?ime .
+            FILTER (contains(?ime, '%3$s')) .
+        }
+        UNION
+        {
+
+            ?pacijent <http://www.svj.com/zis/predicate/prezime> ?prezime .
+            FILTER (contains(?prezime, '%3$s')) .
+        }
+    }
+
+
+    UNION
+
+    # uput_za_laboratoriju
+    {
+        ?uput_za_laboratoriju <http://www.svj.com/zis/predicate/zdravstveniKarton> <%2$s> .
+        ?uput_za_laboratoriju <http://www.svj.com/zis/predicate/pacijent> ?pacijent .
+        {
+            ?pacijent <http://www.svj.com/zis/predicate/ime> ?ime .
+            FILTER (contains(?ime, '%3$s')) .
+        }
+        UNION
+        {
+
+            ?pacijent <http://www.svj.com/zis/predicate/prezime> ?prezime .
+            FILTER (contains(?prezime, '%3$s')) .
+        }
+    }
+
+}

@@ -12,7 +12,15 @@
             <tr> <th><b>Id</b></th> <th><b>First Name</b></th> <th><b>Last Name</b></th> <th><b>View Health Card</b></th> <th><b> Edit Health Card</b></th> </tr>
             <xsl:for-each select="kolekcije:zdravstveni_kartoni/dokumenti:zdravstveni_karton">
                 <tr>
-                    <td><xsl:value-of select="dokumenti:pacijentovi_podaci/dokumenti:pacijent/@id"/></td>
+                    <xsl:variable name="var_pacijent_id" select="dokumenti:pacijentovi_podaci/dokumenti:pacijent/@id"/>
+                    <xsl:variable name="var_pacijent_id_num" select="str:tokenize(string($var_pacijent_id),'/')[last()]"/>
+                    <xsl:variable name="var_pacijent_type" select="str:tokenize(string($var_pacijent_id),'/')[last()-1]"/>
+                    <td>
+                        <a href="http://localhost:8081/api/search/{$var_pacijent_type}/{$var_pacijent_id_num}">
+                            <xsl:value-of select="$var_pacijent_id"/>
+                            <!--<xsl:apply-templates />-->
+                        </a>
+                    </td>
                     <td><xsl:value-of select="dokumenti:pacijentovi_podaci/dokumenti:ime"/></td>
                     <td><xsl:value-of select="dokumenti:pacijentovi_podaci/dokumenti:prezime"/></td>
                     <td><xsl:call-template name="template_for_tag_a_view_health_card"/></td>

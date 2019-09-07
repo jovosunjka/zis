@@ -1,9 +1,8 @@
 package com.svj.zis.controller;
 
 
-import com.svj.zis.dto.BasicInfoDto;
-import com.svj.zis.dto.Tokendto;
-import com.svj.zis.dto.Userdto;
+import com.svj.zis.dto.*;
+import com.svj.zis.model.Pacijent;
 import com.svj.zis.model.User;
 import com.svj.zis.service.DoctorService;
 import com.svj.zis.service.UserService;
@@ -33,6 +32,8 @@ public class DoctorController {
 
     @Autowired
     private DoctorService doctorService;
+
+    private String firstPartOfPatientId = "http://www.svj.com/zis/osobe/pacijent/";
 
 
     @RequestMapping(value = "/ordered-reviews", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
@@ -97,4 +98,70 @@ public class DoctorController {
         }
 
     }
+
+    @RequestMapping(value = "/basic-search", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> basicSearch(@RequestParam("text") String text) {
+        User loggedUser = null;
+
+        try {
+            loggedUser = userService.getLoggedUser();
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+        }
+
+        try {
+            String pacijentiXml = doctorService.getPatientsBasicSearch(loggedUser.getId(), text);
+            return new ResponseEntity<String>(pacijentiXml, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value="/make-report/{id-of-patient-num}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity makeReport(@PathVariable("id-of-patient-num") String idOfPatientNum, @RequestBody ReportDto reportDto) {
+        String idOfPatient = firstPartOfPatientId + idOfPatientNum;
+
+        User loggedUser = null;
+
+        try {
+            loggedUser = userService.getLoggedUser();
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+        }
+
+        try {
+            doctorService.makeReport(loggedUser.getId(), idOfPatient, reportDto.getDijagnoza(), reportDto.getAnamneza(), reportDto.getTerapija());
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
+    @RequestMapping(value="/make-doctor-receipt/{id-of-patient-num}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity makeDoctorReceipt(@PathVariable("id-of-patient-num") String idOfPatientNum, @RequestBody DoctorReceiptDto doctorReceiptDto) {
+        String idOfPatient = firstPartOfPatientId + idOfPatientNum;
+
+        User loggedUser = null;
+
+        try {
+            loggedUser = userService.getLoggedUser();
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+        }
+
+        try {
+            doctorService.makeDoctorReceipt(loggedUser.getId(), idOfPatient, doctorReceiptDto.getUstanova().getNazivZdrastveneUstanove(),
+                    doctorReceiptDto.getUstanova().getDrzava(), doctorReceiptDto.getPotpisLekara(), doctorReceiptDto.getPropisaniLek().getNaziv(),
+                    doctorReceiptDto.getPropisaniLek().getSifra(), doctorReceiptDto.getDijagnoza(), doctorReceiptDto.getRedniBroj(),
+                    doctorReceiptDto.getKolicina(), doctorReceiptDto.getRp());
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
 }

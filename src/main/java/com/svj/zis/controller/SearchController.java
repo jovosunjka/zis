@@ -20,10 +20,98 @@ public class SearchController {
     @Autowired
     private SearchService searchService;
 
-    @RequestMapping(value = "/pacijent/{id}", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
-    public ResponseEntity<String> searchPacijent(@PathVariable("id") String id) {
+    @RequestMapping(value = "/pacijent/{idNum}", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> searchPatient(@PathVariable("idNum") String idNum,
+                                                @RequestParam(name = "text", required = false) String text){
         try {
-            String resursXml = searchService.getResource(id);
+            if(text == null) text = "";
+            else text = text.split("\\s+")[0]; // uzmi samo prvi parametar
+
+            String resursXml = searchService.getPatientResource(idNum, text);
+            return new ResponseEntity<String>(resursXml, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = "/lekar/{idNum}", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> searchDoctor(@PathVariable("idNum") String idNum,
+                                               @RequestParam(name = "text", required = false) String text) {
+        try {
+            if(text == null) text = "";
+            else text = text.split("\\s+")[0]; // uzmi samo prvi parametar
+
+            String resursXml = searchService.getDoctorResource(idNum, text);
+            return new ResponseEntity<String>(resursXml, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = "/izvestaj/{idNum}", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> searchReport(@PathVariable("idNum") String idNum,
+                                               @RequestParam(name = "text", required = false) String text) {
+        try {
+            if(text == null) text = "";
+            else text = text.split("\\s+")[0]; // uzmi samo prvi parametar
+
+            String resursXml = searchService.getReportResource(idNum, text);
+            return new ResponseEntity<String>(resursXml, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = "/lekarski_recept/{idNum}", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> searchDoctorReceipt(@PathVariable("idNum") String idNum,
+                                               @RequestParam(name = "text", required = false) String text) {
+        try {
+            if(text == null) text = "";
+            else text = text.split("\\s+")[0]; // uzmi samo prvi parametar
+
+            String resursXml = searchService.getDoctorReceiptResource(idNum, text);
+            return new ResponseEntity<String>(resursXml, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = "/uput_za_laboratoriju/{idNum}", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> searchReferralForLab(@PathVariable("idNum") String idNum,
+                                                      @RequestParam(name = "text", required = false) String text) {
+        try {
+            if(text == null) text = "";
+            else text = text.split("\\s+")[0]; // uzmi samo prvi parametar
+
+            String resursXml = searchService.getReferralForLab(idNum, text);
+            return new ResponseEntity<String>(resursXml, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = "/uput_za_specijalisticki_pregled/{idNum}", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> searchReferralForSpecialistExamination(@PathVariable("idNum") String idNum,
+                                                      @RequestParam(name = "text", required = false) String text) {
+        try {
+            if(text == null) text = "";
+            else text = text.split("\\s+")[0]; // uzmi samo prvi parametar
+
+            String resursXml = searchService.getReferralForSpecialistExamination(idNum, text);
+            return new ResponseEntity<String>(resursXml, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = "/lek/{idNum}", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> searchMedicament(@PathVariable("idNum") String idNum,
+                                                 @RequestParam(name = "text", required = false) String text) {
+        try {
+            if(text == null) text = "";
+            else text = text.split("\\s+")[0]; // uzmi samo prvi parametar
+
+            String resursXml = searchService.getMedicament(idNum, text);
             return new ResponseEntity<String>(resursXml, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

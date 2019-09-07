@@ -19,6 +19,7 @@ public class ReferralForLabRepository extends ResourceRepository {
     private String documentId = "uputi_za_laboratoriju.xml";
     private ClassPathResource uputiZaLaboratorijuXml = new ClassPathResource("xml/" + documentId);
     private ClassPathResource findReferralsForLabByPatientIdXQuery = new ClassPathResource("xqueries/find_referrals_for_lab_by_number_of_heath_card.xqy");
+    private ClassPathResource findReferralForLabByIdXQuery = new ClassPathResource("xqueries/find_referral_for_lab_by_id.xqy");
 
 
     public String getAllReferralsForLab() {
@@ -56,6 +57,38 @@ public class ReferralForLabRepository extends ResourceRepository {
         String path = findReferralsForLabByPatientIdXQuery.getFile().getPath();
         String contentStr = loadFileContent(path);
         String sadrzajUpita = String.format(contentStr, numberOfHeathCard);
+        CompiledExpression compiledExpression = xQueryService.compile(sadrzajUpita);
+        ResourceSet resourceSet = xQueryService.execute(compiledExpression);
+        ResourceIterator i = resourceSet.getIterator();
+
+        org.xmldb.api.base.Resource resource = null;
+        if(i.hasMoreResources()) {
+
+            try {
+                resource = i.nextResource();
+                return (String) resource.getContent();
+            } finally {
+
+                // don't forget to cleanup resources
+                try {
+                    ((EXistResource)resource).freeResources();
+                } catch (XMLDBException xe) {
+                    xe.printStackTrace();
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public String getReferralForLab(String id) throws Exception {
+        Collection collection = getCollection(collectionId);
+        XQueryService xQueryService = (XQueryService) collection.getService("XQueryService", "1.0");
+        xQueryService.setProperty("indent", "yes");
+
+        String path = findReferralForLabByIdXQuery.getFile().getPath();
+        String contentStr = loadFileContent(path);
+        String sadrzajUpita = String.format(contentStr, id);
         CompiledExpression compiledExpression = xQueryService.compile(sadrzajUpita);
         ResourceSet resourceSet = xQueryService.execute(compiledExpression);
         ResourceIterator i = resourceSet.getIterator();

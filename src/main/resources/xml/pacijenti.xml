@@ -7,4 +7,14 @@
         <osobe:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" broj_zdravstvenog_kartona="zk123" broj_zdrastvene_knjizice="12345678901" href="http://www.svj.com/zis/dokumenti/zdravstveni_karton/1" rel="pred:zdravstveniKarton"/>
         <osobe:obavestenja></osobe:obavestenja>
     </osobe:pacijent>
+    <osobe:pacijent id="http://www.svj.com/zis/osobe/pacijent/2" about="http://www.svj.com/zis/osobe/pacijent/2">
+        <osobe:user id="http://www.svj.com/zis/osobe/user/6"/>
+        <osobe:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/2" broj_zdravstvenog_kartona="zk456" broj_zdrastvene_knjizice="12345678901" href="http://www.svj.com/zis/dokumenti/zdravstveni_karton/2" rel="pred:zdravstveniKarton"/>
+        <osobe:obavestenja></osobe:obavestenja>
+    </osobe:pacijent>
+    <osobe:pacijent id="http://www.svj.com/zis/osobe/pacijent/3" about="http://www.svj.com/zis/osobe/pacijent/3">
+        <osobe:user id="http://www.svj.com/zis/osobe/user/7"/>
+        <osobe:zdravstveni_karton id="http://www.svj.com/zis/dokumenti/zdravstveni_karton/3" broj_zdravstvenog_kartona="zk789" broj_zdrastvene_knjizice="12345678901" href="http://www.svj.com/zis/dokumenti/zdravstveni_karton/3" rel="pred:zdravstveniKarton"/>
+        <osobe:obavestenja></osobe:obavestenja>
+    </osobe:pacijent>
 </kolekcije:pacijenti>

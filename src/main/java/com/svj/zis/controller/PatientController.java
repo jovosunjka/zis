@@ -27,11 +27,34 @@ public class PatientController {
 
     private String firstPartOfPatientId = "http://www.svj.com/zis/osobe/pacijent/";
 
+    @RequestMapping(value = "/get-notifications", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> getNotifications() {
+        User loggedUser = null;
 
+        try {
+            loggedUser = userService.getLoggedUser();
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+        }
+
+        String obavestenjaXml = null;
+        try {
+            obavestenjaXml = patientService.getNotifications(loggedUser.getId());
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<String>(obavestenjaXml, HttpStatus.OK);
+    }
 
     @RequestMapping(value = "/all-doctors", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<String> getAllDoctors() {
-        String lekariXml = patientService.getAllDoctors();
+        String lekariXml = null;
+        try {
+            lekariXml = patientService.getNotOverburdenedDoctors();
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
 
         return new ResponseEntity<String>(lekariXml, HttpStatus.OK);
     }
@@ -234,7 +257,7 @@ public class PatientController {
         }
     }
 
-    @RequestMapping(value = {"/basic-search", "/advanced-search/{idOfPatientNum}"}, method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    @RequestMapping(value = {"/advanced-search", "/advanced-search/{idOfPatientNum}"}, method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<String> advancedSearch(@PathVariable(name = "idOfPatientNum", required = false) String idOfPatientNum,
                                               @RequestParam("text") String text) {
         Pacijent pacijent = null;
@@ -245,10 +268,11 @@ public class PatientController {
         }
 
         try {
-            String zdravstveniKartonXml = patientService.advancedSearchHealthCard(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona(), text);
-            return new ResponseEntity<String>(zdravstveniKartonXml, HttpStatus.OK);
+            String advancedSearchXml = patientService.advancedSearchHealthCard(pacijent.getZdravstveniKarton().getId(), text);
+            return new ResponseEntity<String>(advancedSearchXml, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
 }

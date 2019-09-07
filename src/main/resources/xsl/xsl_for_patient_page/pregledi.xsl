@@ -10,8 +10,8 @@
         <table border="2">
             <tr> <th><b>Id</b></th> <th><b>Date And Time</b></th></tr>
             <xsl:for-each select="kolekcije:pregledi/dokumenti:pregled">
-                <tr> 
-                    <td><xsl:value-of select="@id"/></td> 
+                <tr>
+                    <td><xsl:value-of select="@id"/></td>
                     <td><xsl:value-of select="dokumenti:datum_i_vreme"/></td>
                 </tr>
             </xsl:for-each>

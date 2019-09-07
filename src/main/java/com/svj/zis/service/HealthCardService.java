@@ -16,4 +16,6 @@ public interface HealthCardService {
     String getHealthCards(String idOfDoctor) throws Exception;
 
     void editPatientBasicInformations(String numberOfHealthCard, String jmbg, String lbo, String ime, String prezime, String imeJednogRoditelja, XMLGregorianCalendar datumRodjenja, String ulica, int broj, String mesto, String opstina, String telefon, String our, String pol, String bracnoStanje, String osnovOslobadjanjaOdParticipacije) throws Exception;
+
+    String getHealthCardsBasicSearch(String idOfDoctor, String text) throws Exception;
 }

@@ -6,7 +6,7 @@ declare namespace dokumenti = "http://www.svj.com/zis/dokumenti";
 (:  fn:doc() je isto sto i doc()  :)
 
 let $pregledi := for $pregled in doc("/db/zis/pregledi/pregledi.xml")/kolekcije:pregledi/dokumenti:pregled
-where $pregled/dokumenti:lekar/@id = "%s" and and $pregled/dokumenti:pacijent/@id != ""
+where $pregled/dokumenti:lekar/@id = "%s" and $pregled/dokumenti:pacijent/@id != ""
         and $pregled/dokumenti:datum_i_vreme > fn:current-dateTime()
 return $pregled
 

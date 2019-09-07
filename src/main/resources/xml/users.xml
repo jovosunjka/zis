@@ -42,4 +42,20 @@
             <osobe:role>DOCTOR</osobe:role>
         </osobe:roles>
     </osobe:user>
+    <osobe:user id="http://www.svj.com/zis/osobe/user/6">
+        <osobe:username>aleksandar</osobe:username>
+        <osobe:password>$2a$10$9rFZ3FUATYNRmhAUZMVeuO0vBs3oJiYuUkRwiKvRu5YWSD/BGmLza</osobe:password>
+        <osobe:type>PATIENT</osobe:type>
+        <osobe:roles>
+            <osobe:role>PATIENT</osobe:role>
+        </osobe:roles>
+    </osobe:user>
+    <osobe:user id="http://www.svj.com/zis/osobe/user/7">
+        <osobe:username>filip</osobe:username>
+        <osobe:password>$2a$10$9VsrLepTXrryc07EY5BhFuhsUtDEGMlynGjUGRSpNCOtZB3FVjHqe</osobe:password>
+        <osobe:type>PATIENT</osobe:type>
+        <osobe:roles>
+            <osobe:role>PATIENT</osobe:role>
+        </osobe:roles>
+    </osobe:user>
 </kolekcije:users>

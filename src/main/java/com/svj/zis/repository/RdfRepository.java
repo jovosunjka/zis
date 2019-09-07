@@ -94,11 +94,11 @@ public class RdfRepository {
         System.out.println("[INFO] End.");
     }
 
-    public List<SparqlVarNameAndValue> advancedSearch(String sparqlFileString, String numberOfHealthCard, String text) throws IOException {
+    public List<SparqlVarNameAndValue> advancedSearch(String sparqlFileString, String idOfHealthCard, String text) throws IOException {
         JenaAuthenticationUtilities.JenaConnectionProperties conn = JenaAuthenticationUtilities.loadProperties();
 
         String sparqlQuery = String.format(sparqlFileString,
-                conn.dataEndpoint + SPARQL_NAMED_GRAPH_URI);
+                conn.dataEndpoint + SPARQL_NAMED_GRAPH_URI, idOfHealthCard, text);
 
         System.out.println("Sparql Query:");
         System.out.println(sparqlQuery);
@@ -111,6 +111,9 @@ public class RdfRepository {
         ResultSet results = query.execSelect();
 
         String varName;
+        String typeOfDocument;
+        String uri;
+        String[] tokens;
         RDFNode varValue;
 
         List<SparqlVarNameAndValue> uris = new ArrayList<SparqlVarNameAndValue>();
@@ -126,8 +129,11 @@ public class RdfRepository {
 
                 varName = variableBindings.next();
                 varValue = querySolution.get(varName);
+                uri = varValue.toString();
+                tokens = uri.split("/");
+                typeOfDocument = tokens[tokens.length-2]; // pretposlednji
 
-                uris.add(new SparqlVarNameAndValue(varName, varValue.toString()));
+                uris.add(new SparqlVarNameAndValue(typeOfDocument, uri));
                 System.out.println(varName + ": " + varValue);
 
             }

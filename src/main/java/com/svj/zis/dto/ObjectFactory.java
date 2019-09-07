@@ -30,11 +30,67 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ReviewsDto }
+     * 
+     */
+    public ReviewsDto createReviewsDto() {
+        return new ReviewsDto();
+    }
+
+    /**
+     * Create an instance of {@link DoctorReceiptDto }
+     * 
+     */
+    public DoctorReceiptDto createDoctorReceiptDto() {
+        return new DoctorReceiptDto();
+    }
+
+    /**
+     * Create an instance of {@link ReviewsDto.Reviews }
+     * 
+     */
+    public ReviewsDto.Reviews createReviewsDtoReviews() {
+        return new ReviewsDto.Reviews();
+    }
+
+    /**
      * Create an instance of {@link Tokendto }
      * 
      */
     public Tokendto createTokendto() {
         return new Tokendto();
+    }
+
+    /**
+     * Create an instance of {@link ReviewsDto.Doctor }
+     * 
+     */
+    public ReviewsDto.Doctor createReviewsDtoDoctor() {
+        return new ReviewsDto.Doctor();
+    }
+
+    /**
+     * Create an instance of {@link ReportDto }
+     * 
+     */
+    public ReportDto createReportDto() {
+        return new ReportDto();
+    }
+
+    /**
+     * Create an instance of {@link DoctorReceiptDto.Ustanova }
+     * 
+     */
+    public DoctorReceiptDto.Ustanova createDoctorReceiptDtoUstanova() {
+        return new DoctorReceiptDto.Ustanova();
+    }
+
+    /**
+     * Create an instance of {@link DoctorReceiptDto.PropisaniLek }
+     * 
+     */
+    public DoctorReceiptDto.PropisaniLek createDoctorReceiptDtoPropisaniLek() {
+        return new DoctorReceiptDto.PropisaniLek();
     }
 
     /**
@@ -51,6 +107,14 @@ public class ObjectFactory {
      */
     public Userdto createUserdto() {
         return new Userdto();
+    }
+
+    /**
+     * Create an instance of {@link ReviewsDto.Reviews.Review }
+     * 
+     */
+    public ReviewsDto.Reviews.Review createReviewsDtoReviewsReview() {
+        return new ReviewsDto.Reviews.Review();
     }
 
 }

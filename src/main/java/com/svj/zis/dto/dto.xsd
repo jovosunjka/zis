@@ -93,4 +93,65 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="report_dto">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dijagnoza" type="xs:string"/>
+                <xs:element name="anamneza" type="xs:string"/>
+                <xs:element name="terapija" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="doctor_receipt_dto">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ustanova">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="naziv_zdrastvene_ustanove" type="xs:string"/>
+                            <xs:element name="drzava" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="potpis_lekara" type="xs:string"/>
+                <xs:element name="propisani_lek">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="naziv" type="xs:string"/>
+                            <xs:element name="sifra" type="xs:long"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="dijagnoza" type="xs:string"/>
+                <xs:element name="redni_broj" type="xs:int"/>
+                <xs:element name="kolicina" type="xs:int"/>
+                <xs:element name="rp" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="reviews_dto">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="doctor">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="reviews">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="review" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dateAndTime" type="xs:dateTime"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

@@ -11,9 +11,15 @@ export class PatientsComponent implements OnInit {
   xHtmlContetntForPatients: string; // dobijen koriscenjem xsl transformacije
   relativeUrlPatients: string;
 
-  constructor(private patientService: GenericService, private toastr: ToastrService) {
+  relativeUrlBasicSearch: string;
+
+  basicSearchText: string;
+
+  constructor(private doctorService: GenericService, private toastr: ToastrService) {
     this.relativeUrlPatients = '/doctor/patients';
+    this.relativeUrlBasicSearch = '/doctor/basic-search?text=';
     this.xHtmlContetntForPatients = 'Loading patients...';
+    this.basicSearchText = '';
    }
 
   ngOnInit() {
@@ -21,11 +27,11 @@ export class PatientsComponent implements OnInit {
   }
 
   getPatients () {
-    this.patientService.get<string>(this.relativeUrlPatients).subscribe(
+    this.doctorService.get<string>(this.relativeUrlPatients).subscribe(
       (receivedXml: string) => {
           if (receivedXml) {
              // this.xHtmlContetntForPatients = receivedXml.replace(/"/g, ''); // izbacujemo navodnike
-             this.xHtmlContetntForPatients = this.patientService.replaceAllBackSlash(receivedXml.substring(1,
+             this.xHtmlContetntForPatients = this.doctorService.replaceAllBackSlash(receivedXml.substring(1,
                 receivedXml.length - 1));
              // izbacujemo navodnike sa pocetka i kraja, i back-slash-ove
               this.toastr.success('Patients are successfully loaded!');
@@ -42,4 +48,25 @@ export class PatientsComponent implements OnInit {
     );
   }
 
+  basicSearch() {
+    this.doctorService.get<string>(this.relativeUrlBasicSearch + this.basicSearchText).subscribe(
+      (receivedXml: string) => {
+          if (receivedXml) {
+               // this.xHtmlContetntForPatients = receivedXml.replace(/"/g, ''); // izbacujemo navodnike
+               this.xHtmlContetntForPatients = this.doctorService.replaceAllBackSlash(receivedXml.substring(1,
+                 receivedXml.length - 1));
+               // izbacujemo navodnike sa pocetka i kraja, i back-slash-ove
+              this.toastr.success('Result of basic search is successfully loaded!');
+          }
+          else {
+            this.xHtmlContetntForPatients = 'Problem with loading of result of basic search!';
+            this.toastr.info('Problem with loading of result of basic search!');
+          }
+      },
+      (err) => {
+        this.xHtmlContetntForPatients = 'Problem with loading of result of basic search!';
+        this.toastr.error('Problem with loading of result of basic search!');
+      }
+    );
+  }
 }

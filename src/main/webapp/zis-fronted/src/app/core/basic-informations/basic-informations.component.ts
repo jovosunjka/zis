@@ -97,7 +97,7 @@ export class BasicInformationsComponent implements OnInit {
   }
 
   advancedSearch() {
-    this.healthCardService.get<string>(this.relativeUrlBasicSearch + this.advancedSearchText).subscribe(
+    this.healthCardService.get<string>(this.relativeUrlAdvancedSearch + this.advancedSearchText).subscribe(
       (receivedXml: string) => {
           if (receivedXml) {
                // this.xHtmlContetntForPatients = receivedXml.replace(/"/g, ''); // izbacujemo navodnike

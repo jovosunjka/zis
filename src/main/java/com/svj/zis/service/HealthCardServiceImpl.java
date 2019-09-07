@@ -38,4 +38,9 @@ public class HealthCardServiceImpl implements HealthCardService {
     public void editPatientBasicInformations(String numberOfHealthCard, String jmbg, String lbo, String ime, String prezime, String imeJednogRoditelja, XMLGregorianCalendar datumRodjenja, String ulica, int broj, String mesto, String opstina, String telefon, String our, String pol, String bracnoStanje, String osnovOslobadjanjaOdParticipacije) throws Exception {
         healthCardRepository.editPatientBasicInformations(numberOfHealthCard, jmbg, lbo, ime, prezime, imeJednogRoditelja, datumRodjenja, ulica, broj, mesto, opstina, telefon, our, pol, bracnoStanje, osnovOslobadjanjaOdParticipacije);
     }
+
+    @Override
+    public String getHealthCardsBasicSearch(String idOfDoctor, String text) throws Exception {
+        return healthCardRepository.getHealthCardsBasicSearch(idOfDoctor, text);
+    }
 }

@@ -46,7 +46,7 @@ public class SaveXmlFilesInExistDB {
     /**
      * Prilikom pokretanja aplikacije, bice upisani svi entiteti iz fajlova koji se nalaze u /resources/xml folderu
      * */
-    @EventListener(ApplicationReadyEvent.class)
+    // @EventListener(ApplicationReadyEvent.class)
     private void saveXmlFiles() {
         try {
             doctorReceiptRepository.saveAll();

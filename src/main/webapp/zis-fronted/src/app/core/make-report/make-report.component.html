@@ -1,0 +1,22 @@
+
+
+<div class="wrapper">
+  <div class="container">
+    <form class="form-register" (ngSubmit)="makeReport()">
+      <label for="id_diagnosis" class="sr-only">Diagnosis</label>
+      <input type="text" class="form-control rounded-0" id="id_diagnosis" name="diagnosis" [(ngModel)]="diagnosis" 
+        placeholder="Diagnosis..." required autofocus>
+
+      <label for="id_anamnesis" class="sr-only">Anamnesis</label>
+      <textarea id="id_anamnesis" class="form-control" rows="10" name="anamnesis" [(ngModel)]="anamnesis"
+        placeholder="Anamnesis..." required ></textarea>
+    
+      <label for="id_therapy" class="sr-only">Therapy</label>
+      <textarea id="id_therapy" class="form-control" rows="10" name="therapy" [(ngModel)]="therapy"
+        placeholder="Therapy..."  required ></textarea>
+    
+      <br/>
+      <button class="btn btn-primary btn-block" type="submit">Make Report</button>
+    </form>
+  </div>
+</div>

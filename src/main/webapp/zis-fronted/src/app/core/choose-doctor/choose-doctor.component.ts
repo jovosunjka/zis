@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GenericService } from '../services/generic/generic.service';
 import { ToastrService } from 'ngx-toastr';
 
+declare const $: any;
+
 @Component({
   selector: 'app-choose-doctor',
   templateUrl: './choose-doctor.component.html',
@@ -15,7 +17,7 @@ export class ChooseDoctorComponent implements OnInit {
   xHtmlContetntForDoctors: string; // dobijen koriscenjem xsl transformacije
   relativeUrlAllDoctors: string;
   relativeUrlSelectDoctor: string;
-  idOfNewDoctor: string;
+  // idOfNewDoctor: string;
 
   @Output()
   selectedDoctorEvent = new EventEmitter();
@@ -30,6 +32,18 @@ export class ChooseDoctorComponent implements OnInit {
     this.getAllDoctors();
   }
 
+  /*prepareEvenListeners() {
+    const that = this;
+
+    document.querySelectorAll('a.doctor').forEach(d => {
+      d.addEventListener('click', function(e) {
+        e.preventDefault();
+        const idOfNewDoctor = d.getAttribute('href');
+        that.selectDoctor(idOfNewDoctor);
+      });
+    });
+  }*/
+
   getAllDoctors () {
     this.doctorService.get<string>(this.relativeUrlAllDoctors).subscribe(
       (receivedXml: string) => {
@@ -38,6 +52,7 @@ export class ChooseDoctorComponent implements OnInit {
                this.xHtmlContetntForDoctors = this.doctorService.replaceAllBackSlash(receivedXml.substring(1,
                 receivedXml.length - 1));
               // izbacujemo navodnike sa pocetka i kraja, i back-slash-ove
+              // this.idOfNewDoctor = '';
           }
           else {
             this.xHtmlContetntForDoctors = 'Problem with loading of doctors!';
@@ -52,18 +67,19 @@ export class ChooseDoctorComponent implements OnInit {
   }
 
   selectDoctor() {
-    if (this.idOfNewDoctor && this.idOfNewDoctor !== '') {
-      this.doctorService.putById(this.relativeUrlSelectDoctor, this.idOfNewDoctor).subscribe(
+    const idOfNewDoctor = $('#id_select_doctor').val();
+    if (idOfNewDoctor && idOfNewDoctor !== '') {
+      this.doctorService.putById(this.relativeUrlSelectDoctor, idOfNewDoctor).subscribe(
         () => {
-          this.idOfNewDoctor = '';
-          this.selectedDoctorEvent.emit();
-          this.toastr.success('You have successfully chosen a doctor!');
+            this.selectedDoctorEvent.emit();
+            this.toastr.success('You have successfully chosen a doctor!');
+            this.getAllDoctors();
         },
         (err) => this.toastr.error('You did not successfully choose a doctor!')
       );
     }
     else {
-      this.toastr.error('You did not enter the id of the doctor!');
+      this.toastr.error('You did not choose a doctor!');
     }
   }
 

@@ -11,10 +11,10 @@
             <tr>
                 <td>- Id:</td>
                 <xsl:variable name="var_id" select="dokumenti:zdravstveni_karton/@id"/>
-                <xsl:if test="not(contains($var_id, '%s'))">
+                <xsl:if test="not(contains($var_id, '%1$s'))">
                     <td><xsl:value-of select="$var_id"/></td>
                 </xsl:if>
-                <xsl:if test="contains($var_id, '%s')">
+                <xsl:if test="contains($var_id, '%1$s')">
                     <td bgcolor="red"><xsl:value-of select="$var_id"/></td>
                 </xsl:if>
                 <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/@id"/></td>-->
@@ -22,10 +22,10 @@
             <tr>
                 <td>- Num Of Health Card:</td>
                 <xsl:variable name="var_broj_kartona" select="dokumenti:zdravstveni_karton/@broj_kartona"/>
-                <xsl:if test="not(contains($var_broj_kartona, '%s'))">
+                <xsl:if test="not(contains($var_broj_kartona, '%1$s'))">
                     <td><xsl:value-of select="$var_broj_kartona"/></td>
                 </xsl:if>
-                <xsl:if test="contains($var_broj_kartona, '%s')">
+                <xsl:if test="contains($var_broj_kartona, '%1$s')">
                     <td bgcolor="red"><xsl:value-of select="$var_broj_kartona"/></td>
                 </xsl:if>
                 <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/@broj_kartona"/></td>-->
@@ -33,10 +33,10 @@
             <tr>
                 <td>- Num Of Health Book:</td>
                 <xsl:variable name="var_broj_zdrastvene_knjizice" select="dokumenti:zdravstveni_karton/@broj_zdrastvene_knjizice"/>
-                <xsl:if test="not(contains($var_broj_zdrastvene_knjizice, '%s'))">
+                <xsl:if test="not(contains($var_broj_zdrastvene_knjizice, '%1$s'))">
                     <td><xsl:value-of select="$var_broj_zdrastvene_knjizice"/></td>
                 </xsl:if>
-                <xsl:if test="contains($var_broj_zdrastvene_knjizice, '%s')">
+                <xsl:if test="contains($var_broj_zdrastvene_knjizice, '%1$s')">
                     <td bgcolor="red"><xsl:value-of select="$var_broj_zdrastvene_knjizice"/></td>
                 </xsl:if>
                 <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/@broj_zdrastvene_knjizice"/></td>-->
@@ -48,10 +48,10 @@
                         <tr> 
                             <td>- Id:</td>
                             <xsl:variable name="var_patient_id" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:pacijent/@id"/>
-                            <xsl:if test="not(contains($var_patient_id, '%s'))">
+                            <xsl:if test="not(contains($var_patient_id, '%1$s'))">
                                 <td><xsl:value-of select="$var_patient_id"/></td>
                             </xsl:if>
-                            <xsl:if test="contains($var_patient_id, '%s')">
+                            <xsl:if test="contains($var_patient_id, '%1$s')">
                                 <td bgcolor="red"><xsl:value-of select="$var_patient_id"/></td>
                             </xsl:if>
                             <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:pacijent/@id"/></td>-->
@@ -59,10 +59,10 @@
                         <tr> 
                             <td>- Jmbg:</td>
                             <xsl:variable name="var_jmbg" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/@jmbg"/>
-                            <xsl:if test="not(contains($var_jmbg, '%s'))">
+                            <xsl:if test="not(contains($var_jmbg, '%1$s'))">
                                 <td><xsl:value-of select="$var_jmbg"/></td>
                             </xsl:if>
-                            <xsl:if test="contains($var_jmbg, '%s')">
+                            <xsl:if test="contains($var_jmbg, '%1$s')">
                                 <td bgcolor="red"><xsl:value-of select="$var_jmbg"/></td>
                             </xsl:if>
                             <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/@jmbg"/></td>-->
@@ -70,10 +70,10 @@
                         <tr> 
                             <td>- Lbo:</td>
                             <xsl:variable name="var_lbo" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/@lbo"/>
-                            <xsl:if test="not(contains($var_lbo, '%s'))">
+                            <xsl:if test="not(contains($var_lbo, '%1$s'))">
                                 <td><xsl:value-of select="$var_lbo"/></td>
                             </xsl:if>
-                            <xsl:if test="contains($var_lbo, '%s')">
+                            <xsl:if test="contains($var_lbo, '%1$s')">
                                 <td bgcolor="red"><xsl:value-of select="$var_lbo"/></td>
                             </xsl:if>
                             <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/@lbo"/></td>-->
@@ -81,10 +81,10 @@
                         <tr> 
                             <td>- First Name:</td>
                             <xsl:variable name="var_ime" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:ime"/>
-                            <xsl:if test="not(contains($var_ime, '%s'))">
+                            <xsl:if test="not(contains($var_ime, '%1$s'))">
                                 <td><xsl:value-of select="$var_ime"/></td>
                             </xsl:if>
-                            <xsl:if test="contains($var_ime, '%s')">
+                            <xsl:if test="contains($var_ime, '%1$s')">
                                 <td bgcolor="red"><xsl:value-of select="$var_ime"/></td>
                             </xsl:if>
                             <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:ime"/></td>-->
@@ -92,10 +92,10 @@
                         <tr> 
                             <td>- Last Name:</td>
                             <xsl:variable name="var_prezime" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:prezime"/>
-                            <xsl:if test="not(contains($var_prezime, '%s'))">
+                            <xsl:if test="not(contains($var_prezime, '%1$s'))">
                                 <td><xsl:value-of select="$var_prezime"/></td>
                             </xsl:if>
-                            <xsl:if test="contains($var_prezime, '%s')">
+                            <xsl:if test="contains($var_prezime, '%1$s')">
                                 <td bgcolor="red"><xsl:value-of select="$var_prezime"/></td>
                             </xsl:if>
                             <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:prezime"/></td>-->
@@ -103,10 +103,10 @@
                         <tr> 
                             <td>- Name Of One Parent:</td>
                             <xsl:variable name="var_ime_jednog_roditelja" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:ime_jednog_roditelja"/>
-                            <xsl:if test="not(contains($var_ime_jednog_roditelja, '%s'))">
+                            <xsl:if test="not(contains($var_ime_jednog_roditelja, '%1$s'))">
                                 <td><xsl:value-of select="$var_ime_jednog_roditelja"/></td>
                             </xsl:if>
-                            <xsl:if test="contains($var_ime_jednog_roditelja, '%s')">
+                            <xsl:if test="contains($var_ime_jednog_roditelja, '%1$s')">
                                 <td bgcolor="red"><xsl:value-of select="$var_ime_jednog_roditelja"/></td>
                             </xsl:if>
                             <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:ime_jednog_roditelja"/></td>-->
@@ -114,10 +114,10 @@
                         <tr> 
                             <td>- Date Of Birth:</td>
                             <xsl:variable name="var_datum_rodjenja" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:datum_rodjenja"/>
-                            <xsl:if test="not(contains($var_datum_rodjenja, '%s'))">
+                            <xsl:if test="not(contains($var_datum_rodjenja, '%1$s'))">
                                 <td><xsl:value-of select="$var_datum_rodjenja"/></td>
                             </xsl:if>
-                            <xsl:if test="contains($var_datum_rodjenja, '%s')">
+                            <xsl:if test="contains($var_datum_rodjenja, '%1$s')">
                                 <td bgcolor="red"><xsl:value-of select="$var_datum_rodjenja"/></td>
                             </xsl:if>
                             <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:datum_rodjenja"/></td>-->
@@ -129,10 +129,10 @@
                                     <tr> 
                                         <td>- Street:</td>
                                         <xsl:variable name="var_ulica" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:adresa/dokumenti:ulica"/>
-                                        <xsl:if test="not(contains($var_ulica, '%s'))">
+                                        <xsl:if test="not(contains($var_ulica, '%1$s'))">
                                             <td><xsl:value-of select="$var_ulica"/></td>
                                         </xsl:if>
-                                        <xsl:if test="contains($var_ulica, '%s')">
+                                        <xsl:if test="contains($var_ulica, '%1$s')">
                                             <td bgcolor="red"><xsl:value-of select="$var_ulica"/></td>
                                         </xsl:if>
                                         <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:adresa/dokumenti:ulica"/></td>-->
@@ -140,10 +140,10 @@
                                     <tr>
                                         <td>- Number:</td>
                                         <xsl:variable name="var_broj" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:adresa/dokumenti:broj"/>
-                                        <xsl:if test="not(contains($var_broj, '%s'))">
+                                        <xsl:if test="not(contains($var_broj, '%1$s'))">
                                             <td><xsl:value-of select="$var_broj"/></td>
                                         </xsl:if>
-                                        <xsl:if test="contains($var_broj, '%s')">
+                                        <xsl:if test="contains($var_broj, '%1$s')">
                                             <td bgcolor="red"><xsl:value-of select="$var_broj"/></td>
                                         </xsl:if>
                                         <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:adresa/dokumenti:broj"/></td>-->
@@ -151,10 +151,10 @@
                                     <tr> 
                                         <td>- City:</td>
                                         <xsl:variable name="var_mesto" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:adresa/dokumenti:mesto"/>
-                                        <xsl:if test="not(contains($var_mesto, '%s'))">
+                                        <xsl:if test="not(contains($var_mesto, '%1$s'))">
                                             <td><xsl:value-of select="$var_mesto"/></td>
                                         </xsl:if>
-                                        <xsl:if test="contains($var_mesto, '%s')">
+                                        <xsl:if test="contains($var_mesto, '%1$s')">
                                             <td bgcolor="red"><xsl:value-of select="$var_mesto"/></td>
                                         </xsl:if>
                                         <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:adresa/dokumenti:mesto"/></td>-->
@@ -162,10 +162,10 @@
                                     <tr> 
                                         <td>- Township:</td>
                                         <xsl:variable name="var_opstina" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:adresa/dokumenti:opstina"/>
-                                        <xsl:if test="not(contains($var_opstina, '%s'))">
+                                        <xsl:if test="not(contains($var_opstina, '%1$s'))">
                                             <td><xsl:value-of select="$var_opstina"/></td>
                                         </xsl:if>
-                                        <xsl:if test="contains($var_opstina, '%s')">
+                                        <xsl:if test="contains($var_opstina, '%1$s')">
                                             <td bgcolor="red"><xsl:value-of select="$var_opstina"/></td>
                                         </xsl:if>
                                         <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:adresa/dokumenti:opstina"/></td>-->
@@ -176,10 +176,10 @@
                         <tr>
                             <td>- Phone Number:</td>
                             <xsl:variable name="var_telefon" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:telefon"/>
-                            <xsl:if test="not(contains($var_telefon, '%s'))">
+                            <xsl:if test="not(contains($var_telefon, '%1$s'))">
                                 <td><xsl:value-of select="$var_telefon"/></td>
                             </xsl:if>
-                            <xsl:if test="contains($var_telefon, '%s')">
+                            <xsl:if test="contains($var_telefon, '%1$s')">
                                 <td bgcolor="red"><xsl:value-of select="$var_telefon"/></td>
                             </xsl:if>
                             <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:telefon"/></td>-->
@@ -187,10 +187,10 @@
                         <tr>
                             <td>- Our:</td>
                             <xsl:variable name="var_our" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:our"/>
-                            <xsl:if test="not(contains($var_our, '%s'))">
+                            <xsl:if test="not(contains($var_our, '%1$s'))">
                                 <td><xsl:value-of select="$var_our"/></td>
                             </xsl:if>
-                            <xsl:if test="contains($var_our, '%s')">
+                            <xsl:if test="contains($var_our, '%1$s')">
                                 <td bgcolor="red"><xsl:value-of select="$var_our"/></td>
                             </xsl:if>
                             <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:our"/></td>-->
@@ -198,10 +198,10 @@
                         <tr>
                             <td>- Sex:</td>
                             <xsl:variable name="var_pol" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:pol"/>
-                            <xsl:if test="not(contains($var_pol, '%s'))">
+                            <xsl:if test="not(contains($var_pol, '%1$s'))">
                                 <td><xsl:value-of select="$var_pol"/></td>
                             </xsl:if>
-                            <xsl:if test="contains($var_pol, '%s')">
+                            <xsl:if test="contains($var_pol, '%1$s')">
                                 <td bgcolor="red"><xsl:value-of select="$var_pol"/></td>
                             </xsl:if>
                             <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:pol"/></td>-->
@@ -209,10 +209,10 @@
                         <tr>
                             <td>- Marital Status:</td>
                             <xsl:variable name="var_bracno_stanje" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:bracno_stanje"/>
-                            <xsl:if test="not(contains($var_bracno_stanje, '%s'))">
+                            <xsl:if test="not(contains($var_bracno_stanje, '%1$s'))">
                                 <td><xsl:value-of select="$var_bracno_stanje"/></td>
                             </xsl:if>
-                            <xsl:if test="contains($var_bracno_stanje, '%s')">
+                            <xsl:if test="contains($var_bracno_stanje, '%1$s')">
                                 <td bgcolor="red"><xsl:value-of select="$var_bracno_stanje"/></td>
                             </xsl:if>
                             <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:bracno_stanje"/></td>-->
@@ -220,10 +220,10 @@
                         <tr>
                             <td>- Reason For Exemption From Participation:</td>
                             <xsl:variable name="var_osnov_oslobadjanja_od_participacije" select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:osnov_oslobadjanja_od_participacije"/>
-                            <xsl:if test="not(contains($var_osnov_oslobadjanja_od_participacije, '%s'))">
+                            <xsl:if test="not(contains($var_osnov_oslobadjanja_od_participacije, '%1$s'))">
                                 <td><xsl:value-of select="$var_osnov_oslobadjanja_od_participacije"/></td>
                             </xsl:if>
-                            <xsl:if test="contains($var_osnov_oslobadjanja_od_participacije, '%s')">
+                            <xsl:if test="contains($var_osnov_oslobadjanja_od_participacije, '%1$s')">
                                 <td bgcolor="red"><xsl:value-of select="$var_osnov_oslobadjanja_od_participacije"/></td>
                             </xsl:if>
                             <!--<td><xsl:value-of select="dokumenti:zdravstveni_karton/dokumenti:pacijentovi_podaci/dokumenti:osnov_oslobadjanja_od_participacije"/></td>-->

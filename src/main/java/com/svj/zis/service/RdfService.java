@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface RdfService {
 
-    List<SparqlVarNameAndValue> advancedSearch(String numberOfHealthCard, String text) throws IOException;
+    List<SparqlVarNameAndValue> advancedSearch(String idOfHealthCard, String text) throws IOException;
 }

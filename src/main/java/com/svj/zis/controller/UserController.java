@@ -13,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,7 +42,9 @@ public class UserController {
 
     @RequestMapping(value="/login", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<Tokendto> login(@RequestBody Userdto userDTO) {
-        /*String pera = passwordEncoder.encode("pera");
+        /*String aleksandar = passwordEncoder.encode("aleksandar");
+        String filip = passwordEncoder.encode("filip");
+        String pera = passwordEncoder.encode("pera");
         String zika = passwordEncoder.encode("zika");
         String mika = passwordEncoder.encode("mika");
         String sima = passwordEncoder.encode("sima");

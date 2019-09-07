@@ -3,13 +3,17 @@
       <div class="col-xl-12 ">
           <nav>
               <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                  <a class="nav-item nav-link active" id="nav-choose-doctor-tab" data-toggle="tab" href="#nav-choose-doctor" role="tab" aria-controls="nav-choose-doctor" aria-selected="true">CHOOSE DOCTOR</a>
-                  <a class="nav-item nav-link" id="nav-order-review-tab" data-toggle="tab" href="#nav-order-review" role="tab" aria-controls="nav-order-review" aria-selected="false">ORDER REVIEW</a>
+                  <a class="nav-item nav-link active" id="nav-notifications-tab" data-toggle="tab" href="#nav-notifications" role="tab" aria-controls="nav-notifications" aria-selected="true">NOTIFICATIONS</a>
+                  <a class="nav-item nav-link" id="nav-choose-doctor-tab" data-toggle="tab" href="#nav-choose-doctor" role="tab" aria-controls="nav-choose-doctor" aria-selected="false">CHOOSE DOCTOR</a>
+				  <a class="nav-item nav-link" id="nav-order-review-tab" data-toggle="tab" href="#nav-order-review" role="tab" aria-controls="nav-order-review" aria-selected="false">ORDER REVIEW</a>
                   <a class="nav-item nav-link" id="nav-health-card-tab" data-toggle="tab" href="#nav-health-card" role="tab" aria-controls="nav-health-card" aria-selected="false">HEALTH CARD</a>
               </div>
           </nav>
           <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="nav-choose-doctor" role="tabpanel" aria-labelledby="nav-choose-doctor-tab">
+              <div class="tab-pane fade show active" id="nav-notifications" role="tabpanel" aria-labelledby="nav-notifications-tab">
+                  <app-notifications></app-notifications>
+              </div>
+			  <div class="tab-pane fade" id="nav-choose-doctor" role="tabpanel" aria-labelledby="nav-choose-doctor-tab">
                   <app-choose-doctor [xHtmlContetntForSelectedDoctor]="xHtmlContetntForSelectedDoctor"
                   (selectedDoctorEvent)="getDoctor()"></app-choose-doctor>
               </div>

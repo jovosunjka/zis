@@ -24,6 +24,7 @@ public class HealthCardRepository extends ResourceRepository {
     private ClassPathResource zdravstveniKartoniXml = new ClassPathResource("xml/" + documentId);
     private ClassPathResource findHealthCardByNumberOfCardXQuery = new ClassPathResource("xqueries/find_health_card_by_number_of_card.xqy");
     private ClassPathResource findHealthCardsByDoctorIdXQuery = new ClassPathResource("xqueries/find_health_cards_by_doctor_id.xqy");
+    private ClassPathResource findHealthCardsByAnythingXQuery = new ClassPathResource("xqueries/find_health_cards_by_anything.xqy");
 
 
     public String getAllHealthCards() {
@@ -175,5 +176,36 @@ public class HealthCardRepository extends ResourceRepository {
         System.out.println(xUpdateExpression);
         long mods = xupdateService.updateResource(documentId, xUpdateExpression);
         System.out.println("[INFO] " + mods + " modifications processed.");
+    }
+
+    public String getHealthCardsBasicSearch(String idOfDoctor, String text) throws Exception {
+        Collection collection = getCollection(collectionId);
+        XQueryService xQueryService = (XQueryService) collection.getService("XQueryService", "1.0");
+        xQueryService.setProperty("indent", "yes");
+
+        String contentStr = loadFileContent(findHealthCardsByAnythingXQuery.getFile().getPath());
+        String sadrzajUpita = String.format(contentStr, idOfDoctor, text);
+        CompiledExpression compiledExpression = xQueryService.compile(sadrzajUpita);
+        ResourceSet resourceSet = xQueryService.execute(compiledExpression);
+        ResourceIterator i = resourceSet.getIterator();
+
+        org.xmldb.api.base.Resource resource = null;
+        if(i.hasMoreResources()) {
+
+            try {
+                resource = i.nextResource();
+                return (String) resource.getContent();
+            } finally {
+
+                // don't forget to cleanup resources
+                try {
+                    ((EXistResource)resource).freeResources();
+                } catch (XMLDBException xe) {
+                    xe.printStackTrace();
+                }
+            }
+        }
+
+        return null;
     }
 }

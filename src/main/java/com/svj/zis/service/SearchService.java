@@ -1,11 +1,19 @@
 package com.svj.zis.service;
 
-import com.svj.zis.model.rdf.Parameter;
-
-import java.util.List;
 
 public interface SearchService {
 
-    String getResource(String id);
+    String getPatientResource(String idNum, String text) throws Exception;
 
+    String getDoctorResource(String idNum, String text) throws Exception;
+
+    String getReportResource(String idNum, String text) throws Exception;
+
+    String getDoctorReceiptResource(String idNum, String text) throws Exception;
+
+    String getReferralForLab(String idNum, String text) throws Exception;
+
+    String getReferralForSpecialistExamination(String idNum, String text) throws Exception;
+
+    String getMedicament(String idNum, String text) throws Exception;
 }

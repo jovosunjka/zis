@@ -33,8 +33,9 @@ public class XUpdateTemplate {
 	public static final String INSERT_BEFORE = "<xu:modifications version=\"1.0\" xmlns:xu=\""
 			+ XUpdateProcessor.XUPDATE_NS
 			// + "\" xmlns=\"" + TARGET_NAMESPACE + "\">"
-			+ "\" xmlns=\"%1$s\">"
-			+ "<xu:insert-before select=\"%2$s\">%3$s</xu:insert-before>" + "</xu:modifications>";
+			+ "\" xmlns=\"%1$s\" %2$s>" // drugi argument predstavlja jos jedan namespace
+			+ "<xu:insert-before select=\"%3$s\">%4$s</xu:insert-before>"
+			+ "</xu:modifications>";
 
 	/*
 	 * The xupdate:append element allows a node to be created and appended as a
@@ -49,8 +50,8 @@ public class XUpdateTemplate {
 	public static final String APPEND = "<xu:modifications version=\"1.0\" xmlns:xu=\""
 			+ XUpdateProcessor.XUPDATE_NS
 			// + "\" xmlns=\"" + TARGET_NAMESPACE + "\">"
-			+ "\" xmlns=\"%1$s\">"
-			+ "<xu:append select=\"%2$s\" child=\"last()\">%3$s</xu:append>"
+			+ "\" xmlns=\"%1$s\" %2$s>" // drugi argument predstavlja jos jedan namespace
+			+ "<xu:append select=\"%3$s\" child=\"last()\">%4$s</xu:append>"
 			+ "</xu:modifications>";
 	/*
 	 * The xupdate:update element can be used to update the content of existing

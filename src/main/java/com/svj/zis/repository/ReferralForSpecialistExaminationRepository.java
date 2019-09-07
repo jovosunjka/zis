@@ -19,6 +19,7 @@ public class ReferralForSpecialistExaminationRepository extends ResourceReposito
     private String documentId = "uputi_za_specijalisticki_pregled.xml";
     private ClassPathResource uputiZaSpecijalistickiPregledXml = new ClassPathResource("xml/" + documentId);
     private ClassPathResource findReferralsForSpecialistExaminationByPatientIdXQuery = new ClassPathResource("xqueries/find_referrals_for_specialist_examination_by_number_of_heath_card.xqy");
+    private ClassPathResource findReferralForSpecialistExaminationByIdXQuery = new ClassPathResource("xqueries/find_referral_for_specialist_examination_by_id.xqy");
 
 
     public String getAllReferralsForSpecialistExamination() {
@@ -80,4 +81,35 @@ public class ReferralForSpecialistExaminationRepository extends ResourceReposito
         return null;
     }
 
+    public String getReferralForSpecialistExamination(String id) throws Exception {
+        Collection collection = getCollection(collectionId);
+        XQueryService xQueryService = (XQueryService) collection.getService("XQueryService", "1.0");
+        xQueryService.setProperty("indent", "yes");
+
+        String path = findReferralForSpecialistExaminationByIdXQuery.getFile().getPath();
+        String contentStr = loadFileContent(path);
+        String sadrzajUpita = String.format(contentStr, id);
+        CompiledExpression compiledExpression = xQueryService.compile(sadrzajUpita);
+        ResourceSet resourceSet = xQueryService.execute(compiledExpression);
+        ResourceIterator i = resourceSet.getIterator();
+
+        org.xmldb.api.base.Resource resource = null;
+        if(i.hasMoreResources()) {
+
+            try {
+                resource = i.nextResource();
+                return (String) resource.getContent();
+            } finally {
+
+                // don't forget to cleanup resources
+                try {
+                    ((EXistResource)resource).freeResources();
+                } catch (XMLDBException xe) {
+                    xe.printStackTrace();
+                }
+            }
+        }
+
+        return null;
+    }
 }

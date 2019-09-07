@@ -1,8 +1,6 @@
 package com.svj.zis.config;
 
-import com.svj.zis.dto.BasicInfoDto;
-import com.svj.zis.dto.Tokendto;
-import com.svj.zis.dto.Userdto;
+import com.svj.zis.dto.*;
 import com.svj.zis.model.Lekari;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,7 +31,7 @@ public class HttpMessageConverterConfiguration {
     @Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-        converter.setSupportedMediaTypes(Arrays.asList(MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON));
+        converter.setSupportedMediaTypes(Arrays.asList(MediaType.TEXT_PLAIN, MediaType.TEXT_HTML, MediaType.APPLICATION_JSON));
         return converter;
     }
 
@@ -54,7 +52,8 @@ public class HttpMessageConverterConfiguration {
         Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
         // https://www.baeldung.com/spring-classpath-file-access
         jaxb2Marshaller.setSchemas(new ClassPathResource("xml_schema/dto.xsd"), new ClassPathResource("xml_schema/kolekcije.xsd"));
-        jaxb2Marshaller.setClassesToBeBound(Userdto.class, Tokendto.class, BasicInfoDto.class/*, Lekari.class*/);
+        jaxb2Marshaller.setClassesToBeBound(Userdto.class, Tokendto.class, BasicInfoDto.class, ReportDto.class,
+                                            DoctorReceiptDto.class, ReviewsDto.class);
         return jaxb2Marshaller;
     }
 }

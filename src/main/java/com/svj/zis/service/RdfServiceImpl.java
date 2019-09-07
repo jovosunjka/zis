@@ -16,13 +16,16 @@ public class RdfServiceImpl implements RdfService {
     @Autowired
     private RdfRepository rdfRepository;
 
+    @Autowired
     private ResourceRepository resourceRepository;
+
+
     private ClassPathResource advancedSearchSparqlResource = new ClassPathResource("sparql/patient_advanced_search.rq");
 
 
     @Override
-    public List<SparqlVarNameAndValue> advancedSearch(String numberOfHealthCard, String text) throws IOException {
+    public List<SparqlVarNameAndValue> advancedSearch(String idOfHealthCard, String text) throws IOException {
         String sparqlFileString = resourceRepository.loadFileContent(advancedSearchSparqlResource.getFile().getPath());
-        return rdfRepository.advancedSearch(sparqlFileString, numberOfHealthCard, text);
+        return rdfRepository.advancedSearch(sparqlFileString, idOfHealthCard, text);
     }
 }

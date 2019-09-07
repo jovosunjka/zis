@@ -48,6 +48,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *           &lt;complexType>
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
  *                 &lt;attribute name="broj_zdravstvenog_kartona" use="required">
  *                   &lt;simpleType>
  *                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -663,6 +664,7 @@ public class LekarskiRecept {
      * &lt;complexType>
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
      *       &lt;attribute name="broj_zdravstvenog_kartona" use="required">
      *         &lt;simpleType>
      *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -688,10 +690,37 @@ public class LekarskiRecept {
     @XmlType(name = "")
     public static class ZdravstveniKarton {
 
+        @XmlAttribute(name = "id", required = true)
+        @XmlSchemaType(name = "anyURI")
+        protected String id;
         @XmlAttribute(name = "broj_zdravstvenog_kartona", required = true)
         protected String brojZdravstvenogKartona;
         @XmlAttribute(name = "broj_zdrastvene_knjizice", required = true)
         protected String brojZdrastveneKnjizice;
+
+        /**
+         * Gets the value of the id property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getId() {
+            return id;
+        }
+
+        /**
+         * Sets the value of the id property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setId(String value) {
+            this.id = value;
+        }
 
         /**
          * Gets the value of the brojZdravstvenogKartona property.

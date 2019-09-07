@@ -10,6 +10,10 @@ import { NotFoundPageComponent } from '../shared/not-found-page/not-found-page.c
 import { HomePageComponent } from '../core/home-page/home-page.component';
 import { DoctorPageComponent } from '../core/doctor-page/doctor-page.component';
 import { EditHealthCardComponent } from '../core/edit-health-card/edit-health-card.component';
+import { MakeReportComponent } from '../core/make-report/make-report.component';
+import { MakeReferralForSpecExamComponent } from '../core/make-referral-for-spec-exam/make-referral-for-spec-exam.component';
+import { MakeReferralForLabComponent } from '../core/make-referral-for-lab/make-referral-for-lab.component';
+import { MakeDoctorReceiptComponent } from '../core/make-doctor-receipt/make-doctor-receipt.component';
 
 
 const appRoutes: Routes = [
@@ -51,6 +55,38 @@ const appRoutes: Routes = [
   {
     path: 'edit-health-card/:numberOfHealthCard',
     component: EditHealthCardComponent,
+    canActivate: [CanActivateUserGuard],
+    data: {
+      expectedRoles: ['DOCTOR']
+    }
+  },
+  {
+    path: 'make-report/:idOfPatientNum',
+    component: MakeReportComponent,
+    canActivate: [CanActivateUserGuard],
+    data: {
+      expectedRoles: ['DOCTOR']
+    }
+  },
+  {
+    path: 'make-referral-for-spec-exam/:idOfPatientNum',
+    component: MakeReferralForSpecExamComponent,
+    canActivate: [CanActivateUserGuard],
+    data: {
+      expectedRoles: ['DOCTOR']
+    }
+  },
+  {
+    path: 'make-referral-for-lab/:idOfPatientNum',
+    component: MakeReferralForLabComponent,
+    canActivate: [CanActivateUserGuard],
+    data: {
+      expectedRoles: ['DOCTOR']
+    }
+  },
+  {
+    path: 'make-doctor-receipt/:idOfPatientNum',
+    component: MakeDoctorReceiptComponent,
     canActivate: [CanActivateUserGuard],
     data: {
       expectedRoles: ['DOCTOR']

@@ -3,7 +3,6 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:kolekcije="http://www.svj.com/zis/kolekcije"
     xmlns:dokumenti="http://www.svj.com/zis/dokumenti"
-    xmlns:osobe="http://www.svj.com/zis/osobe"
     exclude-result-prefixes="xs"
     version="2.0">
     
@@ -39,10 +38,10 @@
                                                 <td><b>- Id:</b></td> <td><xsl:value-of select="dokumenti:podaci_o_osiguranju/dokumenti:nosilac_osiguranja/@id"/></td>
                                             </tr>
                                             <tr>
-                                                <td><b>- First Name:</b></td> <td><xsl:value-of select="dokumenti:podaci_o_osiguranju/dokumenti:nosilac_osiguranja/osobe:ime"/></td>
+                                                <td><b>- First Name:</b></td> <td><xsl:value-of select="dokumenti:podaci_o_osiguranju/dokumenti:nosilac_osiguranja/dokumenti:ime"/></td>
                                             </tr>
                                             <tr>
-                                                <td><b>- Last Name:</b></td> <td><xsl:value-of select="dokumenti:podaci_o_osiguranju/dokumenti:nosilac_osiguranja/osobe:prezime"/></td>
+                                                <td><b>- Last Name:</b></td> <td><xsl:value-of select="dokumenti:podaci_o_osiguranju/dokumenti:nosilac_osiguranja/dokumenti:prezime"/></td>
                                             </tr>
                                         </table>
                                     </td>

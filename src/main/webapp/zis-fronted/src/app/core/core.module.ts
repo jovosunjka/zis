@@ -24,6 +24,12 @@ import { ReferralsForLabComponent } from './referrals-for-lab/referrals-for-lab.
 import { DoctorRecipesComponent } from './doctor-recipes/doctor-recipes.component';
 import { PatientsComponent } from './patients/patients.component';
 import { EditHealthCardComponent } from './edit-health-card/edit-health-card.component';
+import { MakeReportComponent } from './make-report/make-report.component';
+import { MakeReferralForSpecExamComponent } from './make-referral-for-spec-exam/make-referral-for-spec-exam.component';
+import { MakeReferralForLabComponent } from './make-referral-for-lab/make-referral-for-lab.component';
+import { MakeDoctorReceiptComponent } from './make-doctor-receipt/make-doctor-receipt.component';
+import { OrderedReviewsComponent } from './ordered-reviews/ordered-reviews.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +47,13 @@ import { EditHealthCardComponent } from './edit-health-card/edit-health-card.com
     ReferralsForLabComponent,
     DoctorRecipesComponent,
     PatientsComponent,
-    EditHealthCardComponent
+    EditHealthCardComponent,
+    MakeReportComponent,
+    MakeReferralForSpecExamComponent,
+    MakeReferralForLabComponent,
+    MakeDoctorReceiptComponent,
+    OrderedReviewsComponent,
+    NotificationsComponent
   ],
   imports: [
     CommonModule,
