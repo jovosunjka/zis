@@ -1,3 +1,46 @@
-<p>
-  make-referral-for-lab works!
-</p>
+
+<div class="wrapper">
+  <div class="container">
+    <form class="form-register" (ngSubmit)="makeReferralForLab()">
+
+      <!--<label for="id_sifraLeka" class="sr-only">Medicament code</label>-->
+      <input type="text" class="form-control rounded-0" name="zdravstvenaUstanovaKojaSalje_lab" [(ngModel)]="zdravstvenaUstanovaKojaSaljeLab"
+        placeholder="Health institution that sends..."  required />
+
+      <input type="text" class="form-control rounded-0" name="zdravstvenaUstanovaKojaPrima_lab" [(ngModel)]="zdravstvenaUstanovaKojaPrimaLab"
+        placeholder="Health institution receiving..."  required />
+
+      <input type="text" class="form-control rounded-0" name="klinicka_dijagnoza" [(ngModel)]="klinickaDijagnoza"
+        placeholder="Clinical diagnosis..."  required />
+
+      <br/>
+
+      <!--<input type="text" class="form-control rounded-0" name="kad_je_uzet_materijal" [(ngModel)]="kadJeUzetMaterijal"
+        placeholder="When material is taken..."  required />-->
+      <label for="id_date_time">When material is taken:</label>
+      <table id="id_date_time">
+        <tr>
+            <td><input type="date" name="kadJeUzetMaterijalDatum" [(ngModel)]="kadJeUzetMaterijalDatum"/></td>
+            <td><input type="time" name="kadJeUzetMaterijalVreme" [(ngModel)]="kadJeUzetMaterijalVreme"/></td>
+        </tr>
+      </table>
+          
+      <br/>
+
+      <input type="text" class="form-control rounded-0" name="tip_pregleda" [(ngModel)]="tipPregleda"
+        placeholder="Review type..."  required />
+
+      <br/>
+    
+       <!--<label for="id_drzava" class="sr-only">Country</label>-->
+       <input type="text" class="form-control rounded-0" id="id_potpis_lekara_lab" name="lekarov_potpis_lab" [(ngModel)]="lekarovPotpisLab"
+       placeholder="Doctor's signature..."  required />
+
+       <input type="text" class="form-control rounded-0" name="pecat_lab" [(ngModel)]="pecatLab"
+       placeholder="Seal..."  required />
+
+      <br/>
+      <button class="btn btn-primary btn-block" type="submit">Make Referral For Lab</button>
+    </form>
+  </div>
+</div>

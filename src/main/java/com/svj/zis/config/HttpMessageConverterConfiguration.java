@@ -53,7 +53,8 @@ public class HttpMessageConverterConfiguration {
         // https://www.baeldung.com/spring-classpath-file-access
         jaxb2Marshaller.setSchemas(new ClassPathResource("xml_schema/dto.xsd"), new ClassPathResource("xml_schema/kolekcije.xsd"));
         jaxb2Marshaller.setClassesToBeBound(Userdto.class, Tokendto.class, BasicInfoDto.class, ReportDto.class,
-                                            DoctorReceiptDto.class, ReviewsDto.class);
+                                            DoctorReceiptDto.class, ReviewsDto.class, UputZaLaboratorijuDto.class,
+                                            UputZaSpecijalistickiPregledDto.class);
         return jaxb2Marshaller;
     }
 }

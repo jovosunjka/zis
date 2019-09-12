@@ -18,6 +18,11 @@ public class MedicamentServiceImpl implements MedicamentService {
     }
 
     @Override
+    public String getMedicamentsByDiagnosis(String diagnosis) throws Exception {
+        return medicamentRepository.getMedicamentsByDiagnosis(diagnosis);
+    }
+
+    @Override
     public Lek getMedicamentByCode(String code) throws Exception {
         return medicamentRepository.getMedicamentByCode(code);
     }

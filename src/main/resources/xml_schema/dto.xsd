@@ -97,8 +97,30 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="dijagnoza" type="xs:string"/>
-                <xs:element name="anamneza" type="xs:string"/>
-                <xs:element name="terapija" type="xs:string"/>
+                <xs:element name="anamneza">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="link">
+                                <xs:complexType>
+                                    <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                                    <xs:anyAttribute processContents="lax"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="terapija">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="link">
+                                <xs:complexType>
+                                    <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                                    <xs:anyAttribute processContents="lax"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -125,7 +147,18 @@
                 <xs:element name="dijagnoza" type="xs:string"/>
                 <xs:element name="redni_broj" type="xs:int"/>
                 <xs:element name="kolicina" type="xs:int"/>
-                <xs:element name="rp" nillable="true" type="xs:string"/>
+                <xs:element name="rp">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="link">
+                                <xs:complexType>
+                                    <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                                    <xs:anyAttribute processContents="lax"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -151,6 +184,34 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="uput_za_specijalisticki_pregled_dto">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="zdravstvena_ustanova_koja_salje" type="xs:string"/>
+                <xs:element name="zdravstvena_ustanova_koja_prima" type="xs:string"/>
+                <xs:element name="lekarov_potpis" type="xs:string"/>
+                <xs:element name="pecat" type="xs:string"/>
+                <xs:element name="specijalista">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="uput_za_laboratoriju_dto">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="zdravstvena_ustanova_koja_salje" type="xs:string"/>
+                <xs:element name="zdravstvena_ustanova_koja_prima" type="xs:string"/>
+                <xs:element name="klinicka_dijagnoza" type="xs:string"/>
+                <xs:element name="kad_je_uzet_materijal" type="xs:dateTime"/>
+                <xs:element name="tip_pregleda" type="xs:string"/>
+                <xs:element name="lekarov_potpis" type="xs:string"/>
+                <xs:element name="pecat" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

@@ -30,6 +30,8 @@ import { MakeReferralForLabComponent } from './make-referral-for-lab/make-referr
 import { MakeDoctorReceiptComponent } from './make-doctor-receipt/make-doctor-receipt.component';
 import { OrderedReviewsComponent } from './ordered-reviews/ordered-reviews.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ReportCreatedComponent } from './report-created/report-created.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     MakeReferralForLabComponent,
     MakeDoctorReceiptComponent,
     OrderedReviewsComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    ReportCreatedComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +64,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     AuthModule,
     HttpClientModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    CKEditorModule
   ],
   providers: [
     AuthenticationService,

@@ -9,7 +9,10 @@
     
     <xsl:template match="/">
         <table border="2">
-            <tr> <th><b>Id</b></th> <th><b>First Name</b></th> <th><b>Last Name</b></th> <th><b>Date And Time</b></th> <th><b>View Health Card</b></th> <th><b> Make Report</b></th> <th><b>Make Doctor Receipt</b></th> <th><b> Make Referral For Specialist Examination</b></th> <th><b> Make Referral For Lab</b></th> </tr>
+            <tr>
+                <th><b>Id</b></th> <th><b>First Name</b></th> <th><b>Last Name</b></th> <th><b>Date And Time</b></th> <th><b>View Health Card</b></th> <th><b> Make Report</b></th>
+                <!--<th><b>Make Doctor Receipt</b></th> <th><b> Make Referral For Specialist Examination</b></th> <th><b> Make Referral For Lab</b></th>-->
+            </tr>
             <xsl:for-each select="kolekcije:pregledi/dokumenti:pregled">
                 <tr>
                     <td><xsl:value-of select="@id"/> </td>
@@ -18,9 +21,11 @@
                     <td><xsl:value-of select="dokumenti:datum_i_vreme"/></td>
                     <td><xsl:call-template name="template_for_tag_a_view_health_card"/></td>
                     <td><xsl:call-template name="template_for_tag_a_make_report"/></td>
+                    <!--
                     <td><xsl:call-template name="template_for_tag_a_make_receipt"/></td>
                     <td><xsl:call-template name="template_for_tag_a_make_referral_for_spec_exam"/></td>
                     <td><xsl:call-template name="template_for_tag_a_make_referral_for_lab"/></td>
+                    -->
                 </tr>
             </xsl:for-each>
 
@@ -37,9 +42,10 @@
         <a href="http://localhost:4200/make-report/{$idOfPatientNum}">link</a>
     </xsl:template>
 
+    <!--
     <xsl:template name="template_for_tag_a_make_receipt" match="/kolekcije:pregledi/dokumenti:pregled/dokumenti:pacijent">
         <xsl:variable name="idOfPatientNum" select="str:tokenize(string(@id),'/')[last()]"/>
-        <a href="http://localhost:4200/make-receipt/{$idOfPatientNum}">link</a>
+        <a href="http://localhost:4200/make-doctor-receipt/{$idOfPatientNum}">link</a>
     </xsl:template>
 
     <xsl:template name="template_for_tag_a_make_referral_for_spec_exam" match="/kolekcije:pregledi/dokumenti:pregled/dokumenti:pacijent">
@@ -51,5 +57,5 @@
         <xsl:variable name="idOfPatientNum" select="str:tokenize(string(@id),'/')[last()]"/>
         <a href="http://localhost:4200/make-referral-for-lab/{$idOfPatientNum}">link</a>
     </xsl:template>
-    
+    -->
 </xsl:stylesheet>

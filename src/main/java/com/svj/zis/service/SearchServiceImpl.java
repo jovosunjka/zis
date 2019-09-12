@@ -4,6 +4,7 @@ import com.svj.zis.model.Pacijent;
 import com.svj.zis.repository.RdfRepository;
 import com.svj.zis.repository.ResourceRepository;
 import com.svj.zis.repository.SearchRdfRepository;
+import com.svj.zis.xml2pdf.itext.PDFTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
@@ -155,6 +156,34 @@ public class SearchServiceImpl implements SearchService {
 
         xHTML = xHTML.replaceAll("\r?\n?\"?", "");
         return xHTML;
+    }
+
+    @Override
+    public byte[] getReportResourcePdf(String idNum, String text) throws Exception {
+        String id = firstPartsOfId.get("izvestaj") + idNum;
+        String izvestajXml = reportService.getReport(id);
+
+        String xHTML = null;
+        try {
+            String xslString;
+            if(text.trim().equals("")) {
+                xslString = resourceRepository.loadFileContent(izvestajXsl.getFile().getPath());
+            }
+            else {
+                String izvestajPretragaXslString = resourceRepository.loadFileContent(izvestajPretragaXsl.getFile().getPath());
+                xslString = String.format(izvestajPretragaXslString, text);
+            }
+            xHTML = transformationService.generateHTML(izvestajXml, xslString);
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        xHTML = xHTML.replaceAll("\r?\n?\"?", "");
+
+        PDFTransformer pdfTransformer = new PDFTransformer();
+        return pdfTransformer.generatePDF(xHTML);
     }
 
     @Override

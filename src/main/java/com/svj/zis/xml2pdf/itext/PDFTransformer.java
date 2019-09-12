@@ -1,10 +1,6 @@
 package com.svj.zis.xml2pdf.itext;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -63,23 +59,31 @@ public class PDFTransformer {
      * @throws IOException
      * @throws DocumentException
      */
-    public void generatePDF(String filePath) throws IOException, DocumentException {
+    public byte[] generatePDF(String xhtmml) throws IOException, DocumentException {
         
     	// Step 1
     	Document document = new Document();
         
     	// Step 2
-        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+		PdfWriter writer = null;
+		try {
+			writer = PdfWriter.getInstance(document, out);
+		} catch (DocumentException e) {
+			e.printStackTrace();
+		}
         
         // Step 3
         document.open();
         
         // Step 4
-        XMLWorkerHelper.getInstance().parseXHtml(writer, document, new FileInputStream(HTML_FILE));
+        XMLWorkerHelper.getInstance().parseXHtml(writer, document, new ByteArrayInputStream(xhtmml.getBytes()));
         
         // Step 5
         document.close();
-        
+
+        return out.toByteArray();
     }
 
     public org.w3c.dom.Document buildDocument(String filePath) {

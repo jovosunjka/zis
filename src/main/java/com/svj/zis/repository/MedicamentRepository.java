@@ -22,6 +22,8 @@ public class MedicamentRepository extends ResourceRepository{
     private ClassPathResource lekoviXml = new ClassPathResource("xml/" + documentId);
     private ClassPathResource findMedicamentByIdXQuery = new ClassPathResource("xqueries/find_medicament_by_id.xqy");
     private ClassPathResource findMedicamentByCodeXQuery = new ClassPathResource("xqueries/find_medicament_by_code.xqy");
+    private ClassPathResource findMedicamentByDiagnosisXQuery = new ClassPathResource("xqueries/find_medicament_by_diagnosis.xqy");
+
 
     public String getAllReviews() {
         try {
@@ -107,6 +109,38 @@ public class MedicamentRepository extends ResourceRepository{
 
                 Lek lek = (Lek) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
                 return lek;
+            } finally {
+
+                // don't forget to cleanup resources
+                try {
+                    ((EXistResource)resource).freeResources();
+                } catch (XMLDBException xe) {
+                    xe.printStackTrace();
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public String getMedicamentsByDiagnosis(String diagnosis) throws Exception {
+        Collection collection = getCollection(collectionId);
+        XQueryService xQueryService = (XQueryService) collection.getService("XQueryService", "1.0");
+        xQueryService.setProperty("indent", "yes");
+
+        String path = findMedicamentByDiagnosisXQuery.getFile().getPath();
+        String contentStr = loadFileContent(path);
+        String sadrzajUpita = String.format(contentStr, diagnosis);
+        CompiledExpression compiledExpression = xQueryService.compile(sadrzajUpita);
+        ResourceSet resourceSet = xQueryService.execute(compiledExpression);
+        ResourceIterator i = resourceSet.getIterator();
+
+        org.xmldb.api.base.Resource resource = null;
+        if(i.hasMoreResources()) {
+
+            try {
+                resource = i.nextResource();
+                return (String) resource.getContent();
             } finally {
 
                 // don't forget to cleanup resources

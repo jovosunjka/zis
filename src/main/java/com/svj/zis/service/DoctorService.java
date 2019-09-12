@@ -29,8 +29,22 @@ public interface DoctorService {
 
     String getPatientsBasicSearch(String idOfUser, String text) throws Exception;
 
-    void makeReport(String idOfUser, String idOfPatient, String dijagnoza, String anamneza, String terapija) throws Exception;
+    String makeReport(String idOfUser, String idOfPatient, String dijagnoza, String anamneza, String terapija) throws Exception;
 
 
-    void makeDoctorReceipt(String idOfUser, String idOfPatient, String nazivZdrastveneUstanove, String drzava, String potpisLekara, String naziv, long sifra, String dijagnoza, int redniBroj, int kolicina, String rp) throws Exception;
+    void makeDoctorReceipt(String idOfUser, String idOfPatient, String nazivZdrastveneUstanove, String drzava, String potpisLekara,
+                           String naziv, long sifra, String dijagnoza, int redniBroj, int kolicina, String rp) throws Exception;
+
+    String getReport(String idOfReport) throws Exception;
+
+    String getMedicamentsByDiagnosis(String diagnosis) throws Exception;
+
+    void makeReferralForLab(String idOfUser, String idOfPatient, String zdravstvenaUstanovaKojaSalje, String zdravstvenaUstanovaKojaPrima,
+                            String kadJeUzetMaterijal, String klinickaDijagnoza,
+                            String tipPregleda, String lekarovPotpis, String pecat) throws Exception;
+
+    void makeReferralForSpecExamination(String idOfUser, String idOfPatient, String zdravstvenaUstanovaKojaSalje, String zdravstvenaUstanovaKojaPrima,
+                                        String specijalistaId, String lekarovPotpis, String pecat) throws Exception;
+
+    String getSpecialists() throws Exception;
 }

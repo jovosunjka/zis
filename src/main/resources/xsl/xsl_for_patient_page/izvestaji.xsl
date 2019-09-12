@@ -37,17 +37,17 @@
                                 <tr>
                                     <td><b>- Id:</b></td>
                                     <td>
-                                        <xsl:variable name="var_doctor_id_num" select="str:tokenize(string(dokumenti:izvestaj/dokumenti:lekar/@id),'/')[last()]"/>
-                                        <xsl:variable name="var_doctor_type" select="str:tokenize(string(dokumenti:izvestaj/dokumenti:lekar/@id),'/')[last()-1]"/>
+                                        <xsl:variable name="var_doctor_id_num" select="str:tokenize(string(dokumenti:lekar/@id),'/')[last()]"/>
+                                        <xsl:variable name="var_doctor_type" select="str:tokenize(string(dokumenti:lekar/@id),'/')[last()-1]"/>
                                         <a href="http://localhost:8081/api/search/{$var_doctor_type}/{$var_doctor_id_num}">
-                                            <xsl:value-of select="dokumenti:izvestaj/dokumenti:lekar/@id"/>
+                                            <xsl:value-of select="dokumenti:lekar/@id"/>
                                             <!--<xsl:apply-templates />-->
                                         </a>
                                         <!--<td><xsl:value-of select="dokumenti:izvestaj/dokumenti:lekar/@id"/></td>-->
                                     </td>
                                 </tr>
-                                <tr> <td><b>- First Name:</b></td> <td><xsl:value-of select="dokumenti:izvestaj/dokumenti:lekar/dokumenti:ime"/></td> </tr>
-                                <tr> <td><b>- Last Name:</b></td> <td><xsl:value-of select="dokumenti:izvestaj/dokumenti:lekar/dokumenti:prezime"/></td> </tr>
+                                <tr> <td><b>- First Name:</b></td> <td><xsl:value-of select="dokumenti:lekar/dokumenti:ime"/></td> </tr>
+                                <tr> <td><b>- Last Name:</b></td> <td><xsl:value-of select="dokumenti:lekar/dokumenti:prezime"/></td> </tr>
                             </table>
                         </td>
                     </tr>

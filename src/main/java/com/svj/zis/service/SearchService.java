@@ -16,4 +16,6 @@ public interface SearchService {
     String getReferralForSpecialistExamination(String idNum, String text) throws Exception;
 
     String getMedicament(String idNum, String text) throws Exception;
+
+    byte[] getReportResourcePdf(String idNum, String text) throws Exception;
 }

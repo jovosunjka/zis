@@ -4,38 +4,49 @@
   <div class="container">
     <form class="form-register" (ngSubmit)="makeDoctorReceipt()">
 
-      <label for="id_sifraLeka" class="sr-only">Medicament code</label>
-      <input type="text" class="form-control rounded-0" id="id_sifraLeka" name="sifraLeka" [(ngModel)]="sifraLeka"
+      <!--<label for="id_sifraLeka" class="sr-only">Medicament code</label>-->
+      <!--<input type="text" class="form-control rounded-0" id="id_sifraLeka" name="sifraLeka" [(ngModel)]="sifraLeka"
         placeholder="Medicament code..."  required />
+      -->
 
-      <label for="id_nazivLeka" class="sr-only">Medicament name</label>
-      <input type="text" class="form-control rounded-0" id="id_nazivLeka" name="nazivLeka" [(ngModel)]="nazivLeka"
+      <!--<label for="id_nazivLeka" class="sr-only">Medicament name</label>-->
+      <!--<input type="text" class="form-control rounded-0" id="id_nazivLeka" name="nazivLeka" [(ngModel)]="nazivLeka"
         placeholder="Medicament name..."  required />
+      -->
 
-      <label for="id_diagnosis" class="sr-only">Diagnosis</label>
-      <input type="text" class="form-control rounded-0" id="id_diagnosis" name="dijagnoza" [(ngModel)]="dijagnoza" 
-        placeholder="Diagnosis..." required autofocus>
+      <div [innerHTML]="xHtmlContetntForMedicaments | safeHtml"></div>
 
-      <label for="id_redniBroj" class="sr-only">Serial number</label>
+      <!--<label for="id_diagnosis" class="sr-only">Diagnosis</label>-->
+      <input type="text" class="form-control rounded-0" id="id_diagnosis" name="diagnosis" [(ngModel)]="diagnosis" 
+        placeholder="Diagnosis..." disabled>
+
+      <!--<label for="id_redniBroj" class="sr-only">Serial number</label>-->
       <input type="text" class="form-control rounded-0" id="id_redniBroj" name="redniBroj" [(ngModel)]="redniBroj"
-        placeholder="Serial number..."  required />
+        placeholder="Serial number..."  required autofocus/>
 
-      <label for="id_kolicina" class="sr-only">Quantity</label>
+      <!--<label for="id_kolicina" class="sr-only">Quantity</label>-->
       <input type="text" class="form-control rounded-0" id="id_kolicina" name="kolicina" [(ngModel)]="kolicina"
         placeholder="Quantity..."  required />
 
-      <label for="id_nazivZdrastveneUstanove" class="sr-only">Name of the health institution</label>
+      <!--<label for="id_nazivZdrastveneUstanove" class="sr-only">Name of the health institution</label>-->
       <input type="text" class="form-control rounded-0" id="id_nazivZdrastveneUstanove" name="nazivZdrastveneUstanove" [(ngModel)]="nazivZdrastveneUstanove"
         placeholder="Name of the health institution..."  required />
 
-      <label for="id_drzava" class="sr-only">Country</label>
+      <!--<label for="id_drzava" class="sr-only">Country</label>-->
       <input type="text" class="form-control rounded-0" id="id_drzava" name="drzava" [(ngModel)]="drzava"
         placeholder="Country..."  required />
 
-      <label for="id_rp" class="sr-only">Rp</label>
-      <textarea id="id_rp" class="form-control" rows="10" name="rp" [(ngModel)]="rp"
-        placeholder="Rp..." required ></textarea>
+      <br/>
+
+      <!--<label for="id_rp" class="sr-only">Rp</label>-->
+      <textarea id="id_rp" class="form-control" rows="10" placeholder="Rp..." required ></textarea>
+      
+      <br/>
     
+       <!--<label for="id_drzava" class="sr-only">Country</label>-->
+       <input type="text" class="form-control rounded-0" id="id_potpis_lekara" name="potpis_lekara" [(ngModel)]="potpisLekara"
+       placeholder="Doctor's signature..."  required />
+
       <br/>
       <button class="btn btn-primary btn-block" type="submit">Make Doctor's Receipt</button>
     </form>

@@ -23,6 +23,8 @@ public class DoctorRepository extends ResourceRepository {
     private ClassPathResource findDoctorByDoctorIdXQuery = new ClassPathResource("xqueries/find_doctor_by_doctor_id.xqy");
     private ClassPathResource findNotOverburdenedDoctorsXQuery = new ClassPathResource("xqueries/find_not_overburdened_doctors.xqy");
     private ClassPathResource findDoctorByUserIdXQuery = new ClassPathResource("xqueries/find_doctor_by_user_id.xqy");
+    private ClassPathResource findSpecialistsXQuery = new ClassPathResource("xqueries/find_specialists.xqy");
+
 
     @Value("${number-of-patients-per-doctor}")
     private int numberOfPatientsPerDoctor;
@@ -146,4 +148,8 @@ public class DoctorRepository extends ResourceRepository {
         super.saveAll(collectionId, documentId, lekari);
     }
 
+    public String getSpecialists() throws Exception {
+        org.xmldb.api.base.Resource resource = findResourceBySomeId(findSpecialistsXQuery.getFile().getPath(), "opsta_praksa");
+        return (String) resource.getContent();
+    }
 }

@@ -39,10 +39,19 @@ public class DoctorServiceImpl implements DoctorService {
     @Autowired
     private  MedicamentService medicamentService;
 
+    @Autowired
+    private  ReferralForLabService referralForLabService;
+
+    @Autowired
+    private  ReferralForSpecialistExaminationService referralForSpecialistExaminationService;
+
 
     private ClassPathResource preglediXsl = new ClassPathResource("xsl/xsl_for_doctor_page/pregledi.xsl");
     private ClassPathResource zdravstveniKartoniXsl = new ClassPathResource("xsl/xsl_for_doctor_page/zdravstveni_kartoni.xsl");
     private ClassPathResource zdravstveniKartonXsl = new ClassPathResource("xsl/xsl_for_doctor_page/zdravstveni_karton.xsl");
+    private ClassPathResource izvestajXsl = new ClassPathResource("xsl/xsl_for_patient_page/izvestaj.xsl");
+    private ClassPathResource lekoviXsl = new ClassPathResource("xsl/xsl_for_doctor_page/lekovi.xsl");
+    private ClassPathResource specijalistiXsl = new ClassPathResource("xsl/xsl_for_doctor_page/specijalisti.xsl");
 
 
     @Override
@@ -162,11 +171,11 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public void makeReport(String idOfUser, String idOfPatient, String dijagnoza, String anamneza,String terapija) throws Exception {
+    public String makeReport(String idOfUser, String idOfPatient, String dijagnoza, String anamneza,String terapija) throws Exception {
         Lekar lekar = doctorRepository.findByUserId(idOfUser);
         Pacijent pacijent = patientService.getPatientByPatientId(idOfPatient);
         ZdravstveniKarton zdravstveniKarton = healthCardService.getHealthCard(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
-        reportService.makeReport(lekar, zdravstveniKarton, dijagnoza, anamneza, terapija);
+        return reportService.makeReport(lekar, zdravstveniKarton, dijagnoza, anamneza, terapija);
     }
 
     @Override
@@ -178,5 +187,77 @@ public class DoctorServiceImpl implements DoctorService {
         doctorReceiptService.makeDoctorReceipt(lekar, zdravstveniKarton, lek, nazivZdrastveneUstanove, drzava, potpisLekara,dijagnoza, redniBroj, kolicina, rp);
     }
 
+    @Override
+    public String getReport(String idOfReport) throws Exception {
+        String izvestajXml = reportService.getReport(idOfReport);
+
+        String xHTML = null;
+        try {
+            xHTML = transformationService.generateHTML(izvestajXml, izvestajXsl.getFile());
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        xHTML = xHTML.replaceAll("\r?\n?\"?", "");
+        return xHTML;
+    }
+
+    @Override
+    public String getMedicamentsByDiagnosis(String diagnosis) throws Exception {
+        String lekoviXml = medicamentService.getMedicamentsByDiagnosis(diagnosis);
+
+        String xHTML = null;
+        try {
+            xHTML = transformationService.generateHTML(lekoviXml, lekoviXsl.getFile());
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        xHTML = xHTML.replaceAll("\r?\n?\"?", "");
+        return xHTML;
+    }
+
+    @Override
+    public void makeReferralForLab(String idOfUser, String idOfPatient, String zdravstvenaUstanovaKojaSalje,
+                                   String zdravstvenaUstanovaKojaPrima, String kadJeUzetMaterijal, String klinickaDijagnoza,
+                                   String tipPregleda, String lekarovPotpis, String pecat) throws Exception {
+        Lekar lekar = doctorRepository.findByUserId(idOfUser);
+        Pacijent pacijent = patientService.getPatientByPatientId(idOfPatient);
+        ZdravstveniKarton zdravstveniKarton = healthCardService.getHealthCard(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
+        referralForLabService.makeReferralForLab(lekar, zdravstveniKarton, zdravstvenaUstanovaKojaSalje,
+                zdravstvenaUstanovaKojaPrima, kadJeUzetMaterijal,  klinickaDijagnoza, tipPregleda, lekarovPotpis, pecat);
+    }
+
+    @Override
+    public void makeReferralForSpecExamination(String idOfUser, String idOfPatient, String zdravstvenaUstanovaKojaSalje,
+                                               String zdravstvenaUstanovaKojaPrima, String specijalistaId, String lekarovPotpis, String pecat) throws Exception {
+        Lekar lekar = doctorRepository.findByUserId(idOfUser);
+        Lekar specijalista = doctorRepository.findDoctorByDoctorId(specijalistaId);
+        Pacijent pacijent = patientService.getPatientByPatientId(idOfPatient);
+        ZdravstveniKarton zdravstveniKarton = healthCardService.getHealthCard(pacijent.getZdravstveniKarton().getBrojZdravstvenogKartona());
+        referralForSpecialistExaminationService.makeReferralForSpecExamination(lekar, zdravstveniKarton, zdravstvenaUstanovaKojaSalje,
+                zdravstvenaUstanovaKojaPrima, specijalista, lekarovPotpis, pecat);
+    }
+
+    @Override
+    public String getSpecialists() throws Exception {
+        String specijalistiXml = doctorRepository.getSpecialists();
+
+        String xHTML = null;
+        try {
+            xHTML = transformationService.generateHTML(specijalistiXml, specijalistiXsl.getFile());
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        xHTML = xHTML.replaceAll("\r?\n?", "");
+        return xHTML;
+    }
 
 }

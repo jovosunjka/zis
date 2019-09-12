@@ -349,7 +349,18 @@
                 <xs:element name="kolicina" type="xs:int"/>
                 <xs:element name="potpis_farmaceuta" nillable="true" type="xs:string"/>
                 <xs:element name="lek_primio" type="xs:string"/>
-                <xs:element name="rp" nillable="true" type="xs:string"/>
+                <xs:element name="rp">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="link">
+                                <xs:complexType>
+                                    <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                                    <xs:anyAttribute processContents="lax"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
             <xs:attribute name="id" type="xs:anyURI" use="required"/>
         </xs:complexType>

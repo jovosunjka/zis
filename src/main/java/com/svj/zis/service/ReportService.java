@@ -9,6 +9,7 @@ public interface ReportService {
 
     String getReport(String id) throws Exception;
 
-    void makeReport(Lekar lekar, ZdravstveniKarton zdravstveniKarton, String anamneza, String dijagnoza, String terapija) throws Exception;
+    String makeReport(Lekar lekar, ZdravstveniKarton zdravstveniKarton, String dijagnoza, String anamneza,
+                    String terapija) throws Exception;
 
 }

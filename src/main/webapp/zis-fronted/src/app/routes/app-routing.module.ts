@@ -14,6 +14,7 @@ import { MakeReportComponent } from '../core/make-report/make-report.component';
 import { MakeReferralForSpecExamComponent } from '../core/make-referral-for-spec-exam/make-referral-for-spec-exam.component';
 import { MakeReferralForLabComponent } from '../core/make-referral-for-lab/make-referral-for-lab.component';
 import { MakeDoctorReceiptComponent } from '../core/make-doctor-receipt/make-doctor-receipt.component';
+import { ReportCreatedComponent } from '../core/report-created/report-created.component';
 
 
 const appRoutes: Routes = [
@@ -63,6 +64,14 @@ const appRoutes: Routes = [
   {
     path: 'make-report/:idOfPatientNum',
     component: MakeReportComponent,
+    canActivate: [CanActivateUserGuard],
+    data: {
+      expectedRoles: ['DOCTOR']
+    }
+  },
+  {
+    path: 'report-created/:diagnosis/:idOfReportNum/:idOfPatientNum',
+    component: ReportCreatedComponent,
     canActivate: [CanActivateUserGuard],
     data: {
       expectedRoles: ['DOCTOR']

@@ -8,7 +8,76 @@
 
     <xsl:template match="/">
         <html>
+            <head>
+                <script>
+                    function getDateTimeStr() {
+                        var today = new Date();
+                        var date = today.getDate() + '.' + (today.getMonth() + 1 ) + '.' + today.getFullYear();
+                        var time = today.getHours() + ';' + today.getMinutes() + ';' + today.getSeconds();
+                        var dateTime = date + '-' + time;
+                        return dateTime;
+                    }
+
+                    function downloadHtml(htmlText) {
+                        var element = document.createElement('a');
+                        element.setAttribute('href', 'data:text/html;charset=utf-8,' + encodeURIComponent(htmlText));
+                        var dateTimeStr = getDateTimeStr();
+                        element.setAttribute('download', 'Report_' + dateTimeStr + '.html');
+
+                        element.style.display = 'none';
+                        document.body.appendChild(element);
+
+                        element.click();
+
+                        document.body.removeChild(element);
+                    }
+
+                    function downloadPdf(pdf) {
+                        var element = document.createElement('a');
+                        element.setAttribute('href', 'data:application/pdf;charset=utf-8,' + encodeURIComponent(pdf));
+                        var dateTimeStr = getDateTimeStr();
+                        element.setAttribute('download', 'Report_' + dateTimeStr + '.pdf');
+
+                        element.style.display = 'none';
+                        document.body.appendChild(element);
+
+                        element.click();
+
+                        document.body.removeChild(element);
+                    }
+
+
+                    function httpGetAsync(url) {
+                        var xmlHttp = new XMLHttpRequest();
+                        xmlHttp.onreadystatechange = function() {
+                            if (xmlHttp.readyState == 4) {
+                                if (xmlHttp.status == 200) {
+                                    if (url.indexOf('pdf') != -1) {
+                                        downloadPdf(xmlHttp.responseText);
+                                    } else {
+                                        downloadHtml(xmlHttp.responseText)
+                                    }
+
+                                }
+                            }
+                        };
+                        xmlHttp.open('GET', url, true);
+                        xmlHttp.send(null);
+                    }
+                </script>
+            </head>
             <body bgcolor="black">
+                <tabel>
+                    <tr>
+                        <td>
+                            <button onclick="httpGetAsync(window.location.href)">Download HTML</button>
+                        </td>
+                        <td>
+                            <button onclick="httpGetAsync(window.location.href+'/pdf')">Download PDF</button>
+                        </td>
+                    </tr>
+                </tabel>
+
                 <table bgcolor="yellow">
                     <tr><th colspan="2"><b>Report:</b></th></tr>
                     <tr>

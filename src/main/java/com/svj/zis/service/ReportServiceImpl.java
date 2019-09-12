@@ -23,7 +23,8 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public void makeReport(Lekar lekar, ZdravstveniKarton zdravstveniKarton, String anamneza, String dijagnoza, String terapija) throws Exception {
-        reportRepository.makeReport(lekar, zdravstveniKarton, dijagnoza, anamneza, terapija);
+    public String makeReport(Lekar lekar, ZdravstveniKarton zdravstveniKarton, String dijagnoza, String anamneza,
+                           String terapija) throws Exception {
+        return reportRepository.makeReport(lekar, zdravstveniKarton, dijagnoza, anamneza, terapija);
     }
 }

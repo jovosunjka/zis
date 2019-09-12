@@ -152,7 +152,7 @@ public class ReportRepository extends ResourceRepository {
         return String.join(" ", tokens);
     }
 
-    public int getReportsLength() throws Exception {
+    private int getReportsLength() throws Exception {
         Collection collection = getCollection(collectionId);
         XQueryService xQueryService = (XQueryService) collection.getService("XQueryService", "1.0");
         xQueryService.setProperty("indent", "yes");
@@ -183,11 +183,12 @@ public class ReportRepository extends ResourceRepository {
         return -10000;
     }
 
-    public void makeReport(Lekar lekar, ZdravstveniKarton zdravstveniKarton, String dijagnoza, String anamneza,
+    public String makeReport(Lekar lekar, ZdravstveniKarton zdravstveniKarton, String dijagnoza, String anamneza,
                            String terapija) throws Exception {
         String newReportIdNum = "" + (getReportsLength() + 1);
-        anamneza = prepareMixElement(anamneza);
-        terapija = prepareMixElement(terapija);
+        String newReportId = "http://www.svj.com/zis/dokumenti/izvestaj/"+newReportIdNum;
+        //anamneza = prepareMixElement(anamneza);
+        //terapija = prepareMixElement(terapija);
 
         LocalDate datum = LocalDate.now();
 
@@ -214,7 +215,7 @@ public class ReportRepository extends ResourceRepository {
         // compile and execute xupdate expressions
         System.out.println("[INFO] Updating " + contextXPathElement + " node.");
         String targetNamespace = "http://www.svj.com/zis/kolekcije";
-        String xmlFragment = "<dokumenti:izvestaj about=\"http://www.svj.com/zis/dokumenti/izvestaj/"+newReportIdNum+"\" oznaka=\"iz_oznaka_"+ UUID.randomUUID().toString() +"\"  id=\"http://www.svj.com/zis/dokumenti/izvestaj/"+newReportIdNum+"\">" +
+        String xmlFragment = "<dokumenti:izvestaj about=\""+newReportId+"\" oznaka=\"iz_oznaka_"+ UUID.randomUUID().toString() +"\"  id=\""+newReportId+"\">" +
                                 "<dokumenti:zdravstveni_karton id=\""+zdravstveniKarton.getId()+"\" broj_zdravstvenog_kartona=\""+zdravstveniKarton.getBrojKartona()+"\" broj_zdrastvene_knjizice=\""+zdravstveniKarton.getBrojZdrastveneKnjizice()+"\" href=\""+zdravstveniKarton.getId()+"\" rel=\"pred:zdravstveniKarton\"/>" +
                                 "<dokumenti:dijagnoza datatype=\"xs:string\" property=\"pred:dijagnoza\">"+dijagnoza+"</dokumenti:dijagnoza>" +
                                 "<dokumenti:anamneza  datatype=\"xs:string\" property=\"pred:anamneza\">" + anamneza + "</dokumenti:anamneza>" +
@@ -235,5 +236,7 @@ public class ReportRepository extends ResourceRepository {
         System.out.println(xUpdateExpression);
         long mods = xupdateService.updateResource(documentId, xUpdateExpression);
         System.out.println("[INFO] " + mods + " modifications processed.");
+
+        return newReportIdNum;
     }
 }

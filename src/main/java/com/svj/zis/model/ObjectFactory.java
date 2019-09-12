@@ -24,7 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _IzvestajTerapijaLink_QNAME = new QName("http://www.svj.com/zis/dokumenti", "link");
+    private final static QName _LekarskiReceptRpLink_QNAME = new QName("http://www.svj.com/zis/dokumenti", "link");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.svj.zis.model
@@ -135,6 +135,14 @@ public class ObjectFactory {
      */
     public PodaciOLekaru createPodaciOLekaru() {
         return new PodaciOLekaru();
+    }
+
+    /**
+     * Create an instance of {@link LekarskiRecept.Rp }
+     * 
+     */
+    public LekarskiRecept.Rp createLekarskiReceptRp() {
+        return new LekarskiRecept.Rp();
     }
 
     /**
@@ -522,6 +530,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link LekarskiRecept.Rp.Link }
+     * 
+     */
+    public LekarskiRecept.Rp.Link createLekarskiReceptRpLink() {
+        return new LekarskiRecept.Rp.Link();
+    }
+
+    /**
      * Create an instance of {@link TPodaciOLeku.Lek }
      * 
      */
@@ -602,12 +618,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link com.svj.zis.model.Izvestaj.Terapija.Link }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link LekarskiRecept.Rp.Link }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.svj.com/zis/dokumenti", name = "link", scope = com.svj.zis.model.Izvestaj.Terapija.class)
-    public JAXBElement<com.svj.zis.model.Izvestaj.Terapija.Link> createIzvestajTerapijaLink(com.svj.zis.model.Izvestaj.Terapija.Link value) {
-        return new JAXBElement<com.svj.zis.model.Izvestaj.Terapija.Link>(_IzvestajTerapijaLink_QNAME, com.svj.zis.model.Izvestaj.Terapija.Link.class, com.svj.zis.model.Izvestaj.Terapija.class, value);
+    @XmlElementDecl(namespace = "http://www.svj.com/zis/dokumenti", name = "link", scope = LekarskiRecept.Rp.class)
+    public JAXBElement<LekarskiRecept.Rp.Link> createLekarskiReceptRpLink(LekarskiRecept.Rp.Link value) {
+        return new JAXBElement<LekarskiRecept.Rp.Link>(_LekarskiReceptRpLink_QNAME, LekarskiRecept.Rp.Link.class, LekarskiRecept.Rp.class, value);
     }
 
     /**
@@ -616,7 +632,16 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.svj.com/zis/dokumenti", name = "link", scope = com.svj.zis.model.Izvestaj.Anamneza.class)
     public JAXBElement<com.svj.zis.model.Izvestaj.Anamneza.Link> createIzvestajAnamnezaLink(com.svj.zis.model.Izvestaj.Anamneza.Link value) {
-        return new JAXBElement<com.svj.zis.model.Izvestaj.Anamneza.Link>(_IzvestajTerapijaLink_QNAME, com.svj.zis.model.Izvestaj.Anamneza.Link.class, com.svj.zis.model.Izvestaj.Anamneza.class, value);
+        return new JAXBElement<com.svj.zis.model.Izvestaj.Anamneza.Link>(_LekarskiReceptRpLink_QNAME, com.svj.zis.model.Izvestaj.Anamneza.Link.class, com.svj.zis.model.Izvestaj.Anamneza.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link com.svj.zis.model.Izvestaj.Terapija.Link }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.svj.com/zis/dokumenti", name = "link", scope = com.svj.zis.model.Izvestaj.Terapija.class)
+    public JAXBElement<com.svj.zis.model.Izvestaj.Terapija.Link> createIzvestajTerapijaLink(com.svj.zis.model.Izvestaj.Terapija.Link value) {
+        return new JAXBElement<com.svj.zis.model.Izvestaj.Terapija.Link>(_LekarskiReceptRpLink_QNAME, com.svj.zis.model.Izvestaj.Terapija.Link.class, com.svj.zis.model.Izvestaj.Terapija.class, value);
     }
 
 }

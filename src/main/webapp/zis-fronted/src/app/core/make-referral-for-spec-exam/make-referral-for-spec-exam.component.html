@@ -1,3 +1,31 @@
-<p>
-  make-referral-for-spec-exam works!
-</p>
+
+<div class="wrapper">
+  <div class="container">
+    <form class="form-register" (ngSubmit)="makeReferralForSpecExamination()">
+
+      <!--<label for="id_sifraLeka" class="sr-only">Medicament code</label>-->
+      <input type="text" class="form-control rounded-0" name="zdravstvenaUstanovaKojaSalje" [(ngModel)]="zdravstvenaUstanovaKojaSalje"
+        placeholder="Health institution that sends..."  required />
+
+      <!--<label for="id_nazivLeka" class="sr-only">Medicament name</label>-->
+      <input type="text" class="form-control rounded-0" name="zdravstvenaUstanovaKojaPrima" [(ngModel)]="zdravstvenaUstanovaKojaPrima"
+        placeholder="Health institution receiving..."  required />
+
+      <br/>
+
+      <div [innerHTML]="xHtmlContetntForSpecialists | safeHtml"></div>
+
+      <br/>
+    
+       <!--<label for="id_drzava" class="sr-only">Country</label>-->
+       <input type="text" class="form-control rounded-0" name="lekarov_potpis" [(ngModel)]="lekarovPotpis"
+       placeholder="Doctor's signature..."  required />
+
+       <input type="text" class="form-control rounded-0" name="pecat" [(ngModel)]="pecat"
+       placeholder="Seal..."  required />
+
+      <br/>
+      <button class="btn btn-primary btn-block" type="submit">Make Referral For Spec Examination</button>
+    </form>
+  </div>
+</div>

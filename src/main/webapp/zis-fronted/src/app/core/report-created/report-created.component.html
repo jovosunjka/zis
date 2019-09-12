@@ -1,0 +1,38 @@
+
+
+<br/>
+<br/>
+<div [innerHTML]="xHtmlContetntForReportCreated | safeHtml"></div>
+<br/>
+<br/>
+
+<section id="tabs" *ngIf="xHtmlContetntForReportCreated !== 'Loading report...'">
+  <div class="row">
+      <div class="col-xl-12 ">
+          <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active" id="nav-make-doctor-receipt-tab" data-toggle="tab" href="#nav-make-doctor-receipt" role="tab" aria-controls="nav-make-doctor-receipt" aria-selected="true">MAKE DOCTOR'S RECEIPT</a>
+                  <a class="nav-item nav-link" id="nav-make-referral-for-lab-tab" data-toggle="tab" href="#nav-make-referral-for-lab" role="tab" aria-controls="nav-make-referral-for-lab" aria-selected="false">MAKE REFERRAL FOR LAB</a>
+                  <a class="nav-item nav-link" id="nav-make-referral-for-spec-examination-tab" data-toggle="tab" href="#nav-make-referral-for-spec-examination" role="tab" aria-controls="nav-make-referral-for-spec-examination" aria-selected="false">MAKE REFERRAL FOR SPEC EXAMINATION</a>
+              </div>
+          </nav>
+          <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-make-doctor-receipt" role="tabpanel" aria-labelledby="nav-make-doctor-receipt-tab">
+                  <app-make-doctor-receipt [idOfPatientNum]="idOfPatientNum" [diagnosis]="diagnosis"></app-make-doctor-receipt>
+              </div>
+              <div class="tab-pane fade" id="nav-make-referral-for-lab" role="tabpanel" aria-labelledby="nav-make-referral-for-lab-tab">
+                  <app-make-referral-for-lab [idOfPatientNum]="idOfPatientNum"></app-make-referral-for-lab>
+              </div>
+              <div class="tab-pane fade" id="nav-make-referral-for-spec-examination" role="tabpanel" aria-labelledby="nav-make-referral-for-spec-examination-tab">
+                <app-make-referral-for-spec-exam [idOfPatientNum]="idOfPatientNum"></app-make-referral-for-spec-exam>
+            </div>
+          </div>
+      
+      </div>
+  </div>
+</section>
+
+<br/>
+<br/>
+
+<button class="btn btn-danger" (click)="finishReview()">Finish Review</button>

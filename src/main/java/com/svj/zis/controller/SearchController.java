@@ -62,6 +62,20 @@ public class SearchController {
         }
     }
 
+    @RequestMapping(value = "/izvestaj/{idNum}/pdf", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<byte[]> searchReportPdf(@PathVariable("idNum") String idNum,
+                                               @RequestParam(name = "text", required = false) String text) {
+        try {
+            if(text == null) text = "";
+            else text = text.split("\\s+")[0]; // uzmi samo prvi parametar
+
+            byte[] pdfBytes = new byte[5]; // searchService.getReportResourcePdf(idNum, text);
+            return new ResponseEntity<byte[]>(pdfBytes, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @RequestMapping(value = "/lekarski_recept/{idNum}", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
     public ResponseEntity<String> searchDoctorReceipt(@PathVariable("idNum") String idNum,
                                                @RequestParam(name = "text", required = false) String text) {
